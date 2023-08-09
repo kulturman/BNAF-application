@@ -1,0 +1,11 @@
+<div class='btn-group'>
+    <a data-tooltip="Détails" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show', $$PRIMARY_KEY_NAME$) }}" class='data-tooltip btn btn-ghost-success'>
+       <i class="fa fa-eye"></i>
+    </a>
+    <a data-tooltip="Modifier" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit', $$PRIMARY_KEY_NAME$) }}" class='data-tooltip btn btn-ghost-info'>
+       <i class="fa fa-edit"></i>
+    </a>
+    <a class = "btn btn-ghost-danger delete-btn data-tooltip delete-btn" data-tooltip="Supprimer" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy', $$PRIMARY_KEY_NAME$) }}">
+        <i class="fa fa-trash"></i>
+    </a>
+</div>

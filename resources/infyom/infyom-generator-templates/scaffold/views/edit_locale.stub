@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="crudModal">Editer un @lang('models/$MODEL_NAME_PLURAL_CAMEL$.singular')</h5>
+    <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Fermer"></button>
+</div>
+
+<div class="modal-body">
+    <div class="col-12">
+        <div>
+            <div class="rounded-bottom">
+                {!! Form::model($$MODEL_NAME_CAMEL$, ['id' => '$MODEL_NAME_PLURAL_CAMEL$UpdateForm', 'route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch'$FILES$, 'class' => 'row g-3 main-form']) !!}
+                       <input name = "id" type = "text" value = "{{ $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$ }}" class = "hidden-field"/>
+                       @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>

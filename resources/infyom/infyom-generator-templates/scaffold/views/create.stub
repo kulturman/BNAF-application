@@ -1,0 +1,21 @@
+@extends('layouts.app')
+@section('breadcrumb')
+@endsection
+@section('content')
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <strong>Create $MODEL_NAME_HUMAN$</strong>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="rounded-bottom">
+                        {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$, 'class' => 'row g-3']) !!}
+                               @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

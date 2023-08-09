@@ -1,0 +1,9 @@
+<!-- $FIELD_NAME_TITLE$ Field -->
+<tr>
+    <th>
+        {!! Form::label('$FIELD_NAME$', __('models/$MODEL_NAME_PLURAL_CAMEL$.fields.$FIELD_NAME$').':') !!}
+    </th>
+    <td>
+        <p>{{ $$MODEL_NAME_CAMEL$->$FIELD_NAME$ }}</p>
+    </td>
+</tr>
