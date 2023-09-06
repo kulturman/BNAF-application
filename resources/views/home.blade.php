@@ -8,8 +8,8 @@
             <div class="card mb-4 text-white bg-primary">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                     <div>
-                        <div class="fs-4 fw-semibold">{{ $studentsCount }}</div>
-                        <div>Elèves</div>
+                        <div class="fs-4 fw-semibold">2</div>
+                        <div>Utilisateurs</div>
                     </div>
                     <div class="dropdown">
                         <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,8 +29,8 @@
             <div class="card mb-4 text-white bg-success">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                     <div>
-                        <div class="fs-4 fw-semibold">{{ $teachersCount }}</div>
-                        <div>Professeurs</div>
+                        <div class="fs-4 fw-semibold">512</div>
+                        <div>alertes en attente de confirmation</div>
                     </div>
                     <div class="dropdown">
                         <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

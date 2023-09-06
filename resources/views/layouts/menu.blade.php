@@ -5,73 +5,39 @@
         </svg> Tableau de bord
     </a>
 </li>
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle cil-energy" href="#">
+
+<li class="nav-item {{ Request::is('users*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('users.index') }}">
         <svg class="nav-icon">
-            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
-        </svg> Administration </a>
-    <ul class="nav-group-items">
-        <li class="nav-item {{ Request::is('users*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('users.index') }}">
-                Gestion des utilisateurs
-            </a>
-        </li>
-    </ul>
+            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-user"></use>
+        </svg>
+        <span>Gestion des utilisateurs</span>
+    </a>
 </li>
 
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle cil-energy" href="#">
+<li class="nav-item {{ Request::is('slides*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('slides.index') }}">
         <svg class="nav-icon">
-            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
-        </svg> Configurations </a>
-    <ul class="nav-group-items">
-        <li class="nav-item {{ Request::is('subjects*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('subjects.index') }}">
-                <i class="nav-icon icon-cursor"></i>
-                <span>Matières</span>
-            </a>
-        </li>
-        <li class="nav-item {{ Request::is('years*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('years.index') }}">
-                <i class="nav-icon icon-cursor"></i>
-                <span>@lang('models/years.plural')</span>
-            </a>
-        </li>
-    </ul>
+            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-view-column"></use>
+        </svg>
+        <span>Gestion des @lang('models/slides.plural')</span>
+    </a>
 </li>
 
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle cil-energy" href="#">
+<li class="nav-item {{ Request::is('siteConfigs*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('siteConfigs.index') }}">
         <svg class="nav-icon">
             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
-        </svg> Elèves et professeurs </a>
-    <ul class="nav-group-items">
-        <li class="nav-item {{ Request::is('teachers*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('teachers.index') }}">
-                <i class="nav-icon icon-cursor"></i>
-                <span>Professeurs</span>
-            </a>
-        </li>
-        <li class="nav-item {{ Request::is('students*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('students.index') }}">
-                <i class="nav-icon icon-cursor"></i>
-                <span>Elèves</span>
-            </a>
-        </li>
-    </ul>
+        </svg>
+        <span>@lang('models/siteConfigs.plural')</span>
+    </a>
 </li>
 
-<li class="nav-group">
-    <a class="nav-link nav-group-toggle cil-energy" href="#">
+<li class="nav-item {{ Request::is('articles*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('articles.index') }}">
         <svg class="nav-icon">
-            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
-        </svg> Gestion des classes</a>
-    <ul class="nav-group-items">
-        <li class="nav-item {{ Request::is('classrooms*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('classrooms.index') }}">
-                <i class="nav-icon icon-cursor"></i>
-                <span>@lang('models/classrooms.plural')</span>
-            </a>
-        </li>
-    </ul>
+            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-newspaper"></use>
+        </svg>
+        <span>Gestion des @lang('models/articles.plural')</span>
+    </a>
 </li>
