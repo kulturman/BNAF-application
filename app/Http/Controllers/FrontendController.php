@@ -33,6 +33,6 @@ class FrontendController extends Controller
         $articles = $this->articleRepository->lastArticles();
         $stats = $this->statRepository->all();
 
-        return view('frontend', compact('config', 'sliders', 'articles', 'stats'));
+        return view('frontend.index', compact('config', 'sliders', 'articles', 'stats'));
     }
 }
