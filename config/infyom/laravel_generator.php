@@ -126,7 +126,7 @@ return [
 
         'softDelete' => true,
 
-        'save_schema_file' => false,
+        'save_schema_file' => true,
 
         'localized' => true,
 
@@ -172,7 +172,7 @@ return [
 
         'menu'          => [
 
-            'enabled'       => true,
+            'enabled'       => false,
 
             'menu_file'     => 'layouts/menu.blade.php',
         ],

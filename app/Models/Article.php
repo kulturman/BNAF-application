@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Article
  * @package App\Models
- * @version September 6, 2023, 12:42 am UTC
+ * @version September 13, 2023, 2:45 am UTC
  *
  * @property string $title
  * @property string $content
@@ -23,9 +23,6 @@ class Article extends Model
 
     public $table = 'articles';
     
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
 
     protected $dates = ['deleted_at'];
 
@@ -55,12 +52,12 @@ class Article extends Model
      * @var array
      */
     public static $rules = [
-        'deleted_at' => 'nullable',
-        'title' => 'required|string|max:255',
-        'content' => 'required|string',
-        'cover_image' => 'required|string|max:255',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'deleted_at' => 'nullable|nullable',
+        'title' => 'required|string|max:255|string|max:255',
+        'content' => 'required|string|string',
+        'cover_image' => 'required|mimes:jpg,png,gif',
+        'created_at' => 'nullable|nullable',
+        'updated_at' => 'nullable|nullable'
     ];
 
     

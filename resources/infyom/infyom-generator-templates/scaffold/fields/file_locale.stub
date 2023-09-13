@@ -1,6 +1,10 @@
 <!-- $FIELD_NAME_TITLE$ Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('$FIELD_NAME$', __('models/$MODEL_NAME_PLURAL_CAMEL$.fields.$FIELD_NAME$').':') !!}
-    {!! Form::file('$FIELD_NAME$') !!}
+    <input type="file" name="$FIELD_NAME$" id="$FIELD_NAME$" class="form-control file" />
+    <strong class = "form-error-message"></strong>
+    @if(isset($$MODEL_NAME_CAMEL$) && $$MODEL_NAME_CAMEL$->$FIELD_NAME$)
+        <img class="thumbnail" src="{{ asset($$MODEL_NAME_CAMEL$->$FIELD_NAME$) }}" alt="Image">
+    @endif
 </div>
 <div class="clearfix"></div>

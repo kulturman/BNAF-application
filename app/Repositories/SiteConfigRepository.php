@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class SiteConfigRepository
  * @package App\Repositories
- * @version September 6, 2023, 12:16 am UTC
+ * @version September 13, 2023, 2:39 am UTC
 */
 
 class SiteConfigRepository extends BaseRepository
@@ -18,6 +18,8 @@ class SiteConfigRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'director_word',
+        'director_photo',
+        'director_name',
         'phone',
         'email',
         'address',

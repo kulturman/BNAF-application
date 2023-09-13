@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend');
-});
+Route::get('/', [FrontendController::class, 'index']);
 
 Auth::routes();
 
@@ -45,6 +44,6 @@ Route::post('users/{user}/reset-password', [App\Http\Controllers\UserController:
 
 Route::resource('slides', App\Http\Controllers\SlideController::class);
 
-Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class);
-
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
+
+Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class);

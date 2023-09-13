@@ -19,6 +19,9 @@ class ArticleDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
+                ->addColumn('cover_image', function ($row) {
+                    return view('partials.row-thumbnail')->with('url', url($row->cover_image));
+                })
                 ->addColumn('action', function ($row) {
                     return view('articles.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
                 })

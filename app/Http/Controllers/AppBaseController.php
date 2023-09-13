@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 /**
  * @SWG\Swagger(
@@ -36,5 +39,13 @@ class AppBaseController extends Controller
 
     public function sendSuccessNonDialogResponse($message, $reset = true, $url = null, $data = null): JsonResponse {
         return $this->sendResponse(true , $message , $reset, $url, false , $data);
+    }
+
+    protected function attachFiles(array &$inputs) {
+        foreach ($inputs as $fieldName => $input) {
+            if ($input instanceof UploadedFile) {
+                $inputs[$fieldName] = str_replace('public', 'storage', $input->store('public/uploads'));
+            }
+        }
     }
 }

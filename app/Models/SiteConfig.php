@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class SiteConfig
  * @package App\Models
- * @version September 6, 2023, 12:16 am UTC
+ * @version September 13, 2023, 2:39 am UTC
  *
  * @property string $director_word
+ * @property string $director_photo
+ * @property string $director_name
  * @property string $phone
  * @property string $email
  * @property string $address
@@ -28,9 +30,6 @@ class SiteConfig extends Model
 
     public $table = 'site_configs';
     
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
 
     protected $dates = ['deleted_at'];
 
@@ -38,6 +37,8 @@ class SiteConfig extends Model
 
     public $fillable = [
         'director_word',
+        'director_photo',
+        'director_name',
         'phone',
         'email',
         'address',
@@ -55,6 +56,8 @@ class SiteConfig extends Model
     protected $casts = [
         'id' => 'integer',
         'director_word' => 'string',
+        'director_photo' => 'string',
+        'director_name' => 'string',
         'phone' => 'string',
         'email' => 'string',
         'address' => 'string',
@@ -70,17 +73,19 @@ class SiteConfig extends Model
      * @var array
      */
     public static $rules = [
-        'director_word' => 'required|string',
-        'phone' => 'required|string|max:255',
-        'email' => 'required|string|max:255',
-        'address' => 'required|string|max:255',
-        'facebook' => 'nullable|string|max:255',
-        'linkedin' => 'nullable|string|max:255',
-        'twitter' => 'nullable|string|max:255',
-        'youtube' => 'nullable|string|max:255',
-        'deleted_at' => 'nullable',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'director_word' => 'required|string|string',
+        'director_photo' => 'nullable|mimes:jpg,png,gif',
+        'director_name' => 'required|string|max:255|string|max:255',
+        'phone' => 'required|string|max:255|string|max:255',
+        'email' => 'required|string|max:255|string|max:255',
+        'address' => 'required|string|max:255|string|max:255',
+        'facebook' => 'nullable|string|max:255|nullable|string|max:255',
+        'linkedin' => 'nullable|string|max:255|nullable|string|max:255',
+        'twitter' => 'nullable|string|max:255|nullable|string|max:255',
+        'youtube' => 'nullable|string|max:255|nullable|string|max:255',
+        'deleted_at' => 'nullable|nullable',
+        'created_at' => 'nullable|nullable',
+        'updated_at' => 'nullable|nullable'
     ];
 
     

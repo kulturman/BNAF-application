@@ -52,6 +52,7 @@ class ArticleController extends AppBaseController
     public function store(CreateArticleRequest $request)
     {
         $inputs = $request->all();
+        $this->attachFiles($inputs);
         $this->articleRepository->create($inputs);
         $message = __('messages.saved', ['model' => __('models/articles.singular')]);
         return $this->sendSuccessDialogResponse($message);
@@ -62,16 +63,13 @@ class ArticleController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
      */
     public function show($id)
     {
         $article = $this->articleRepository->find($id);
 
         if (empty($article)) {
-            Flash::error(__('models/articles.singular').' '.__('messages.not_found'));
-
-            return redirect(route('articles.index'));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('articles.show')->with('article', $article);
@@ -82,16 +80,13 @@ class ArticleController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
      */
     public function edit($id)
     {
         $article = $this->articleRepository->find($id);
 
         if (empty($article)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/articles.singular')]));
-
-            return redirect(route('articles.index'));
+           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('articles.edit')->with('article', $article);
@@ -113,7 +108,9 @@ class ArticleController extends AppBaseController
             return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/articles.singular')]));
         }
 
-        $this->articleRepository->update($request->all(), $id);
+        $inputs = $request->all();
+        $this->attachFiles($inputs);
+        $this->articleRepository->update($inputs, $id);
         $message = __('messages.updated', ['model' => __('models/articles.singular')]);
         return $this->sendSuccessDialogResponse($message, false);
     }

@@ -18050,3 +18050,13 @@ html:not([dir=rtl]) .wrapper {
   display: none;
 }
 
+.thumbnail {
+  width: 64px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.row-thumbnail {
+  width: 64px;
+  height: auto;
+}

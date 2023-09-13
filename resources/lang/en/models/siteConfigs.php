@@ -7,6 +7,8 @@ return array (
   array (
     'id' => 'Id',
     'director_word' => 'Mot du DG',
+    'director_photo' => 'Photo du DG',
+    'director_name' => 'Nom du DG',
     'phone' => 'Téléphone',
     'email' => 'Email',
     'address' => 'Addresse',

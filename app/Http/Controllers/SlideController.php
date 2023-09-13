@@ -52,6 +52,7 @@ class SlideController extends AppBaseController
     public function store(CreateSlideRequest $request)
     {
         $inputs = $request->all();
+        $this->attachFiles($inputs);
         $this->slideRepository->create($inputs);
         $message = __('messages.saved', ['model' => __('models/slides.singular')]);
         return $this->sendSuccessDialogResponse($message);
@@ -62,16 +63,13 @@ class SlideController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
      */
     public function show($id)
     {
         $slide = $this->slideRepository->find($id);
 
         if (empty($slide)) {
-            Flash::error(__('models/slides.singular').' '.__('messages.not_found'));
-
-            return redirect(route('slides.index'));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('slides.show')->with('slide', $slide);
@@ -82,16 +80,13 @@ class SlideController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
      */
     public function edit($id)
     {
         $slide = $this->slideRepository->find($id);
 
         if (empty($slide)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/slides.singular')]));
-
-            return redirect(route('slides.index'));
+           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('slides.edit')->with('slide', $slide);
@@ -113,7 +108,9 @@ class SlideController extends AppBaseController
             return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/slides.singular')]));
         }
 
-        $this->slideRepository->update($request->all(), $id);
+        $inputs = $request->all();
+        $this->attachFiles($inputs);
+        $this->slideRepository->update($inputs, $id);
         $message = __('messages.updated', ['model' => __('models/slides.singular')]);
         return $this->sendSuccessDialogResponse($message, false);
     }

@@ -23,6 +23,8 @@ class SiteConfigFactory extends Factory
     {
         return [
             'director_word' => $this->faker->text,
+        'director_photo' => $this->faker->word,
+        'director_name' => $this->faker->word,
         'phone' => $this->faker->word,
         'email' => $this->faker->word,
         'address' => $this->faker->word,

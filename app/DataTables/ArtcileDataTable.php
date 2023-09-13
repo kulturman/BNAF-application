@@ -2,12 +2,12 @@
 
 namespace App\DataTables;
 
-use App\Models\Slide;
+use App\Models\Artcile;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Column;
 
-class SlideDataTable extends DataTable
+class ArtcileDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,22 +19,19 @@ class SlideDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->addColumn('image', function ($row) {
-                    return view('partials.row-thumbnail')->with('url', url($row->image));
-                })
                 ->addColumn('action', function ($row) {
-                    return view('slides.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+                    return view('artciles.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
                 })
-                ->addColumn('action', 'slides.datatables_actions');
+                ->addColumn('action', 'artciles.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Slide $model
+     * @param \App\Models\Artcile $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Slide $model)
+    public function query(Artcile $model)
     {
         return $model->newQuery();
     }
@@ -74,9 +71,9 @@ class SlideDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'text' => new Column(['title' => __('models/slides.fields.text'), 'data' => 'text']),
-            'image' => new Column(['title' => __('models/slides.fields.image'), 'data' => 'image']),
-            'order' => new Column(['title' => __('models/slides.fields.order'), 'data' => 'order'])
+            'title' => new Column(['title' => __('models/artciles.fields.title'), 'data' => 'title']),
+            'content' => new Column(['title' => __('models/artciles.fields.content'), 'data' => 'content']),
+            'cover_image' => new Column(['title' => __('models/artciles.fields.cover_image'), 'data' => 'cover_image'])
         ];
     }
 
@@ -87,6 +84,6 @@ class SlideDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'slides_datatable_' . time();
+        return 'artciles_datatable_' . time();
     }
 }

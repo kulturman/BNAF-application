@@ -17,6 +17,8 @@ class CreateSiteConfigsTable extends Migration
         Schema::create('site_configs', function (Blueprint $table) {
             $table->id();
             $table->tinyText('director_word');
+            $table->string('director_photo')->nullable();
+            $table->string('director_name');
             $table->string('phone');
             $table->string('email');
             $table->string('address');
@@ -30,6 +32,7 @@ class CreateSiteConfigsTable extends Migration
 
         SiteConfig::create([
             'director_word' => 'Mot du directeur',
+            'director_name' => 'Nom du DG de la BNAF',
             'phone' => '',
             'email' => '',
             'address' => '',

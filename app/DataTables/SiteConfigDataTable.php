@@ -19,10 +19,13 @@ class SiteConfigDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
+                ->rawColumns(['director_photo', 'action'])
                 ->addColumn('action', function ($row) {
                     return view('site_configs.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
                 })
-                ->addColumn('action', 'site_configs.datatables_actions');
+                ->addColumn('director_photo', function ($row) {
+                    return view('partials.row-thumbnail')->with('url', url($row->director_photo));
+                });
     }
 
     /**
@@ -72,6 +75,8 @@ class SiteConfigDataTable extends DataTable
     {
         return [
             'director_word' => new Column(['title' => __('models/siteConfigs.fields.director_word'), 'data' => 'director_word']),
+            'director_photo' => new Column(['title' => __('models/siteConfigs.fields.director_photo'), 'data' => 'director_photo']),
+            'director_name' => new Column(['title' => __('models/siteConfigs.fields.director_name'), 'data' => 'director_name']),
             'phone' => new Column(['title' => __('models/siteConfigs.fields.phone'), 'data' => 'phone']),
             'email' => new Column(['title' => __('models/siteConfigs.fields.email'), 'data' => 'email']),
             'address' => new Column(['title' => __('models/siteConfigs.fields.address'), 'data' => 'address']),

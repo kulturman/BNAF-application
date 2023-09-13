@@ -7,7 +7,7 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => '$MODEL_NAME_PLURAL_CAMEL$CreateForm', 'route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$, 'class' => 'row g-3 main-form']) !!}
+                    {!! Form::open(['id' => '$MODEL_NAME_PLURAL_CAMEL$CreateForm', 'enctype' => "multipart/form-data", 'route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$, 'class' => 'row g-3 main-form']) !!}
                            @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
                     {!! Form::close() !!}
                 </div>

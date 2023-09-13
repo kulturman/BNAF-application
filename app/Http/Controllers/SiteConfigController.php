@@ -33,20 +33,60 @@ class SiteConfigController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new SiteConfig.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('site_configs.create');
+    }
+
+    /**
+     * Store a newly created SiteConfig in storage.
+     *
+     * @param CreateSiteConfigRequest $request
+     *
+     * @return JsonResponse
+     */
+    public function store(CreateSiteConfigRequest $request)
+    {
+        $inputs = $request->all();
+        $this->attachFiles($inputs);
+        $this->siteConfigRepository->create($inputs);
+        $message = __('messages.saved', ['model' => __('models/siteConfigs.singular')]);
+        return $this->sendSuccessDialogResponse($message);
+    }
+
+    /**
+     * Display the specified SiteConfig.
+     *
+     * @param  int $id
+     *
+     */
+    public function show($id)
+    {
+        $siteConfig = $this->siteConfigRepository->find($id);
+
+        if (empty($siteConfig)) {
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+        }
+
+        return view('site_configs.show')->with('siteConfig', $siteConfig);
+    }
+
+    /**
      * Show the form for editing the specified SiteConfig.
      *
      * @param  int $id
      *
-     * @return Response
      */
     public function edit($id)
     {
         $siteConfig = $this->siteConfigRepository->find($id);
 
         if (empty($siteConfig)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
-
-            return redirect(route('siteConfigs.index'));
+           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('site_configs.edit')->with('siteConfig', $siteConfig);
@@ -68,9 +108,30 @@ class SiteConfigController extends AppBaseController
             return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
-        $this->siteConfigRepository->update($request->all(), $id);
+        $inputs = $request->all();
+        $this->attachFiles($inputs);
+        $this->siteConfigRepository->update($inputs, $id);
         $message = __('messages.updated', ['model' => __('models/siteConfigs.singular')]);
         return $this->sendSuccessDialogResponse($message, false);
     }
 
+    /**
+     * Remove the specified SiteConfig from storage.
+     *
+     * @param  int $id
+     *
+     * @return JsonResponse
+     */
+    public function destroy($id)
+    {
+        $siteConfig = $this->siteConfigRepository->find($id);
+
+        if (empty($siteConfig)) {
+            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+        }
+
+        $this->siteConfigRepository->delete($id);
+        $message = __('messages.deleted', ['model' => __('models/siteConfigs.singular')]);
+        return $this->sendSuccessDialogResponse($message);
+    }
 }

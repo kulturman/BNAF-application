@@ -79,16 +79,28 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
     var form = $(id);
     showLoader();
     var data = $(form).serializeArray();
+
+    let formData = new FormData($(id)[0]);
+
+    /*for (let item of data) {
+        formData.append(item.name, item.value);
+    }*/
+
     $('.form-variable').each(function(index , el) {
-        data.push({ name: $(el).attr('name') , value: $(el).val() });
+        formData.push({ name: $(el).attr('name') , value: $(el).val() });
     });
+
     $('input+strong,select+strong,textarea+strong').text('');
     $('#message-block').remove();
     $.ajax({
         url: $(form).attr('action'),
-        method: $('input[name="_method"]').val() || $(form).attr('method') || 'POST',
-        data: data,
-        dataType: 'json'
+        //method: $('input[name="_method"]').val() || $(form).attr('method') || 'POST',
+        data: formData,
+        dataType: 'json',
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'POST'
     })
         .done(function (data) {
             closeLoader();

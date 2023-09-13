@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Slide
  * @package App\Models
- * @version September 6, 2023, 12:05 am UTC
+ * @version September 13, 2023, 2:46 am UTC
  *
  * @property string $text
  * @property string $image
@@ -23,9 +23,6 @@ class Slide extends Model
 
     public $table = 'slides';
     
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
 
     protected $dates = ['deleted_at'];
 
@@ -55,12 +52,12 @@ class Slide extends Model
      * @var array
      */
     public static $rules = [
-        'text' => 'nullable|string|max:255',
-        'image' => 'required|string|max:255',
-        'order' => 'required|integer',
-        'deleted_at' => 'nullable',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'text' => 'nullable|string|max:255|nullable|string|max:255',
+        'image' => 'required|mimes:jpg,png,gif',
+        'order' => 'required|integer|integer',
+        'deleted_at' => 'nullable|nullable',
+        'created_at' => 'nullable|nullable',
+        'updated_at' => 'nullable|nullable'
     ];
 
     

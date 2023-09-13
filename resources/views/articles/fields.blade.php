@@ -17,10 +17,13 @@
 <!-- Cover Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cover_image', __('models/articles.fields.cover_image').':') !!}
-    {!! Form::text('cover_image', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <input type="file" name="cover_image" id="cover_image" class="form-control file" />
     <strong class = "form-error-message"></strong>
+    @if(isset($article) && $article->cover_image)
+        <img class="thumbnail" src="{{ asset($article->cover_image) }}" alt="Image">
+    @endif
 </div>
-
+<div class="clearfix"></div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

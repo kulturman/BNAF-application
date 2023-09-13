@@ -7,7 +7,7 @@
     <div class="col-12">
         <div>
             <div class="rounded-bottom">
-                {!! Form::model($article, ['id' => 'articlesUpdateForm', 'route' => ['articles.update', $article->id], 'method' => 'patch', 'class' => 'row g-3 main-form']) !!}
+                {!! Form::model($article, ['id' => 'articlesUpdateForm', 'enctype' => "multipart/form-data", 'route' => ['articles.update', $article->id], 'method' => 'patch', 'files' => true, 'class' => 'row g-3 main-form']) !!}
                        <input name = "id" type = "text" value = "{{ $article->id }}" class = "hidden-field"/>
                        @include('articles.fields')
                 {!! Form::close() !!}

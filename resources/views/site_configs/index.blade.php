@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('title')
-    Configuration du site
+    Liste des @lang('models/siteConfigs.plural')
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item">Configuration du site</li>
+    <li class="breadcrumb-item">@lang('models/siteConfigs.plural')</li>
 @endsection
 
 @section('content')
     {{ csrf_field() }}
     <section class="content-header">
-        <h1>Configuration du site</h1>
+        <h1>Liste des @lang('models/siteConfigs.plural')</h1>
     </section>
     <div class="container-fluid">
         <div class="modal fade" id="crudModal" tabindex="-1" aria-labelledby="crudModal" aria-hidden="true">
@@ -36,13 +36,4 @@
              </div>
          </div>
     </div>
-@endsection
-
-@section('scripts')
-    @parent
-    <script>
-       setTimeout(() => {
-           $('.dt-buttons').hide();
-       }, 1000);
-    </script>
 @endsection

@@ -26,8 +26,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <ul class="right-links">
-                                <li> <a href="#"><i class="fas fa-phone"></i> <strong>25 25 25 25</strong></a> </li>
-                                <li> <a href="#"><i class="fas fa-envelope"></i> <strong>contact@bnaf.bf</strong></a> </li>
+                                <li> <a href="#"><i class="fas fa-phone"></i> <strong>{{ $config->phone }}</strong></a> </li>
+                                <li> <a href="#"><i class="fas fa-envelope"></i> <strong>{{ $config->email }}</strong></a> </li>
                             </ul>
                         </div>
                     </div>
@@ -117,10 +117,14 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-8">
                                 <div class="h2-Mayor-msg">
-                                    <div class="Mayor-img"> <span class="msig"> </span> <img src="{{ url('frontend/images/author.jpg') }}" alt=""></div>
-                                    <div class="Mayor-txt"> <strong>Le mot du Directeur</strong>
-                                        <h4>Nom du Directeur</h4>
-                                        <p>Bienvenue sur le site de la BNAF.</p>
+                                    <div class="Mayor-img">
+                                        <span class="msig"></span>
+                                        <img src="{{ $config->director_photo ? $config->director_photo : url('frontend/images/author.jpg') }}" alt="">
+                                    </div>
+                                    <div class="Mayor-txt">
+                                        <strong>Le mot du Directeur</strong>
+                                        <h4>{{ $config->director_name }}</h4>
+                                        <p>{{ $config->director_word }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +175,7 @@
                                 <div class="ch-box">
                                     <div class="ch-thumb">
                                         <a href="#"><i class="fas fa-link"></i></a>
-                                        <img src="images/highlights-img1.jpg" alt="">
+                                        <img src="{{ url('frontend/images/highlights-img1.jpg') }}" alt="">
                                     </div>
                                     <div class="ch-txt">
                                         <h5><a href="#">Lancement du site de la BNAF </a></h5>
@@ -296,10 +300,10 @@
                         <div class="textwidget"> <img style="width: 70px ;height: 60px" src="images/bnaf.png" alt="">
                             <address>
                                 <ul>
-                                    <li> <i class="fas fa-university"></i> <strong>Addresse:</strong> Avenue du Capitaine Thomas Sankara
+                                    <li> <i class="fas fa-university"></i> <strong>Addresse:</strong> {{ $config->address }}
                                         Ouagadougou,</li>
-                                    <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> contact@bnaf.org </li>
-                                    <li> <i class="fas fa-phone"></i> <strong>Téléphone:</strong> 25 25 25 25 </li>
+                                    <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> {{ $config->email }} </li>
+                                    <li> <i class="fas fa-phone"></i> <strong>Téléphone:</strong> {{ $config->phone }} </li>
                                 </ul>
                             </address>
                         </div>
@@ -345,38 +349,15 @@
                     </div>
                     <div class="col-md-5 col-sm-5">
                         <ul class="footer-social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{ $config->facebook ?? '#' }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ $config->twitter ?? '#' }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ $config->linkedin ?? '#' }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $config->youtube ?? '#' }}"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
-        <!--Footer End-->
-
-        <nav id="sidebar">
-            <div id="dismiss"> <i class="fas fa-arrow-right"></i> </div>
-            <div class="sidebar-header"> <img src="images/footer-logo2.png" alt=""> </div>
-            <ul class="list-unstyled components">
-                <li class="active"> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="index.old.html">Default Home Page</a></li>
-                        <li><a href="index.html">Home Page Two</a></li>
-                        <li><a href="home-three.html">Home Page Three</a></li>
-                    </ul>
-                </li>
-                <li> <a href="aboutus.html">About Us</a> </li>
-                <li> <a href="departments.html">Departments</a> </li>
-                <li> <a href="news-full.html">News</a> </li>
-                <li> <a href="event.html">Events</a> </li>
-                <li> <a href="explore-city.html">Explore City</a> </li>
-                <li> <a href="services.html">Services</a> </li>
-                <li> <a href="contact.html">Contact</a> </li>
-            </ul>
-        </nav>
         <div class="overlay"></div>
     </div>
     <!--Wrapper End-->

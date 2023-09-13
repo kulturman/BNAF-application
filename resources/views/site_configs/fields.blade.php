@@ -6,6 +6,24 @@
 </div>
 
 
+<!-- Director Photo Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('director_photo', __('models/siteConfigs.fields.director_photo').':') !!}
+    <input type="file" name="director_photo" id="director_photo" class="form-control file" />
+    @if(isset($siteConfig) && $siteConfig->director_photo)
+        <img class="thumbnail" src="{{ asset($siteConfig->director_photo) }}" alt="Image">
+    @endif
+</div>
+<div class="clearfix"></div>
+
+<!-- Director Name Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('director_name', __('models/siteConfigs.fields.director_name').':') !!}
+    {!! Form::text('director_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <strong class = "form-error-message"></strong>
+</div>
+
+
 <!-- Phone Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('phone', __('models/siteConfigs.fields.phone').':') !!}
@@ -17,7 +35,7 @@
 <!-- Email Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('email', __('models/siteConfigs.fields.email').':') !!}
-    {!! Form::email('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     <strong class = "form-error-message"></strong>
 </div>
 
