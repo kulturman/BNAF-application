@@ -41,3 +41,12 @@
         <span>Gestion des @lang('models/articles.plural')</span>
     </a>
 </li>
+
+<li class="nav-item {{ Request::is('stats*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('stats.index') }}">
+        <svg class="nav-icon">
+            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
+        </svg>
+        <span>Gestion des @lang('models/stats.plural')</span>
+    </a>
+</li>

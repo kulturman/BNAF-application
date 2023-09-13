@@ -47,3 +47,5 @@ Route::resource('slides', App\Http\Controllers\SlideController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 
 Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class);
+
+Route::resource('stats', App\Http\Controllers\StatController::class);

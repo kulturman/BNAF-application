@@ -2,12 +2,12 @@
 
 namespace App\DataTables;
 
-use App\Models\SiteConfig;
+use App\Models\Stat;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Column;
 
-class SiteConfigDataTable extends DataTable
+class StatDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,23 +19,21 @@ class SiteConfigDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->rawColumns(['director_photo', 'action'])
+                ->rawColumns(['action', 'icon'])
+                ->addColumn('icon', fn ($row) => $row->icon)
                 ->addColumn('action', function ($row) {
-                    return view('site_configs.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+                    return view('stats.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
                 })
-                ->addColumn('director_photo', function ($row) {
-                    return view('partials.row-thumbnail')->with('url', url($row->director_photo));
-                })
-                ->addColumn('director_word', fn($row) => getArticleContentPreview($row->director_word));
+                ->addColumn('action', 'stats.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\SiteConfig $model
+     * @param \App\Models\Stat $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(SiteConfig $model)
+    public function query(Stat $model)
     {
         return $model->newQuery();
     }
@@ -75,16 +73,9 @@ class SiteConfigDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'director_word' => new Column(['title' => __('models/siteConfigs.fields.director_word'), 'data' => 'director_word']),
-            'director_photo' => new Column(['title' => __('models/siteConfigs.fields.director_photo'), 'data' => 'director_photo']),
-            'director_name' => new Column(['title' => __('models/siteConfigs.fields.director_name'), 'data' => 'director_name']),
-            'phone' => new Column(['title' => __('models/siteConfigs.fields.phone'), 'data' => 'phone']),
-            'email' => new Column(['title' => __('models/siteConfigs.fields.email'), 'data' => 'email']),
-            'address' => new Column(['title' => __('models/siteConfigs.fields.address'), 'data' => 'address']),
-            'facebook' => new Column(['title' => __('models/siteConfigs.fields.facebook'), 'data' => 'facebook']),
-            'linkedin' => new Column(['title' => __('models/siteConfigs.fields.linkedin'), 'data' => 'linkedin']),
-            'twitter' => new Column(['title' => __('models/siteConfigs.fields.twitter'), 'data' => 'twitter']),
-            'youtube' => new Column(['title' => __('models/siteConfigs.fields.youtube'), 'data' => 'youtube'])
+            'chiffres' => new Column(['title' => __('models/stats.fields.chiffres'), 'data' => 'chiffres']),
+            'text' => new Column(['title' => __('models/stats.fields.text'), 'data' => 'text']),
+            'icon' => new Column(['title' => __('models/stats.fields.icon'), 'data' => 'icon'])
         ];
     }
 
@@ -95,6 +86,6 @@ class SiteConfigDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'site_configs_datatable_' . time();
+        return 'stats_datatable_' . time();
     }
 }

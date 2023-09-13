@@ -120,7 +120,7 @@
                                     <div class="Mayor-txt">
                                         <strong>Le mot du Directeur</strong>
                                         <h4>{{ $config->director_name }}</h4>
-                                        <p>{{ $config->director_word }}</p>
+                                        <p>{!! $config->director_word !!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -205,37 +205,19 @@
                                 </div>
                                 <div class="row">
                                     <ul class="counter">
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-flag"></i> <strong>25000</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-map-marked-alt"></i> <strong>985 M</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-map-marked-alt"></i> <strong>985 M</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-map-marked-alt"></i> <strong>985 M</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-map-marked-alt"></i> <strong>985 M</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                            <div class="fact-box"> <i class="fas fa-map-marked-alt"></i> <strong>985 M</strong> <span>Fraudes prévenues</span> </div>
-                                        </li>
-
-                                        <!--<li class="col-md-4 col-sm-4">
-                                          <div class="fact-box"> <i class="fas fa-users"></i> <strong>3.27 M</strong> <span>Pension d'orphélin</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                          <div class="fact-box"> <i class="fas fa-building"></i> <strong>280</strong> <span>Rente d'incapacité</span> </div>
-                                        </li>
-                                       <li class="col-md-4 col-sm-4">
-                                          <div class="fact-box"> <i class="fas fa-building"></i> <strong>2</strong> <span>Hopitaux construits</span> </div>
-                                        </li>
-                                        <li class="col-md-4 col-sm-4">
-                                          <div class="fact-box"> <i class="fas fa-road"></i> <strong>39</strong> <span>Projects réalisés</span> </div>
-                                        </li>-->
+                                        @foreach($stats as $stat)
+                                            <li class="col-md-4 col-sm-4">
+                                                <div class="fact-box">
+                                                    {!! $stat->icon !!}
+                                                    <strong>
+                                                        {{ $stat->chiffres }}
+                                                    </strong>
+                                                    <span>
+                                                        {{ $stat->text }}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -298,11 +280,10 @@
                 <div class="row">
                     <!--Footer Widget Start-->
                     <div class="col-md-3 col-sm-6">
-                        <div class="textwidget"> <img style="width: 70px ;height: 60px" src="images/bnaf.png" alt="">
+                        <div class="textwidget">
                             <address>
                                 <ul>
-                                    <li> <i class="fas fa-university"></i> <strong>Addresse:</strong> {{ $config->address }}
-                                        Ouagadougou,</li>
+                                    <li> <i class="fas fa-university"></i> <strong>Addresse:</strong> {{ $config->address }}</li>
                                     <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> {{ $config->email }} </li>
                                     <li> <i class="fas fa-phone"></i> <strong>Téléphone:</strong> {{ $config->phone }} </li>
                                 </ul>
