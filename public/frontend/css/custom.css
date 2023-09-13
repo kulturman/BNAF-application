@@ -315,7 +315,7 @@ header {
 .subheader {
 	/*background: url(../images/subheaderbg.jpg) no-repeat;*/
 	background-size: cover;
-	padding: 110px 0;
+	padding: 20px 0;
 	background-color: #a8152a;
 }
 .subheader h2 {

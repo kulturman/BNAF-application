@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Repositories\ArticleRepository;
 use App\Repositories\SiteConfigRepository;
 use App\Repositories\SlideRepository;
@@ -34,5 +35,10 @@ class FrontendController extends Controller
         $stats = $this->statRepository->all();
 
         return view('frontend.index', compact('config', 'sliders', 'articles', 'stats'));
+    }
+
+    public function showArticle(Article $article) {
+        $relatedArticles = $this->articleRepository->relatedArticles($article->id);
+        return view('frontend.article', compact('article', 'relatedArticles'));
     }
 }

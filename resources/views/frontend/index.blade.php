@@ -29,7 +29,8 @@
                             <div class="h2-Mayor-msg">
                                 <div class="Mayor-img">
                                     <span class="msig"></span>
-                                    <img src="{{ $config->director_photo ? $config->director_photo : url('frontend/images/author.jpg') }}" alt="">
+                                    <img src="{{ $config->director_photo ? : url('frontend/images/author.jpg') }}"
+                                         alt="">
                                 </div>
                                 <div class="Mayor-txt">
                                     <strong>Le mot du Directeur</strong>
@@ -40,7 +41,10 @@
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <!--Mayor Msg Start-->
-                            <div class="city-tour gallery"> <strong> Spot lancement du site de la BNAF</strong> <a href="https://youtu.be/" data-rel="prettyPhoto" title="Lancement du site"><img src="{{ url('frontend/images/playicon.png') }}" alt=""></a> <img src="{{ url('frontend/images/visite.png') }}" alt=""> </div>
+                            <div class="city-tour gallery"><strong> Spot lancement du site de la BNAF</strong> <a
+                                        href="https://youtu.be/" data-rel="prettyPhoto" title="Lancement du site"><img
+                                            src="{{ url('frontend/images/playicon.png') }}" alt=""></a> <img
+                                        src="{{ url('frontend/images/visite.png') }}" alt=""></div>
                             <!--Mayor Msg End-->
                         </div>
                     </div>
@@ -57,13 +61,13 @@
                             <div class="row">
                                 <!--Icon Box Start-->
                                 <div class="col-md-3 col-sm-4">
-                                    <div class="deprt-icon-box"> <img src="{{ url('frontend/images/P3.png') }}" alt="">
-                                        <h6> <a href="#">Dénonciation d'un contrevenant</a> </h6>
+                                    <div class="deprt-icon-box"><img src="{{ url('frontend/images/P3.png') }}" alt="">
+                                        <h6><a href="#">Dénonciation d'un contrevenant</a></h6>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-4">
-                                    <div class="deprt-icon-box"> <img src="{{url('frontend/images/P4.png')}}" alt="">
-                                        <h6> <a href="#">Télédéclaration</a> </h6>
+                                    <div class="deprt-icon-box"><img src="{{url('frontend/images/P4.png')}}" alt="">
+                                        <h6><a href="#">Télédéclaration</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -85,12 +89,13 @@
                             <div class="item">
                                 <div class="ch-box">
                                     <div class="ch-thumb">
-                                        <a href="#"><i class="fas fa-link"></i></a>
-                                        <img style="height: 300px; width: 300px" src="{{ asset($article->cover_image) }}" alt="">
+                                        <a href="{{ route('frontend.article', [$article->id]) }}"><i class="fas fa-link"></i></a>
+                                        <img style="height: 300px;"
+                                             src="{{ asset($article->cover_image) }}" alt="">
                                     </div>
                                     <div class="ch-txt">
                                         <h5>
-                                            <a href="#"> {{ $article->title }} </a>
+                                            <a href="{{ route('frontend.article', [$article->id]) }}"> {{ $article->title }} </a>
                                         </h5>
                                         <p>
                                             {{ getArticleContentPreview($article->content, 100) }}
@@ -108,7 +113,8 @@
                     <h2>Quelques statistiques</h2>
                 </div>
             </div>
-            <section class="wf100 p80 fact-newsletter" style="background: url(https://www.architecture.bf/wp-content/uploads/bureau-administratif-3.jpg); background-repeat: round">
+            <section class="wf100 p80 fact-newsletter"
+                     style="background: url(https://www.architecture.bf/wp-content/uploads/bureau-administratif-3.jpg); background-repeat: round">
 
                 <div class="container">
 
@@ -172,7 +178,8 @@
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>
-                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png" alt=""></span> </div>
+                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png"
+                                                                                    alt=""></span></div>
                 </div>
 
                 <div class="col-md-3 col-sm-6">
@@ -181,7 +188,8 @@
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>
-                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png" alt=""></span> </div>
+                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png"
+                                                                                    alt=""></span></div>
                 </div>
 
             </div>

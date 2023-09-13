@@ -44,6 +44,7 @@ Route::post('users/{user}/reset-password', [App\Http\Controllers\UserController:
 
 Route::resource('slides', App\Http\Controllers\SlideController::class);
 
+Route::get('frontend/articles/{article}', [FrontendController::class, 'showArticle'])->name('frontend.article');
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 
 Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class);

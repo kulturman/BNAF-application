@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Providers;
-use App\Models\Year;
 
+use App\Models\SiteConfig;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use View;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -25,26 +25,8 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['classrooms.fields'], function ($view) {
-            $yearItems = Year::pluck('name','id')->toArray();
-            $view->with('yearItems', $yearItems);
+        View::composer(['frontend.header', 'frontend.footer'], function ($view) {
+            $view->with('config', SiteConfig::first());
         });
-        View::composer(['classrooms.fields'], function ($view) {
-            $yearItems = Year::pluck('name','id')->toArray();
-            $view->with('yearItems', $yearItems);
-        });
-        View::composer(['classrooms.fields'], function ($view) {
-            $yearItems = Year::pluck('name','id')->toArray();
-            $view->with('yearItems', $yearItems);
-        });
-        View::composer(['classrooms.fields'], function ($view) {
-            $yearItems = Year::pluck('name','id')->toArray();
-            $view->with('yearItems', $yearItems);
-        });
-        View::composer(['classrooms.fields'], function ($view) {
-            $yearItems = Year::pluck('name','id')->toArray();
-            $view->with('yearItems', $yearItems);
-        });
-        //
     }
 }

@@ -41,6 +41,10 @@ class ArticleRepository extends BaseRepository
     }
 
     public function lastArticles() {
-        return $this->model->orderBy('created_at')->limit(5)->get();
+        return $this->model->orderBy('created_at', 'desc')->limit(5)->get();
+    }
+
+    public function relatedArticles(int $articleId) {
+        return $this->model->orderBy('created_at', 'desc')->where('id', '<>', $articleId)->limit(5)->get();
     }
 }
