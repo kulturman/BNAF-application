@@ -91,18 +91,14 @@
         <!--Slider Start-->
         <div class="main-slider wf100">
             <div id="home-slider" class="owl-carousel owl-theme">
-                <!--Item Start-->
-                <div class="item slider-item">
-                    <div class="slider-caption">
+                @foreach($sliders as $slider)
+                    <div class="item slider-item">
+                        <div class="slider-caption">
+                            {{ $slider->text }}
+                        </div>
+                        <img src="{{asset(($slider->image))}}" alt="">
                     </div>
-                    <img src="{{url ('frontend/images/h3-slide2.jpg')}}" alt="">
-                </div>
-                <div class="item slider-item">
-                    <div class="slider-caption">
-                    </div>
-                    <img src="{{url ('frontend/images/h3-slide2.jpg')}}" alt="">
-                </div>
-                <!--Item End-->
+                @endforeach
             </div>
         </div>
         <!--Slider End-->
@@ -171,19 +167,24 @@
                     <div class="container-fluid">
                         <div id="highlight-slider" class="owl-carousel owl-theme">
                             <!--Item Start-->
-                            <div class="item">
-                                <div class="ch-box">
-                                    <div class="ch-thumb">
-                                        <a href="#"><i class="fas fa-link"></i></a>
-                                        <img src="{{ url('frontend/images/highlights-img1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="ch-txt">
-                                        <h5><a href="#">Lancement du site de la BNAF </a></h5>
-
-                                        <p>L'inauguration du site de la BNAF s'est tenu le 12/12/2022 </p>
+                            @foreach($articles as $article)
+                                <div class="item">
+                                    <div class="ch-box">
+                                        <div class="ch-thumb">
+                                            <a href="#"><i class="fas fa-link"></i></a>
+                                            <img style="height: 300px; width: 300px" src="{{ asset($article->cover_image) }}" alt="">
+                                        </div>
+                                        <div class="ch-txt">
+                                            <h5>
+                                                <a href="#"> {{ $article->title }} </a>
+                                            </h5>
+                                            <p>
+                                                {{ getArticleContentPreview($article->content, 100) }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </section>

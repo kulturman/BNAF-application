@@ -46,4 +46,8 @@ class SiteConfigRepository extends BaseRepository
     {
         return SiteConfig::class;
     }
+
+    public function get() {
+        return SiteConfig::first();
+    }
 }

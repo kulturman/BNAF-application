@@ -26,7 +26,7 @@ class UpdateArticleRequest extends FormRequest
     public function rules()
     {
         $rules = Article::$rules;
-        
+        $rules['cover_image'] = 'nullable|mimes:jpg,png,gif';
         return $rules;
     }
 }

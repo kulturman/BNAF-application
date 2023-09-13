@@ -15,7 +15,7 @@
         {!! Form::label('content', __('models/articles.fields.content').':') !!}
     </th>
     <td>
-        <p>{{ $article->content }}</p>
+        <p>{!! $article->content !!}</p>
     </td>
 </tr>
 
@@ -26,7 +26,7 @@
         {!! Form::label('cover_image', __('models/articles.fields.cover_image').':') !!}
     </th>
     <td>
-        <p>{{ $article->cover_image }}</p>
+        <p><img class="thumbnail" src="{{ asset($article->cover_image) }}" alt=""></p>
     </td>
 </tr>
 

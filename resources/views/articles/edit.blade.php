@@ -15,3 +15,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( 'textarea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

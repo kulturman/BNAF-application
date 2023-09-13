@@ -7061,6 +7061,12 @@ a[data-toggle="collapse"] {
 	right: 20px;
 	transform: translateY(-50%);
 }
+
+.ch-thumb img {
+	width: 300px;
+	height: 300px;
+}
+
 .font {
 	font-family: 'Montserrat', sans-serif;
 	font-family: 'Lato', sans-serif;
