@@ -19,6 +19,9 @@
 <script>
     ClassicEditor
         .create( document.querySelector( 'textarea' ) )
+        .then(() => {
+            document.querySelector('.ck-editor__editable').style.height = '200px'
+        })
         .catch( error => {
             console.error( error );
         } );

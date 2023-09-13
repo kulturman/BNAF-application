@@ -190,4 +190,18 @@ abstract class BaseRepository
 
         return $model->delete();
     }
+
+    public function count($search = [])
+    {
+        $query = $this->model->newQuery();
+
+        if (count($search)) {
+            foreach($search as $key => $value) {
+                if (in_array($key, $this->getFieldsSearchable())) {
+                    $query->where($key, $value);
+                }
+            }
+        }
+        return $query->count();
+    }
 }

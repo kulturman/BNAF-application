@@ -45,8 +45,11 @@ Route::post('users/{user}/reset-password', [App\Http\Controllers\UserController:
 Route::resource('slides', App\Http\Controllers\SlideController::class);
 
 Route::get('frontend/articles/{article}', [FrontendController::class, 'showArticle'])->name('frontend.article');
+Route::get('frontend/denonciation', [FrontendController::class, 'form'])->name('frontend.form');
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 
 Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class);
 
 Route::resource('stats', App\Http\Controllers\StatController::class);
+
+Route::resource('reports', App\Http\Controllers\ReportController::class);

@@ -87,7 +87,7 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
     }*/
 
     $('.form-variable').each(function(index , el) {
-        formData.push({ name: $(el).attr('name') , value: $(el).val() });
+        formData.append($(el).attr('name') ,$(el).val());
     });
 
     $('input+strong,select+strong,textarea+strong').text('');
@@ -115,10 +115,17 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
                 }
                 if(data.reset)
                     $(form).trigger('reset');
+
+                if (data.url) {
+                    setTimeout(() => {
+                        document.location.href = data.url
+                    }, 2000)
+                }
+
+                LaravelDataTables["dataTableBuilder"].draw()
                 if (ajaxFormHandlerSuccessCallback){
                     ajaxFormHandlerSuccessCallback(data);
                 }
-                LaravelDataTables["dataTableBuilder"].draw()
             }
             else {
                 error(data.message);

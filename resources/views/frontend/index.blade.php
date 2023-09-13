@@ -62,7 +62,11 @@
                                 <!--Icon Box Start-->
                                 <div class="col-md-3 col-sm-4">
                                     <div class="deprt-icon-box"><img src="{{ url('frontend/images/P3.png') }}" alt="">
-                                        <h6><a href="#">Dénonciation d'un contrevenant</a></h6>
+                                        <h6>
+                                            <a href="{{ route('frontend.form') }}">
+                                                Dénonciation d'un contrevenant
+                                            </a>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-4">

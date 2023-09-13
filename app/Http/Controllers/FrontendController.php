@@ -41,4 +41,8 @@ class FrontendController extends Controller
         $relatedArticles = $this->articleRepository->relatedArticles($article->id);
         return view('frontend.article', compact('article', 'relatedArticles'));
     }
+
+    public function form() {
+        return view('frontend.form');
+    }
 }

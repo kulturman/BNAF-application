@@ -312,6 +312,11 @@ header {
 }
 /***************  Sub Header Start  *****************/
 
+.form-error-message {
+	color: red;
+	font-weight: bold;
+}
+
 .subheader {
 	/*background: url(../images/subheaderbg.jpg) no-repeat;*/
 	background-size: cover;
@@ -2923,7 +2928,7 @@ li.header-weather {
 }
 .Mayor-welcome strong {
 	color: #fff;
-	font-size: 14ppx;
+	font-size: 14px;
 	font-style: italic;
 	font-weight: 500;
 }

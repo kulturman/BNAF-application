@@ -50,3 +50,12 @@
         <span>Gestion des @lang('models/stats.plural')</span>
     </a>
 </li>
+
+<li class="nav-item {{ Request::is('reports*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('reports.index') }}">
+        <svg class="nav-icon">
+            <use xlink:href="{{ asset('sprites/free.svg') }}#cil-report-slash"></use>
+        </svg>
+        <span>Gestion des @lang('models/reports.plural')</span>
+    </a>
+</li>

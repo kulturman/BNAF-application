@@ -8,7 +8,7 @@
             <div class="card mb-4 text-white bg-primary">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                     <div>
-                        <div class="fs-4 fw-semibold">2</div>
+                        <div class="fs-4 fw-semibold">{{ $usersCount }}</div>
                         <div>Utilisateurs</div>
                     </div>
                     <div class="dropdown">
@@ -29,7 +29,7 @@
             <div class="card mb-4 text-white bg-success">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                     <div>
-                        <div class="fs-4 fw-semibold">512</div>
+                        <div class="fs-4 fw-semibold">{{ $waitingReportsCount }}</div>
                         <div>alertes en attente de confirmation</div>
                     </div>
                     <div class="dropdown">
