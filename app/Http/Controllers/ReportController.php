@@ -19,7 +19,7 @@ class ReportController extends AppBaseController
     public function __construct(ReportRepository $reportRepo)
     {
         $this->reportRepository = $reportRepo;
-        $this->middleware(['auth']);
+        $this->middleware(['auth'])->except('store');
     }
 
     /**
