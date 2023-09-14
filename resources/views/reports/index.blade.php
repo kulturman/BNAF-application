@@ -37,3 +37,13 @@
          </div>
     </div>
 @endsection
+
+@section('scripts')
+    @parent
+    <script>
+        function drawDataTableCallback() {
+            alert('ttt')
+        }
+        setTimeout(() => $('.dt-buttons').hide(), 1000)
+    </script>
+@endsection

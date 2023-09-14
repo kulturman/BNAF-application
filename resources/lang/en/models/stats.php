@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'Stat',
-  'plural' => 'Stats',
+  'singular' => 'Statistique',
+  'plural' => 'Statistiques',
   'fields' => 
   array (
     'id' => 'Id',

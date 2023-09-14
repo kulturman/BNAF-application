@@ -61,7 +61,7 @@ class ReportController extends AppBaseController
         ];
 
         Http::post(env('BNAF_SYSTEM_URL'), $data);
-        //$report->save();
+        $report->save();
 
         return $this->sendSuccessDialogResponse('Alerte validée avec succès');
     }
