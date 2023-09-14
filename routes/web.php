@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +53,5 @@ Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class)
 
 Route::resource('stats', App\Http\Controllers\StatController::class);
 
+Route::post('reports/{report}/validate', [ReportController::class, 'validateReport'])->name('reports.validate');
 Route::resource('reports', App\Http\Controllers\ReportController::class);

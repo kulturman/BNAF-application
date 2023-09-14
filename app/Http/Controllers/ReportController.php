@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\DataTables\ReportDataTable;
 use App\Http\Requests\CreateReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use App\Models\Report;
 use App\Repositories\ReportRepository;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Response;
@@ -43,6 +45,26 @@ class ReportController extends AppBaseController
         return view('reports.create');
     }
 
+    public function validateReport(Report $report) {
+        $report->validated = true;
+
+        $data = [
+            'created_at' => $report->created_at,
+            'validated_at' => $report->updated_at,
+            'latitude' => $report->latitude,
+            'longitude' => $report->longitude,
+            'photo' => $report->photo ? base64_encode(file_get_contents(public_path($report->photo))): null,
+            'secondPhoto' => $report->photoInput ? base64_encode(file_get_contents(public_path($report->photoInput))): null,
+            'repere' => $report->repere,
+            'structure' => $report->structure,
+            'text' => $report->text
+        ];
+
+        Http::post(env('BNAF_SYSTEM_URL'), $data);
+        //$report->save();
+
+        return $this->sendSuccessDialogResponse('Alerte validée avec succès');
+    }
     /**
      * Store a newly created Report in storage.
      *

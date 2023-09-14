@@ -1,11 +1,13 @@
-$(document).on('click' , '.delete-btn' , function (e) {
+$(document).on('click' , '.delete-btn,.ajax-button' , function (e) {
     e.preventDefault();
     var that = $(this);
     var url = that.attr('href');
-    question('Cette opération est irréversible', function () {
+    let message = that.attr('data-message') || 'Cette opération est irréversible';
+
+    question(message, function () {
         showLoader();
         $.ajax({
-            method: 'DELETE',
+            method: that.attr('data-method') || 'DELETE',
             url: url
         }).done(function (data) {
             closeLoader();
