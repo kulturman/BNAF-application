@@ -17,6 +17,7 @@ services:
       - core-uinetwork
   # Database
   database:
+    container_name: coreui-db
     image: mysql:5.7-debian
     volumes:
       - core-uidbdata:/var/lib/mysql

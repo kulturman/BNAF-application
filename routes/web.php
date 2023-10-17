@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Auth::routes();
 

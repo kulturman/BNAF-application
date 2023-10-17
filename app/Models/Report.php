@@ -66,11 +66,11 @@ class Report extends Model
      */
     public static $rules = [
         'deleted_at' => 'nullable|nullable',
-        'localite' => 'required|string|max:255|string|max:255',
-        'structure' => 'required|string|max:255|string|max:255',
+        'localite' => 'nullable|string|max:255|string|max:255',
+        'structure' => 'nullable|string|max:255|string|max:255',
         'photo' => 'nullable|mimes:gif,jpeg,png',
-        'text' => 'required|string|nullable|string',
-        'repere' => 'required|string|max:255|nullable|string|max:255',
+        'text' => 'nullable|string|nullable|string',
+        'repere' => 'nullable|string|max:255|nullable|string|max:255',
         'longitude' => 'nullable|numeric|nullable|numeric',
         'latitude' => 'nullable|numeric|nullable|numeric',
         'created_at' => 'nullable|nullable',

@@ -13,3 +13,6 @@ composer:
 	$(dc_exec) composer install
 
 install: start composer
+
+dump:
+	 docker exec -it coreui-db mysqldump -u root -proot core-ui > dump.sql

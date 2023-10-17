@@ -2932,6 +2932,15 @@ li.header-weather {
 	font-style: italic;
 	font-weight: 500;
 }
+
+.select2-container .select2-selection--single {
+	height: 34px !important;
+}
+
+.hidden {
+	display: none;
+}
+
 .Mayor-welcome h6:after {
 	position: absolute;
 	left: 0;
