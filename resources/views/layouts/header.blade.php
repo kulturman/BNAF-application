@@ -41,7 +41,7 @@
                 <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar avatar-md">
                         <i class="cis-accessible"></i>
-                        <img class="avatar-img" src="{{ asset('img/avatars/8.jpg') }}" alt="user@email.com">
+                        <img class="avatar-img" src="{{ asset('frontend/images/logo_bnaf.jpg') }}" alt="user@email.com">
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
