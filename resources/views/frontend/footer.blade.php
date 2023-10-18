@@ -50,7 +50,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-7">
-                <p class="copyr">bnaf tous droits réservés © 2023</p>
+                <p class="copyr">BNAF tous droits réservés © 2023</p>
             </div>
             <div class="col-md-5 col-sm-5">
                 <ul class="footer-social">

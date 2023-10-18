@@ -84,6 +84,12 @@
                         </div>
 
                         <div class="form-group col-sm-6">
+                            {!! Form::label('village', 'Village:') !!}
+                            {!! Form::text('village', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            <strong class = "form-error-message"></strong>
+                        </div>
+
+                        <div class="form-group col-sm-6">
                             {!! Form::label('nip', 'Numéro NIP de la CNIB (17 chiffres):') !!}
                             {!! Form::text('nip', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>

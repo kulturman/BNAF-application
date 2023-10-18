@@ -38,6 +38,18 @@
             <script src="{{ url('frontend/js/owl.carousel.min.js') }}"></script>
             <script src="{{ url('frontend/js/jquery.prettyPhoto.js') }}"></script>
             <script src="{{ url('frontend/js/custom.js') }}"></script>
+            <script>
+                $(document).ready(function () {
+                    $('a[href^="#"]').on('click', function (e) {
+                        var target = $(this.hash);
+                        if (target.length) {
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000); // 1000ms (1 second) for smooth scrolling
+                        }
+                    });
+                });
+            </script>
         @show
     </body>
 </html>

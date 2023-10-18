@@ -64,7 +64,7 @@
                                       <i class="icon-lock"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Password" name="password">
+                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Mot de passe" name="password">
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                        <strong>{{ $errors->first('password') }}</strong>

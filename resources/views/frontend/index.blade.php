@@ -18,7 +18,7 @@
     <!--Slider End-->
     <!--Main Content Start-->
     <div class="main-content">
-        <section class="wf100 p80-0">
+        <section class="wf100 p8-0">
             <section class="wf100 p80-0">
                 <div class="title-style-1 text-center white">
                     <h2>Le Directeur Général</h2>
@@ -32,7 +32,7 @@
                                     <img src="{{ $config->director_photo ? : url('frontend/images/author.jpg') }}"
                                          alt="">
                                 </div>
-                                <div class="Mayor-txt">
+                                <div class="Mayor-txt" id="mot-du-dg">
                                     <strong>Le mot du Directeur</strong>
                                     <h4>{{ $config->director_name }}</h4>
                                     <p>{!! $config->director_word !!}</p>
@@ -51,7 +51,7 @@
                 </div>
             </section>
 
-            <section class="wf100 p75-50  depart-info" style="margin-top: 50px; background: #26922D">
+            <section id="services-en-ligne" class="wf100 p75-50  depart-info" style="margin-top: 50px; background: #26922D">
                 <div class="container">
                     <div class="row">
                         <div>
@@ -81,7 +81,7 @@
             </section>
 
             <section class="wf100 p80 city-highlights" style="margin-bottom: 10rem">
-                <div class="container">
+                <div class="container" id="actualite">
                     <div class="title-style-1 text-center white-text">
                         <h2>Actualités</h2>
                     </div>
@@ -93,7 +93,8 @@
                             <div class="item">
                                 <div class="ch-box">
                                     <div class="ch-thumb">
-                                        <a href="{{ route('frontend.article', [$article->id]) }}"><i class="fas fa-link"></i></a>
+                                        <a href="{{ route('frontend.article', [$article->id]) }}"><i
+                                                    class="fas fa-link"></i></a>
                                         <img style="height: 300px;"
                                              src="{{ asset($article->cover_image) }}" alt="">
                                     </div>
@@ -117,7 +118,7 @@
                     <h2>Quelques statistiques</h2>
                 </div>
             </div>
-            <section class="wf100 p80 fact-newsletter"
+            <section id="statistiques" class="wf100 p80 fact-newsletter"
                      style="background: url(https://www.architecture.bf/wp-content/uploads/bureau-administratif-3.jpg); background-repeat: round">
 
                 <div class="container">
@@ -169,7 +170,7 @@
         </section>
     </div>
 
-    <section class="wf100 p80 community-links">
+    <section class="wf100 p80 community-links" id="demarches">
         <div class="container">
             <div class="section-title text-center">
                 <h2>Démarches administratives</h2>
@@ -199,6 +200,4 @@
             </div>
         </div>
     </section>
-
-    <!--Footer Start-->
 @endsection
