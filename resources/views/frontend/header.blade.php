@@ -30,7 +30,7 @@
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mot du DG </a>
+                                    <a href="{{url('/')}}#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mot du DG </a>
                                 </li>
 
                                 <li class="dropdown">

@@ -47,17 +47,15 @@
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('region', 'Région:') !!}
-                            <select name="region" id="region" class="form-control select2">
+                            <select name="region" id="region" class="form-control">
                                 <option value=""></option>
-                                <option value="Centre">Centre</option>
                             </select>
                         </div>
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('province', 'Province:') !!}
-                            <select name="province" id="province" class="form-control select2">
+                            <select name="province" id="province" class="form-control">
                                 <option value=""></option>
-                                <option value="Centre">Centre</option>
                             </select>
                         </div>
 
@@ -65,8 +63,13 @@
                             {!! Form::label('commune', 'Commune:') !!}
                             <select name="commune" id="commune" class="form-control select2">
                                 <option value=""></option>
-                                <option value="Centre">Centre</option>
                             </select>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('village', 'Village:') !!}
+                            {!! Form::text('village', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            <strong class = "form-error-message"></strong>
                         </div>
 
                         <!-- Structure Field -->
@@ -80,12 +83,6 @@
                         <div class="form-group col-sm-6">
                             {!! Form::label('repere', __('models/reports.fields.repere').':') !!}
                             {!! Form::text('repere', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                            <strong class = "form-error-message"></strong>
-                        </div>
-
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('village', 'Village:') !!}
-                            {!! Form::text('village', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
