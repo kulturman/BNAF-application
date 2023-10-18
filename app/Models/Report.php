@@ -40,7 +40,11 @@ class Report extends Model
         'repere',
         'longitude',
         'latitude',
-        'photoInput'
+        'photoInput',
+        'region',
+        'province',
+        'commune',
+        'nip'
     ];
 
     /**

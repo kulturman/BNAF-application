@@ -74,7 +74,7 @@ class ReportController extends AppBaseController
      */
     public function store(CreateReportRequest $request)
     {
-        $inputs = $request->all();
+        $inputs = $request->all();//dd($inputs);
         $this->attachFiles($inputs);
 
         if ($inputs['photoInput']) {

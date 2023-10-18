@@ -67,8 +67,8 @@
                         </div>
 
                         <div class="form-group col-sm-6">
-                            {!! Form::label('village', 'Village:') !!}
-                            {!! Form::text('village', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::label('localite', 'Village:') !!}
+                            {!! Form::text('localite', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
