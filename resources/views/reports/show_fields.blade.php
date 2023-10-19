@@ -1,14 +1,13 @@
 <!-- Localite Field -->
 <tr>
     <th>
-        {!! Form::label('localite', 'Date de soumission:') !!}
+        {!! Form::label('created_at', 'Date de soumission:') !!}
     </th>
     <td>
         <p>{{ $report->created_at->format('d/m/Y H:i') }}</p>
     </td>
 </tr>
 
-<!-- Localite Field -->
 <tr>
     <th>
         {!! Form::label('localite', __('models/reports.fields.localite').':') !!}
@@ -18,22 +17,9 @@
     </td>
 </tr>
 
-
-<!-- Structure Field -->
 <tr>
     <th>
-        {!! Form::label('structure', __('models/reports.fields.structure').':') !!}
-    </th>
-    <td>
-        <p>{{ $report->structure }}</p>
-    </td>
-</tr>
-
-
-<!-- Photo Field -->
-<tr>
-    <th>
-        {!! Form::label('photo', __('models/reports.fields.photo').':') !!}
+        {!! Form::label('photo', 'Images:') !!}
     </th>
     <td>
         <p>
@@ -48,6 +34,16 @@
     </td>
 </tr>
 
+<!-- Structure Field -->
+<tr>
+    <th>
+        {!! Form::label('structure', __('models/reports.fields.structure').':') !!}
+    </th>
+    <td>
+        <p>{{ $report->structure }}</p>
+    </td>
+</tr>
+
 
 <!-- Text Field -->
 <tr>
@@ -55,7 +51,7 @@
         {!! Form::label('text', __('models/reports.fields.text').':') !!}
     </th>
     <td>
-        <p>{!! $report->text !!}</p>
+        <p>{!!  $report->text !!}</p>
     </td>
 </tr>
 
@@ -71,24 +67,46 @@
 </tr>
 
 
-<!-- Longitude Field -->
+<!-- Nip Field -->
 <tr>
     <th>
-        {!! Form::label('longitude', __('models/reports.fields.longitude').':') !!}
+        {!! Form::label('nip', __('models/reports.fields.nip').':') !!}
     </th>
     <td>
-        <p>{{ $report->longitude }}</p>
+        <p>{{ $report->nip }}</p>
     </td>
 </tr>
 
 
-<!-- Latitude Field -->
+<!-- Region Field -->
 <tr>
     <th>
-        {!! Form::label('latitude', __('models/reports.fields.latitude').':') !!}
+        {!! Form::label('region', __('models/reports.fields.region').':') !!}
     </th>
     <td>
-        <p>{{ $report->latitude }}</p>
+        <p>{{ $report->region }}</p>
+    </td>
+</tr>
+
+
+<!-- Province Field -->
+<tr>
+    <th>
+        {!! Form::label('province', __('models/reports.fields.province').':') !!}
+    </th>
+    <td>
+        <p>{{ $report->province }}</p>
+    </td>
+</tr>
+
+
+<!-- Commune Field -->
+<tr>
+    <th>
+        {!! Form::label('commune', __('models/reports.fields.commune').':') !!}
+    </th>
+    <td>
+        <p>{{ $report->commune }}</p>
     </td>
 </tr>
 

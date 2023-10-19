@@ -19,7 +19,6 @@ class ReportDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->addColumn('text', fn ($row) => getArticleContentPreview($row->text))
                 ->addColumn('created_at', fn ($row) => $row->created_at->format('d/m/Y H:i'))
                 ->addColumn('action', function ($row) {
                     return view('reports.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
@@ -35,7 +34,7 @@ class ReportDataTable extends DataTable
      */
     public function query(Report $model)
     {
-        return $model->newQuery()->where('validated', false);
+        return $model->newQuery()->where('validated', false)->orderBy('created_at', 'DESC');
     }
 
     /**
@@ -76,10 +75,11 @@ class ReportDataTable extends DataTable
             'created_at' => new Column(['title' => "Date de soumission", 'data' => 'created_at']),
             'localite' => new Column(['title' => __('models/reports.fields.localite'), 'data' => 'localite']),
             'structure' => new Column(['title' => __('models/reports.fields.structure'), 'data' => 'structure']),
-            'text' => new Column(['title' => __('models/reports.fields.text'), 'data' => 'text']),
             'repere' => new Column(['title' => __('models/reports.fields.repere'), 'data' => 'repere']),
-            'longitude' => new Column(['title' => __('models/reports.fields.longitude'), 'data' => 'longitude']),
-            'latitude' => new Column(['title' => __('models/reports.fields.latitude'), 'data' => 'latitude'])
+            'nip' => new Column(['title' => __('models/reports.fields.nip'), 'data' => 'nip']),
+            'region' => new Column(['title' => __('models/reports.fields.region'), 'data' => 'region']),
+            'province' => new Column(['title' => __('models/reports.fields.province'), 'data' => 'province']),
+            'commune' => new Column(['title' => __('models/reports.fields.commune'), 'data' => 'commune'])
         ];
     }
 

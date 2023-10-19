@@ -9,15 +9,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Report
  * @package App\Models
- * @version September 13, 2023, 1:48 pm UTC
+ * @version October 18, 2023, 1:04 pm UTC
  *
  * @property string $localite
+ * @property boolean $validated
  * @property string $structure
  * @property string $photo
+ * @property string $photoInput
  * @property string $text
  * @property string $repere
- * @property number $longitude
- * @property number $latitude
+ * @property string $nip
+ * @property string $region
+ * @property string $province
+ * @property string $commune
  */
 class Report extends Model
 {
@@ -34,17 +38,16 @@ class Report extends Model
 
     public $fillable = [
         'localite',
+        'validated',
         'structure',
         'photo',
+        'photoInput',
         'text',
         'repere',
-        'longitude',
-        'latitude',
-        'photoInput',
+        'nip',
         'region',
         'province',
-        'commune',
-        'nip'
+        'commune'
     ];
 
     /**
@@ -55,12 +58,16 @@ class Report extends Model
     protected $casts = [
         'id' => 'integer',
         'localite' => 'string',
+        'validated' => 'boolean',
         'structure' => 'string',
         'photo' => 'string',
+        'photoInput' => 'string',
         'text' => 'string',
         'repere' => 'string',
-        'longitude' => 'float',
-        'latitude' => 'float'
+        'nip' => 'string',
+        'region' => 'string',
+        'province' => 'string',
+        'commune' => 'string'
     ];
 
     /**
@@ -70,15 +77,17 @@ class Report extends Model
      */
     public static $rules = [
         'deleted_at' => 'nullable|nullable',
-        'localite' => 'nullable|string|max:255|string|max:255',
-        'structure' => 'nullable|string|max:255|string|max:255',
-        'photo' => 'nullable|mimes:gif,jpeg,png',
+        'localite' => 'nullable|required|string|max:255|string|max:255',
+        'structure' => 'nullable|required|string|max:255|string|max:255',
+        'photo' => 'nullable|mimes:jpg,jpeg,png,gif',
         'text' => 'nullable|string|nullable|string',
         'repere' => 'nullable|string|max:255|nullable|string|max:255',
-        'longitude' => 'nullable|numeric|nullable|numeric',
-        'latitude' => 'nullable|numeric|nullable|numeric',
         'created_at' => 'nullable|nullable',
-        'updated_at' => 'nullable|nullable'
+        'updated_at' => 'nullable|nullable',
+        'nip' => 'required|string|max:255|string|max:255',
+        'region' => 'nullable|string|max:255|string|max:255',
+        'province' => 'nullable|string|max:255|string|max:255',
+        'commune' => 'nullable|string|max:255|string|max:255'
     ];
 
     

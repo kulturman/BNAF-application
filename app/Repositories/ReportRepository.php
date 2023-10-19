@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ReportRepository
  * @package App\Repositories
- * @version September 13, 2023, 1:48 pm UTC
+ * @version October 18, 2023, 1:04 pm UTC
 */
 
 class ReportRepository extends BaseRepository
@@ -18,13 +18,16 @@ class ReportRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'localite',
+        'validated',
         'structure',
         'photo',
+        'photoInput',
         'text',
         'repere',
-        'longitude',
-        'latitude',
-        'validated'
+        'nip',
+        'region',
+        'province',
+        'commune'
     ];
 
     /**

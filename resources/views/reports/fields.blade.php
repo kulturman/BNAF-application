@@ -6,6 +6,16 @@
 </div>
 
 
+<!-- Validated Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('validated', __('models/reports.fields.validated').':') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('validated', 0) !!}
+        {!! Form::checkbox('validated', '1', null) !!}
+    </label>
+</div>
+
+
 <!-- Structure Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('structure', __('models/reports.fields.structure').':') !!}
@@ -21,6 +31,17 @@
     <strong class = "form-error-message"></strong>
     @if(isset($report) && $report->photo)
         <img class="thumbnail" src="{{ asset($report->photo) }}" alt="Image">
+    @endif
+</div>
+<div class="clearfix"></div>
+
+<!-- Photoinput Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('photoInput', __('models/reports.fields.photoInput').':') !!}
+    <input type="file" name="photoInput" id="photoInput" class="form-control file" />
+    <strong class = "form-error-message"></strong>
+    @if(isset($report) && $report->photoInput)
+        <img class="thumbnail" src="{{ asset($report->photoInput) }}" alt="Image">
     @endif
 </div>
 <div class="clearfix"></div>
@@ -41,18 +62,34 @@
 </div>
 
 
-<!-- Longitude Field -->
+<!-- Nip Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('longitude', __('models/reports.fields.longitude').':') !!}
-    {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
+    {!! Form::label('nip', __('models/reports.fields.nip').':') !!}
+    {!! Form::text('nip', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     <strong class = "form-error-message"></strong>
 </div>
 
 
-<!-- Latitude Field -->
+<!-- Region Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('latitude', __('models/reports.fields.latitude').':') !!}
-    {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
+    {!! Form::label('region', __('models/reports.fields.region').':') !!}
+    {!! Form::text('region', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <strong class = "form-error-message"></strong>
+</div>
+
+
+<!-- Province Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('province', __('models/reports.fields.province').':') !!}
+    {!! Form::text('province', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <strong class = "form-error-message"></strong>
+</div>
+
+
+<!-- Commune Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('commune', __('models/reports.fields.commune').':') !!}
+    {!! Form::text('commune', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     <strong class = "form-error-message"></strong>
 </div>
 

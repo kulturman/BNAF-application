@@ -35,11 +35,6 @@ class ReportController extends AppBaseController
         return $reportDataTable->render('reports.index');
     }
 
-    /**
-     * Show the form for creating a new Report.
-     *
-     * @return Response
-     */
     public function create()
     {
         return view('reports.create');
@@ -74,7 +69,7 @@ class ReportController extends AppBaseController
      */
     public function store(CreateReportRequest $request)
     {
-        $inputs = $request->all();//dd($inputs);
+        $inputs = $request->all();
         $this->attachFiles($inputs);
 
         if ($inputs['photoInput']) {
@@ -122,7 +117,7 @@ class ReportController extends AppBaseController
         $report = $this->reportRepository->find($id);
 
         if (empty($report)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('reports.edit')->with('report', $report);
