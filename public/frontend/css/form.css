@@ -1,0 +1,8 @@
+.recording-block * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.hidden {
+    display: none;
+}

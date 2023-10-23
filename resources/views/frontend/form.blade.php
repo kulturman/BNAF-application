@@ -3,6 +3,7 @@
 @section('styles')
     @parent
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url('frontend/css/form.css') }}">
 @endsection
 
 @section('content')
@@ -72,6 +73,14 @@
                             <strong class = "form-error-message"></strong>
                         </div>
 
+                        <div class="form-group col-sm-12 recording-block">
+                            <button class="btn btn-primary" type="button" id="startRecording">Enregistrer un vocal</button>
+                            <span id="recordingIndicator" class="hidden">Enregistrement...</span>
+                            <button class="btn btn-danger hidden" type="button" id="stopRecording">Arrêter l'enregistrement</button>
+                            <audio class="hidden" id="audioPlayer" controls></audio>
+                            <button class="btn btn-danger hidden" type="button" id="deleteRecording">Supprimer l'enregistrement</button>
+                        </div>
+
                         <!-- Structure Field -->
                         <div class="form-group col-sm-6">
                             {!! Form::label('structure', 'Surnom / nom de la struture en cause:') !!}
@@ -138,6 +147,78 @@
 
 @section('scripts')
     @parent
+    <script>
+        const startRecordingButton = document.getElementById('startRecording');
+        const stopRecordingButton = document.getElementById('stopRecording');
+        const deleteRecordingButton = document.getElementById('deleteRecording');
+        const recordingIndicator = document.getElementById('recordingIndicator');
+        const audioPlayer = document.getElementById('audioPlayer');
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioBlob;
+
+        startRecordingButton.addEventListener('click', startRecording);
+        stopRecordingButton.addEventListener('click', stopRecording);
+        deleteRecordingButton.addEventListener('click', e => {
+            e.preventDefault();
+            audioBlob = null;
+            hide(audioPlayer);
+            show(startRecordingButton);
+            hide(deleteRecordingButton)
+        });
+
+        function startRecording() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.ondataavailable = event => {
+                        if (event.data.size > 0) {
+                            audioChunks.push(event.data);
+                        }
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        audioPlayer.src = URL.createObjectURL(audioBlob);
+
+                        const formData = new FormData();
+                        formData.append('audio', audioBlob);
+                        hide(recordingIndicator);
+                        show(audioPlayer);
+
+                        /*fetch('upload.php', {
+                            method: 'POST',
+                            body: formData
+                        });*/
+                        console.log('ttt');
+                    };
+
+                    mediaRecorder.start();
+                    hide(startRecordingButton);
+                    show(stopRecordingButton);
+                    show(recordingIndicator);
+
+                })
+                .catch(error => console.error('Error accessing microphone:', error));
+        }
+
+        function show(element) {
+            element.classList.remove('hidden');
+        }
+
+        function hide(element) {
+            element.classList.add('hidden');
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                hide(stopRecordingButton);
+                show(deleteRecordingButton);
+            }
+        }
+
+    </script>
     {!! Html::script('js/sweetalert2.all.min.js') !!}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
