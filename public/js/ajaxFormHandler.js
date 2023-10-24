@@ -85,7 +85,6 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
         formData.append($(el).attr('name') ,$(el).val());
     });
 
-    console.log(formVariables);
     if (typeof formVariables !== 'undefined') {
         formVariables.forEach(variable => formData.append(variable.name, variable.data));
     }

@@ -15,3 +15,12 @@
         <p>{{ $user->email }}</p>
     </td>
 </tr>
+
+<tr>
+    <th>
+        {!! Form::label('agent_code', 'Code agent:') !!}
+    </th>
+    <td>
+        <p>{{ $user->agent_code }}</p>
+    </td>
+</tr>

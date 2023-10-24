@@ -73,6 +73,7 @@ class UserDataTable extends DataTable
         return [
             'name' => new Column(['title' => __('models/users.fields.name'), 'data' => 'name']),
             'email' => new Column(['title' => __('models/users.fields.email'), 'data' => 'email']),
+            'agent_code' => new Column(['title' => 'Code agent', 'data' => 'agent_code']),
             'created_at' => new Column(['title' => __('crud.created_at'), 'data' => 'created_at']),
         ];
     }
