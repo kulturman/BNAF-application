@@ -84,8 +84,17 @@ class ReportController extends AppBaseController
             $inputs['photoInput'] = str_replace('public', 'storage', $filename);
         }
 
+        if (isset($inputs['audio'])) {
+            $filename = 'public/uploads/' .sha1(mktime()) . '.wav';
+            Storage::disk('local')->put(
+                $filename
+                , $inputs['audio']
+            );
+        }
+
         $this->reportRepository->create($inputs);
         $message = 'Alerte enregistrée avec succès, merci pour votre contribution';
+        return $this->sendSuccessDialogResponse($message);
         return $this->sendSuccessDialogResponse($message, true, route('frontend.form'));
     }
 

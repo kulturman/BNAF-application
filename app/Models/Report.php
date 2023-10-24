@@ -47,7 +47,9 @@ class Report extends Model
         'nip',
         'region',
         'province',
-        'commune'
+        'commune',
+        'audio',
+        'agent_code'
     ];
 
     /**

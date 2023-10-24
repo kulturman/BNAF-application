@@ -1,6 +1,15 @@
 <!-- Localite Field -->
 <tr>
     <th>
+        {!! Form::label('agent°code', 'Code agent:') !!}
+    </th>
+    <td>
+        <p>{{ $report->agent_code }}</p>
+    </td>
+</tr>
+
+<tr>
+    <th>
         {!! Form::label('created_at', 'Date de soumission:') !!}
     </th>
     <td>
@@ -29,6 +38,21 @@
 
             @if(isset($report->photoInput))
                 <img class="thumbnail" src="{{ asset($report->photoInput)}}" alt="Photo">
+            @endif
+        </p>
+    </td>
+</tr>
+
+<tr>
+    <th>
+        {!! Form::label('photo', 'Fichier vocal:') !!}
+    </th>
+    <td>
+        <p>
+            @if(isset($report->audio))
+                <audio controls>
+                    <source src="{{ asset($report->audio) }}">
+                </audio>
             @endif
         </p>
     </td>

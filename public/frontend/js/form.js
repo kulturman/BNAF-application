@@ -19,7 +19,6 @@ $(document).ready(function () {
     const canvas = document.getElementById('canvas');
     const captureButton = document.getElementById('captureButton');
     const photoInput = document.getElementById('photoInput');
-    const photoForm = document.getElementById('photoForm');
 
 // Start the webcam when the "Start Webcam" button is clicked
     startButton.addEventListener('click', function () {

@@ -78,17 +78,17 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
     var id = "#" + $(this).attr('id');
     var form = $(id);
     showLoader();
-    var data = $(form).serializeArray();
 
     let formData = new FormData($(id)[0]);
-
-    /*for (let item of data) {
-        formData.append(item.name, item.value);
-    }*/
 
     $('.form-variable').each(function(index , el) {
         formData.append($(el).attr('name') ,$(el).val());
     });
+
+    console.log(formVariables);
+    if (typeof formVariables !== 'undefined') {
+        formVariables.forEach(variable => formData.append(variable.name, variable.data));
+    }
 
     $('input+strong,select+strong,textarea+strong').text('');
     $('#message-block').remove();
