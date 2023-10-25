@@ -21,7 +21,7 @@
         <section class="wf100 p8-0">
             <section class="wf100 p80-0">
                 <div class="title-style-1 text-center white">
-                    <h2>Le Directeur Général</h2>
+                    <h2>Le Ministre</h2>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -33,7 +33,6 @@
                                          alt="">
                                 </div>
                                 <div class="Mayor-txt" id="mot-du-dg">
-                                    <strong>Le mot du Directeur</strong>
                                     <h4>{{ $config->director_name }}</h4>
                                     <p>{!! $config->director_word !!}</p>
                                 </div>

@@ -30,7 +30,7 @@
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mot du DG </a>
+                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mot du Ministre</a>
                                 </li>
 
                                 <li class="dropdown">
@@ -38,7 +38,7 @@
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#services-en-ligne" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Services en ligne </a>
+                                    <a href="#services-en-ligne" class="dropdown-toggle main-menu-link"  aria-haspopup="true" aria-expanded="false">Services en ligne </a>
                                 </li>
 
                                 <li class="dropdown">

@@ -2920,6 +2920,11 @@ li.header-weather {
 	line-height: 24px;
 	margin: 0 0 31px;
 }
+
+.main-menu-link {
+	color: #D5B56B !important;
+	font-weight: bold;
+}
 .Mayor-welcome h6 {
 	font-weight: 600;
 	color: #fff;

@@ -6,9 +6,9 @@ return array (
   'fields' => 
   array (
     'id' => 'Id',
-    'director_word' => 'Mot du DG',
-    'director_photo' => 'Photo du DG',
-    'director_name' => 'Nom du DG',
+    'director_word' => 'Mot du Ministre',
+    'director_photo' => 'Photo du Ministre',
+    'director_name' => 'Nom du Ministre',
     'phone' => 'Téléphone',
     'email' => 'Email',
     'address' => 'Addresse',
