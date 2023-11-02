@@ -63,7 +63,7 @@
                                     <div class="deprt-icon-box"><img src="{{ url('frontend/images/P3.png') }}" alt="">
                                         <h6>
                                             <a href="{{ route('frontend.form') }}">
-                                                Dénonciation d'un contrevenant
+                                                Dénonciation un cas suspect
                                             </a>
                                         </h6>
                                     </div>

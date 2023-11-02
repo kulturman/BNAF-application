@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::middleware('auth:sanctum')->post('/reports', [ReportController::class, 'store']);

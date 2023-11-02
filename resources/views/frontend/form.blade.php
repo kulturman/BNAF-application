@@ -14,7 +14,7 @@
                 <li>
                     <a href="{{ url('/') }}">Accueil</a>
                 </li>
-                <li> Dénoncer un contrevenant </li>
+                <li> Dénoncer un cas suspect </li>
             </ul>
         </div>
     </section>

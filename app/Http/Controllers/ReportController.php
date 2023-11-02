@@ -9,7 +9,6 @@ use App\Models\Report;
 use App\Repositories\ReportRepository;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Laracasts\Flash\Flash;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 
@@ -94,7 +93,6 @@ class ReportController extends AppBaseController
 
         $this->reportRepository->create($inputs);
         $message = 'Alerte enregistrée avec succès, merci pour votre contribution';
-        return $this->sendSuccessDialogResponse($message);
         return $this->sendSuccessDialogResponse($message, true, route('frontend.form'));
     }
 
