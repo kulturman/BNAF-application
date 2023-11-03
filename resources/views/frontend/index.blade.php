@@ -1,8 +1,22 @@
 @extends('frontend.layout')
 
+
+
 @section('content')
-    <!--Header End-->
-    <!--Slider Start-->
+    <div class="flash-infos-container">
+        <div class="flash-infos__card">
+            <span>Flash infos</span>
+        </div>
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>This is the first text cycling.</span>
+                <span>This is the second text cycling right after the first.</span>
+                <span>And this is the third text appearing in line.</span>
+                <span>And this is the third text appearing in line.</span>
+                <span>And this is the third text appearing in line.</span>
+            </div>
+        </div>
+    </div>
     <div class="main-slider wf100">
         <div id="home-slider" class="owl-carousel owl-theme">
             @foreach($sliders as $slider)
@@ -50,7 +64,8 @@
                 </div>
             </section>
 
-            <section id="services-en-ligne" class="wf100 p75-50  depart-info" style="margin-top: 50px; background: #26922D">
+            <section id="services-en-ligne" class="wf100 p75-50  depart-info"
+                     style="margin-top: 50px; background: #26922D">
                 <div class="container">
                     <div class="row">
                         <div>
@@ -182,7 +197,9 @@
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>
-                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png"
+                        <a class="see-more" href="#" Téléchargez ici>
+
+                        </a> <span><img src="images/ccc-icon1.png"
                                                                                     alt=""></span></div>
                 </div>
 
@@ -192,8 +209,10 @@
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>
-                        <a class="see-more" href="#">Téléchargez ici</a> <span><img src="images/ccc-icon1.png"
-                                                                                    alt=""></span></div>
+                        <a class="see-more" href="#">Téléchargez ici</a>
+                        <span>
+                            <img src="images/ccc-icon1.png" alt=""></span>
+                    </div>
                 </div>
 
             </div>
