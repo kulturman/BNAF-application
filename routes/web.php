@@ -55,3 +55,5 @@ Route::resource('stats', App\Http\Controllers\StatController::class);
 
 Route::post('reports/{report}/validate', [ReportController::class, 'validateReport'])->name('reports.validate');
 Route::resource('reports', App\Http\Controllers\ReportController::class);
+
+Route::resource('flashInfos', App\Http\Controllers\FlashInfoController::class);

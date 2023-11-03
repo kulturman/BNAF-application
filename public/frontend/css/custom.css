@@ -2944,7 +2944,8 @@ li.header-weather {
 }
 
 .flash-infos__card {
-	width: 120px;
+	margin-right: 5px;
+	width: 200px;
 	padding: 10px;
 	text-align: center;
 	color: white;
@@ -2966,10 +2967,10 @@ li.header-weather {
 	color: #333;
 	padding: 20px;
 	position: relative;
+	width: 100%;
 }
 .marquee-content {
 	display: inline-block;
-	min-width: 100%; /* Ensures the content is always full width */
 	animation: marquee 50s linear infinite;
 	font-size: 1.7rem;
 }

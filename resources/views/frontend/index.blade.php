@@ -9,11 +9,9 @@
         </div>
         <div class="marquee">
             <div class="marquee-content">
-                <span>This is the first text cycling.</span>
-                <span>This is the second text cycling right after the first.</span>
-                <span>And this is the third text appearing in line.</span>
-                <span>And this is the third text appearing in line.</span>
-                <span>And this is the third text appearing in line.</span>
+                @foreach($flashInfos as $flashInfo)
+                    <span>{!! $flashInfo->content !!}</span>
+                @endforeach
             </div>
         </div>
     </div>
