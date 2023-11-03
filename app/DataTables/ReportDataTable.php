@@ -19,6 +19,7 @@ class ReportDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
+                ->addColumn('owner_id', fn ($row) => $row->owner ? $row->owner->name : '')
                 ->addColumn('created_at', fn ($row) => $row->created_at->format('d/m/Y H:i'))
                 ->addColumn('action', function ($row) {
                     return view('reports.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
@@ -34,7 +35,14 @@ class ReportDataTable extends DataTable
      */
     public function query(Report $model)
     {
-        return $model->newQuery()->where('validated', false)->orderBy('created_at', 'DESC');
+        return $model
+            ->newQuery()
+            /*->where('validated', false)
+            ->orWhere(function(Builder $builder) {
+                $builder->where('agent_code', 'IS', null)
+                    ->where('admin', true);
+            })*/
+            ->orderBy('created_at', 'DESC');
     }
 
     /**
@@ -73,6 +81,7 @@ class ReportDataTable extends DataTable
     {
         return [
             'created_at' => new Column(['title' => "Date de soumission", 'data' => 'created_at']),
+            'owner_id' => new Column(['title' => "Inputé à", 'data' => 'owner_id']),
             'localite' => new Column(['title' => __('models/reports.fields.localite'), 'data' => 'localite']),
             'structure' => new Column(['title' => __('models/reports.fields.structure'), 'data' => 'structure']),
             'repere' => new Column(['title' => __('models/reports.fields.repere'), 'data' => 'repere']),

@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'email_verified_at',
-        'agent_code'
+        'agent_code',
+        'phone'
     ];
 
     /**
@@ -45,6 +46,7 @@ class User extends Authenticatable
 
     public static $rules = [
         'name' => 'required',
+        'phone' => 'required',
         'password' => 'required|min:6|max:255:confirmed',
         'email' => 'required|unique:users',
         'password_confirmation' => 'required|same:password'

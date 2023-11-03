@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -49,7 +49,8 @@ class Report extends Model
         'province',
         'commune',
         'audio',
-        'agent_code'
+        'agent_code',
+        'onwer_id'
     ];
 
     /**
@@ -92,5 +93,8 @@ class Report extends Model
         'commune' => 'nullable|string|max:255|string|max:255'
     ];
 
+    public function owner() {
+        return $this->belongsTo(User::class, 'owner_id', 'id');
+    }
     
 }

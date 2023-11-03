@@ -1,10 +1,19 @@
 <!-- Localite Field -->
 <tr>
     <th>
-        {!! Form::label('agent°code', 'Code agent:') !!}
+        {!! Form::label('agent_code', 'Code agent:') !!}
     </th>
     <td>
         <p>{{ $report->agent_code }}</p>
+    </td>
+</tr>
+
+<tr>
+    <th>
+        {!! Form::label('owner_id', 'Inputé à:') !!}
+    </th>
+    <td>
+        <p>{{ $report->owner !== null ? $report->owner->name : '' }}</p>
     </td>
 </tr>
 

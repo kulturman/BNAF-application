@@ -60,11 +60,23 @@
     </a>
 </li>
 
-<li class="nav-item {{ Request::is('reports*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('reports.index') }}">
+<li class="nav-group">
+    <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-report-slash"></use>
-        </svg>
-        <span>Gestion des @lang('models/reports.plural')</span>
+        </svg> Gestion des alertes
     </a>
+    <ul class="nav-group-items">
+        <li class="nav-item {{ Request::is('reports.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('reports.index') }}">
+                <span>Toutes les alertes</span>
+            </a>
+        </li>
+
+        <li class="nav-item {{ Request::is('reports.yours') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('reports.index') }}">
+                <span>Vos alertes</span>
+            </a>
+        </li>
+    </ul>
 </li>

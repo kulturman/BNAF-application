@@ -12,15 +12,3 @@
     {!! Form::text('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     <strong class = "form-error-message"></strong>
 </div>
-
-<div class="form-group col-sm-6">
-    {!! Form::label('role_id', 'Role') !!}
-    <select class="form-control" name="role_id" id="role_id" required>
-        <option value="">Choisir le rôle</option>
-        @foreach($roles as $role)
-            <option @if (isset($user) && $role->id === $user->role_id) selected @endif value="{{ $role->id }}">{{ $role->name }}</option>
-        @endforeach
-    </select>
-    <strong class = "form-error-message"></strong>
-</div>
-

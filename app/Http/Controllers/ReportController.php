@@ -7,6 +7,8 @@ use App\Http\Requests\CreateReportRequest;
 use App\Http\Requests\UpdateReportRequest;
 use App\Models\Report;
 use App\Repositories\ReportRepository;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
@@ -16,11 +18,16 @@ class ReportController extends AppBaseController
 {
     /** @var  ReportRepository */
     private $reportRepository;
+    private UserRepository $userRepository;
 
-    public function __construct(ReportRepository $reportRepo)
+    public function __construct(
+        ReportRepository $reportRepo,
+        UserRepository $userRepository
+    )
     {
         $this->reportRepository = $reportRepo;
         $this->middleware(['auth'])->except('store');
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -59,6 +66,18 @@ class ReportController extends AppBaseController
 
         return $this->sendSuccessDialogResponse('Alerte validée avec succès');
     }
+
+    public function assign(Report $report, Request $request) {
+        if ($request->isMethod('GET')) {
+            $users = $this->userRepository->all();
+            return view('reports.assign', compact('report', 'users'));
+        }
+        $report->owner_id = $request->input('user_id');
+        $report->save();
+
+        return $this->sendSuccessDialogResponse("Alerte inmputés avec succès");
+    }
+
     /**
      * Store a newly created Report in storage.
      *

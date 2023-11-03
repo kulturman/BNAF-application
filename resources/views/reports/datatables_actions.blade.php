@@ -2,6 +2,11 @@
     <a data-message="Voulez vous valider cette alerte" data-method="POST" title="Valider" href="{{ route('reports.validate', $id) }}" class='ajax-button btn btn-ghost-success'>
         <i class="fa fa-check"></i>
     </a>
+    @if(auth()->user()->super_admin)
+    <a title="Inputer l'alerte" href="{{ route('reports.assign', $id) }}" class='dt-actions-btn btn btn-ghost-success'>
+        <i class="fa fa-user"></i>
+    </a>
+    @endif
     <a title="Détails" href="{{ route('reports.show', $id) }}" class='btn btn-ghost-success dt-actions-btn'>
        <i class="fa fa-eye"></i>
     </a>
