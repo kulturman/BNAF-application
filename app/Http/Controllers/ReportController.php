@@ -5,29 +5,31 @@ namespace App\Http\Controllers;
 use App\DataTables\ReportDataTable;
 use App\Http\Requests\CreateReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use App\Http\UseCases\CreateReport;
 use App\Models\Report;
 use App\Repositories\ReportRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 
 class ReportController extends AppBaseController
 {
-    /** @var  ReportRepository */
-    private $reportRepository;
+    private ReportRepository $reportRepository;
     private UserRepository $userRepository;
+    private CreateReport $createReport;
 
     public function __construct(
         ReportRepository $reportRepo,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        CreateReport $createReport
     )
     {
         $this->reportRepository = $reportRepo;
         $this->middleware(['auth'])->except('store');
         $this->userRepository = $userRepository;
+        $this->createReport = $createReport;
     }
 
     /**
@@ -87,30 +89,7 @@ class ReportController extends AppBaseController
      */
     public function store(CreateReportRequest $request)
     {
-        $inputs = $request->all();
-        $this->attachFiles($inputs);
-
-        if ($inputs['photoInput']) {
-            $filename = 'public/uploads/' .sha1(mktime()) . '.png';
-            @list($type, $fileData) = explode(';', $inputs['photoInput']);
-            @list(, $fileData) = explode(',', $fileData);
-            Storage::disk('local')->put(
-                $filename
-                , base64_decode($fileData)
-            );
-
-            $inputs['photoInput'] = str_replace('public', 'storage', $filename);
-        }
-
-        if (isset($inputs['audio'])) {
-            $filename = 'public/uploads/' .sha1(mktime()) . '.wav';
-            Storage::disk('local')->put(
-                $filename
-                , $inputs['audio']
-            );
-        }
-
-        $this->reportRepository->create($inputs);
+        $this->createReport->handle($request);
         $message = 'Alerte enregistrée avec succès, merci pour votre contribution';
         return $this->sendSuccessDialogResponse($message, true, route('frontend.form'));
     }

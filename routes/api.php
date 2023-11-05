@@ -19,4 +19,4 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::middleware('auth:sanctum')->post('/reports', [ReportController::class, 'store']);
+Route::post('/reports', [ReportController::class, 'store']);

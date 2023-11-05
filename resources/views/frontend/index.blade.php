@@ -10,7 +10,7 @@
         <div class="marquee">
             <div class="marquee-content">
                 @foreach($flashInfos as $flashInfo)
-                    <span>{!! $flashInfo->content !!}</span>
+                    <span style="color: red">{!! $flashInfo->content !!}</span>
                 @endforeach
             </div>
         </div>
