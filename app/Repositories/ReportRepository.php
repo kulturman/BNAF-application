@@ -47,4 +47,8 @@ class ReportRepository extends BaseRepository
     {
         return Report::class;
     }
+
+    public function getUserAssignedReports(int $userId) {
+        return $this->model->where('owner_id', $userId)->orderBy('created_at', 'DESC')->paginate(10);
+    }
 }

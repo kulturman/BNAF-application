@@ -54,6 +54,7 @@ Route::resource('siteConfigs', App\Http\Controllers\SiteConfigController::class)
 Route::resource('stats', App\Http\Controllers\StatController::class);
 
 Route::post('reports/{report}/validate', [ReportController::class, 'validateReport'])->name('reports.validate');
+Route::get('reports/me', [ReportController::class, 'myReports'])->name('reports.me');
 Route::resource('reports', App\Http\Controllers\ReportController::class);
 Route::match(['GET', 'POST'],'reports/assign/{report}', [App\Http\Controllers\ReportController::class, 'assign'])->name('reports.assign');
 

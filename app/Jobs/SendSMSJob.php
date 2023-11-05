@@ -48,7 +48,6 @@ class SendSMSJob implements ShouldQueue
             $this->message
         );
 
-        dump($url);
         Http::withHeaders([
             'X-auth-token' => getenv('SPEED_SMS_API_TOKEN')
         ])->get($url);

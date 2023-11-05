@@ -73,8 +73,8 @@
             </a>
         </li>
 
-        <li class="nav-item {{ Request::is('reports.yours') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('reports.index') }}">
+        <li class="nav-item {{ Request::is('reports.me') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('reports.me') }}">
                 <span>Vos alertes</span>
             </a>
         </li>

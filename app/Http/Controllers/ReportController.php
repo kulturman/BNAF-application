@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\MyReportsDataTable;
 use App\DataTables\ReportDataTable;
 use App\Http\Requests\CreateReportRequest;
 use App\Http\Requests\UpdateReportRequest;
@@ -41,6 +42,10 @@ class ReportController extends AppBaseController
     public function index(ReportDataTable $reportDataTable)
     {
         return $reportDataTable->render('reports.index');
+    }
+
+    public function myReports(MyReportsDataTable $reportDataTable) {
+        return $reportDataTable->render('reports.me');
     }
 
     public function create()
