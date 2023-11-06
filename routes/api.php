@@ -22,3 +22,4 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::middleware('auth:sanctum')->get('/reports/me', [ReportController::class, 'myReports']);
 Route::middleware('auth:sanctum')->get('/reports/{report}', [ReportController::class, 'getReport']);
 Route::post('/reports', [ReportController::class, 'store']);
+Route::get('/reports/{report}/getAudio', [ReportController::class, 'getAudio']);

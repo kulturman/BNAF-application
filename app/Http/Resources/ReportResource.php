@@ -32,7 +32,7 @@ class ReportResource extends JsonResource
         ];
     }
 
-    public function getPhotos()
+    public function getPhotos(): array
     {
         $photos = [];
 

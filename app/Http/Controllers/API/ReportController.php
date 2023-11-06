@@ -41,7 +41,7 @@ class ReportController extends AppBaseController
 
     public function getAudio(Report $report) {
         return [
-            'audio' => base64_encode(file_get_contents($report->audio))
+            'audio' => $report->audio === null ? null : base64_encode(file_get_contents($report->audio))
         ];
     }
 }
