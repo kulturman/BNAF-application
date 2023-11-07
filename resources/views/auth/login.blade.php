@@ -50,8 +50,8 @@
                                       <i class="icon-user"></i>
                                     </span>
                                 </div>
-                                <input type="email" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
-                                       placeholder="Email">
+                                <input type="text" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
+                                       placeholder="Nom d'utilisateur">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>

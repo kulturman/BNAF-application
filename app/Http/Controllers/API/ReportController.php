@@ -34,6 +34,10 @@ class ReportController extends AppBaseController
         return ReportResource::collection($this->reportRepository->getUserAssignedReports(auth()->user()->id));
     }
 
+    public function findAll() {
+        return ReportResource::collection($this->reportRepository->getCurrentUserViewableReports()->paginate(10));
+    }
+
     public function getReport(Report $report)
     {
         return new ReportResource($report);

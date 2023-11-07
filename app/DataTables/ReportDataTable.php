@@ -3,12 +3,20 @@
 namespace App\DataTables;
 
 use App\Models\Report;
+use App\Repositories\ReportRepository;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Column;
 
 class ReportDataTable extends DataTable
 {
+    private ReportRepository $reportRepository;
+
+    public function __construct(ReportRepository $reportRepository)
+    {
+        $this->reportRepository = $reportRepository;
+    }
+
     /**
      * Build DataTable class.
      *
@@ -35,14 +43,7 @@ class ReportDataTable extends DataTable
      */
     public function query(Report $model)
     {
-        return $model
-            ->newQuery()
-            /*->where('validated', false)
-            ->orWhere(function(Builder $builder) {
-                $builder->where('agent_code', 'IS', null)
-                    ->where('admin', true);
-            })*/
-            ->orderBy('created_at', 'DESC');
+        return $this->reportRepository->getCurrentUserViewableReports();
     }
 
     /**

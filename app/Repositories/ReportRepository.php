@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Report;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**
@@ -51,4 +52,17 @@ class ReportRepository extends BaseRepository
     public function getUserAssignedReports(int $userId) {
         return $this->model->where('owner_id', $userId)->orderBy('created_at', 'DESC')->paginate(10);
     }
+
+    public function getCurrentUserViewableReports() {
+        $qb = $this->model->newQuery()->orderBy('created_at', 'DESC');
+        $user = auth()->user();
+
+        if (!$user->super_admin) {
+            $qb->where('agent_code', $user->agent_code);
+            $qb->orWhereNull('agent_code')
+            ->orWhere('owner_id', $user->id);
+        }
+        return $qb;
+    }
+
 }
