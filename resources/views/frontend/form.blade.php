@@ -45,11 +45,6 @@
 
                         <!-- Canvas to display the captured photo -->
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-                        <div class="form-group col-sm-12">
-                            {!! Form::label('agent_code', "Code de votre contact à la BNAF") !!}
-                            {!! Form::text('agent_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                            <strong class = "form-error-message"></strong>
-                        </div>
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('region', 'Région:') !!}
@@ -133,6 +128,11 @@
                         </div>
 
                         <input name="photoInput" type="hidden" class="form-variable" id="photoInput"/>
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('agent_code', "Espace réservé, code si vous en avez") !!}
+                            {!! Form::text('agent_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            <strong class = "form-error-message"></strong>
+                        </div>
                         <!-- Submit Field -->
                         <div class="form-group col-sm-12">
                             {!! Form::submit(__('crud.save'), ['class' => 'btn btn-success']) !!}

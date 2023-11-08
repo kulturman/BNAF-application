@@ -1,7 +1,5 @@
 @extends('frontend.layout')
 
-
-
 @section('content')
     <div class="flash-infos-container">
         <div class="flash-infos__card">
@@ -46,7 +44,7 @@
                                 </div>
                                 <div class="Mayor-txt" id="mot-du-dg">
                                     <h4>{{ $config->director_name }}</h4>
-                                    <p>{!! $config->director_word !!}</p>
+                                    <p style="text-align: justify">{!! $config->director_word !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,11 +77,6 @@
                                                 Dénonciation d'un cas suspect
                                             </a>
                                         </h6>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="deprt-icon-box"><img src="{{url('frontend/images/P4.png')}}" alt="">
-                                        <h6><a href="#">Télédéclaration</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +124,7 @@
                 </div>
             </div>
             <section id="statistiques" class="wf100 p80 fact-newsletter"
-                     style="background: url(https://www.architecture.bf/wp-content/uploads/bureau-administratif-3.jpg); background-repeat: round">
+                     style="height:600px;background: url(https://www.architecture.bf/wp-content/uploads/bureau-administratif-3.jpg); background-repeat: round">
 
                 <div class="container">
 
@@ -158,24 +151,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <!--Stay Connected Start-->
-                            <div class="stay-connected">
-                                <h5>Newsletter</h5>
-                                <ul>
-                                    <li>
-                                        <input type="text" class="form-control" placeholder="Nom complet">
-                                    </li>
-                                    <li>
-                                        <input type="text" class="form-control" placeholder="Adresse email">
-                                    </li>
-                                    <li>
-                                        <input type="submit" value="Souscrire">
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--Stay Connected End-->
-                        </div>
                     </div>
                 </div>
             </section>
@@ -191,19 +166,32 @@
                 <!--Department Box Start-->
                 <div class="col-md-3 col-sm-6">
                     <div class="community-box mb30">
-                        <h6>Carte de vendeur d'or</h6>
+                        <h6>Carte d'artisan minier collecteur</h6>
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>
                         <a class="see-more" href="#" Téléchargez ici>
 
-                        </a> <span><img src="images/ccc-icon1.png"
-                                                                                    alt=""></span></div>
+                        </a>
+                            <span><img src="images/ccc-icon1.png" alt=""></span>
+                    </div>
                 </div>
 
                 <div class="col-md-3 col-sm-6">
                     <div class="community-box mb30">
-                        <h6>Carte de vendeur d'or</h6>
+                        <h6>Agrément pour la commercialisation</h6>
+                        <ul>
+                            Vous souhaitez commercialiser de l'or...
+                        </ul>
+                        <a class="see-more" href="#">Téléchargez ici</a>
+                        <span>
+                            <img src="images/ccc-icon1.png" alt=""></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="community-box mb30">
+                        <h6>Titre minier ou autorisation</h6>
                         <ul>
                             Vous souhaitez commercialiser de l'or...
                         </ul>

@@ -2988,6 +2988,26 @@ li.header-weather {
 	height: 34px !important;
 }
 
+/* Add this CSS to style the button */
+#scrollToTopBtn {
+	position: fixed; /* Fixed position to make it visible above the content */
+	bottom: 10px; /* 20px from the bottom */
+	right: 10px; /* 30px from the right */
+	z-index: 99; /* Make sure it is above other content */
+	border: none; /* No border */
+	outline: none; /* Remove outline */
+	background-color: white; /* Dark background color */
+	color: black; /* White text color */
+	cursor: pointer; /* Pointer cursor on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+}
+
+#scrollToTopBtn:hover {
+	background-color: #555; /* Slightly lighter on hover */
+}
+
+
 .hidden {
 	display: none;
 }

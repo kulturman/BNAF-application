@@ -51,6 +51,11 @@
         <div class="row">
             <div class="col-md-7 col-sm-7">
                 <p class="copyr">BNAF tous droits réservés © 2023</p>
+                <!-- Place this code in the footer of your HTML -->
+                <button id="scrollToTopBtn" aria-label="Scroll to top">
+                    &#x2191; <!-- This is the Unicode for the upwards arrow -->
+                </button>
+
             </div>
             <div class="col-md-5 col-sm-5">
                 <ul class="footer-social">

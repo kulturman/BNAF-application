@@ -1,6 +1,29 @@
 jQuery(document).ready(function($) {
     "use strict"
 
+    // Add this script before the closing </body> tag
+
+// When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+            document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+    }
+
+// When the user clicks on the button, scroll to the top of the document smoothly
+    document.getElementById("scrollToTopBtn").addEventListener("click", function(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // for smooth scrolling
+        });
+    });
+
 
     // ------- Navigation ------- //
     if ($('ul.nav li.dropdown').length) {
