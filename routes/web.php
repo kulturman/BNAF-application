@@ -59,3 +59,5 @@ Route::resource('reports', App\Http\Controllers\ReportController::class);
 Route::match(['GET', 'POST'],'reports/assign/{report}', [App\Http\Controllers\ReportController::class, 'assign'])->name('reports.assign');
 
 Route::resource('flashInfos', App\Http\Controllers\FlashInfoController::class);
+
+Route::get('static/{slug}', [FrontendController::class, 'staticPage'])->name('frontend.static');

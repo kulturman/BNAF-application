@@ -47,6 +47,14 @@ class FrontendController extends Controller
         return view('frontend.article', compact('article', 'relatedArticles'));
     }
 
+    //Refactor this later to make it generic if needed
+
+    public function staticPage($slug)
+    {
+        return view('frontend.static-page')
+            ->with('title', 'Mot du ministre')->with('content', $this->siteConfigRepository->get()->director_word);
+    }
+
     public function form() {
         return view('frontend.form');
     }
