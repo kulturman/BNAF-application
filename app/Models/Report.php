@@ -79,18 +79,7 @@ class Report extends Model
      * @var array
      */
     public static $rules = [
-        'deleted_at' => 'nullable|nullable',
-        'localite' => 'nullable|required|string|max:255|string|max:255',
-        'structure' => 'nullable|required|string|max:255|string|max:255',
-        'photo' => 'nullable|mimes:jpg,jpeg,png,gif',
-        'text' => 'nullable|string|nullable|string',
-        'repere' => 'nullable|string|max:255|nullable|string|max:255',
-        'created_at' => 'nullable|nullable',
-        'updated_at' => 'nullable|nullable',
-        'nip' => 'required|string|max:255|string|max:255',
-        'region' => 'nullable|string|max:255|string|max:255',
-        'province' => 'nullable|string|max:255|string|max:255',
-        'commune' => 'nullable|string|max:255|string|max:255'
+
     ];
 
     public function owner() {

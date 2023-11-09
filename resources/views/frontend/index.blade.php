@@ -45,7 +45,7 @@
                                 <div class="Mayor-txt" id="mot-du-dg">
                                     <h4>{{ $config->director_name }}</h4>
                                     @php
-                                        $maxLength = 1500;
+                                        $maxLength = 1440;
                                         // Use mb_substr to properly handle multi-byte characters
                                         $displayText = mb_strlen($config->director_word) > $maxLength ? mb_substr($config->director_word, 0, $maxLength) . '...' : $config->director_word;
                                     @endphp
