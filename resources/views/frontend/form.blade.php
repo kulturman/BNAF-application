@@ -97,7 +97,7 @@
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('nip', 'Numéro NIP de la CNIB (17 chiffres):') !!}
-                            {!! Form::text('nip', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('nip', null, ['title' => 'Le NIP est composé de 17 chiffres', 'pattern' => '\d*', 'class' => 'form-control','maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
