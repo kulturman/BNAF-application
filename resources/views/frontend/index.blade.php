@@ -44,19 +44,12 @@
                                 </div>
                                 <div class="Mayor-txt" id="mot-du-dg">
                                     <h4>{{ $config->director_name }}</h4>
-                                    @php
-                                        $maxLength = 1440;
-                                        // Use mb_substr to properly handle multi-byte characters
-                                        $displayText = mb_strlen($config->director_word) > $maxLength ? mb_substr($config->director_word, 0, $maxLength) . '...' : $config->director_word;
-                                    @endphp
+
                                     <p style="text-align: justify">
-                                        {!! $displayText !!}
-                                        @if(mb_strlen($config->director_word) > $maxLength)
-                                            <br>
-                                            <br>
-                                            <a target="_blank" href="{{ route('frontend.static', ['slug' => 'mot-du-ministre']) }}">Lire plus</a>
-                                            {{-- You can replace 'url('/full-text')' with the actual URL where the full text can be read --}}
-                                        @endif
+                                        {!! getArticleContentPreview($config->director_word, 1500) !!}
+                                        <br>
+                                        <br>
+                                        <a target="_blank" href="{{ route('frontend.static', ['slug' => 'mot-du-ministre']) }}">Lire plus</a>
                                     </p>
                                 </div>
                             </div>
