@@ -33,6 +33,10 @@ class CreateReport
 
     //Use request here on purpose
     public function handle(Request $request) {
+        if ($request->input('email') !== null) {
+            return;
+        }
+
         $inputs = $request->all();
         $this->attachFiles($inputs);
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Liste des @lang('models/siteConfigs.plural')
+    @lang('models/siteConfigs.plural')
 @endsection
 
 @section('breadcrumb')
@@ -11,7 +11,7 @@
 @section('content')
     {{ csrf_field() }}
     <section class="content-header">
-        <h1>Liste des @lang('models/siteConfigs.plural')</h1>
+        <h1>@lang('models/siteConfigs.plural')</h1>
     </section>
     <div class="container-fluid">
         <div class="modal fade" id="crudModal" tabindex="-1" aria-labelledby="crudModal" aria-hidden="true">
