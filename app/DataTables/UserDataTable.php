@@ -56,9 +56,6 @@ class UserDataTable extends DataTable
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],
                     ['extend' => 'reset', 'className' => 'btn btn-danger',]
-                ],
-                'language' => [
-                    'url' => url('https://cdn.datatables.net/plug-ins/1.10.12/i18n/French.json'),
                 ]
             ]);
     }
