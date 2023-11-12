@@ -33,16 +33,6 @@ class FlashInfoController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new FlashInfo.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('flash_infos.create');
-    }
-
-    /**
      * Store a newly created FlashInfo in storage.
      *
      * @param CreateFlashInfoRequest $request
@@ -59,9 +49,19 @@ class FlashInfoController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new FlashInfo.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('flash_infos.create');
+    }
+
+    /**
      * Display the specified FlashInfo.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -78,7 +78,7 @@ class FlashInfoController extends AppBaseController
     /**
      * Show the form for editing the specified FlashInfo.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class FlashInfoController extends AppBaseController
         $flashInfo = $this->flashInfoRepository->find($id);
 
         if (empty($flashInfo)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('flash_infos.edit')->with('flashInfo', $flashInfo);
@@ -95,7 +95,7 @@ class FlashInfoController extends AppBaseController
     /**
      * Update the specified FlashInfo in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateFlashInfoRequest $request
      *
      * @return JsonResponse
@@ -105,7 +105,7 @@ class FlashInfoController extends AppBaseController
         $flashInfo = $this->flashInfoRepository->find($id);
 
         if (empty($flashInfo)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/flashInfos.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/flashInfos.singular')]));
         }
 
         $inputs = $request->all();
@@ -118,7 +118,7 @@ class FlashInfoController extends AppBaseController
     /**
      * Remove the specified FlashInfo from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -127,7 +127,7 @@ class FlashInfoController extends AppBaseController
         $flashInfo = $this->flashInfoRepository->find($id);
 
         if (empty($flashInfo)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/flashInfos.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/flashInfos.singular')]));
         }
 
         $this->flashInfoRepository->delete($id);

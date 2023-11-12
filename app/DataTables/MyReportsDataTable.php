@@ -19,11 +19,11 @@ class MyReportsDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->addColumn('created_at', fn ($row) => $row->created_at->format('d/m/Y H:i'))
-                ->addColumn('action', function ($row) {
-                    return view('reports.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
-                })
-                ->addColumn('action', 'reports.datatables_actions_me');
+            ->addColumn('created_at', fn($row) => $row->created_at->format('d/m/Y H:i'))
+            ->addColumn('action', function ($row) {
+                return view('reports.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+            })
+            ->addColumn('action', 'reports.datatables_actions_me');
     }
 
     /**
@@ -52,10 +52,10 @@ class MyReportsDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],

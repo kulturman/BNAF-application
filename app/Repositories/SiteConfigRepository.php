@@ -9,8 +9,7 @@ use App\Repositories\BaseRepository;
  * Class SiteConfigRepository
  * @package App\Repositories
  * @version September 13, 2023, 2:39 am UTC
-*/
-
+ */
 class SiteConfigRepository extends BaseRepository
 {
     /**
@@ -47,7 +46,8 @@ class SiteConfigRepository extends BaseRepository
         return SiteConfig::class;
     }
 
-    public function get() {
+    public function get()
+    {
         return SiteConfig::first();
     }
 }

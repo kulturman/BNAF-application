@@ -7,17 +7,18 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'assignForm', 'enctype' => "multipart/form-data", 'route' => ['reports.assign', $report->id], 'files' => true, 'class' => 'row g-3 main-form']) !!}
-                        <div class="form-group col-sm-6">
-                            <select class="form-control" name="user_id" id="user_id">
-                                @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            {!! Form::submit('Valider', ['class' => 'btn btn-success']) !!}
-                        </div>
+                    {!! Form::open(['id' => 'assignForm', 'enctype' => "multipart/form-data", 'route' =>
+                    ['reports.assign', $report->id], 'files' => true, 'class' => 'row g-3 main-form']) !!}
+                    <div class="form-group col-sm-6">
+                        <select class="form-control" name="user_id" id="user_id">
+                            @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        {!! Form::submit('Valider', ['class' => 'btn btn-success']) !!}
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>

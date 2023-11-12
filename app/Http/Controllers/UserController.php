@@ -36,17 +36,8 @@ class UserController extends AppBaseController
         return $userDataTable->render('users.index');
     }
 
-    /**
-     * Show the form for creating a new User.
-     *
-     * @return Response
-     */
-    public function create()
+    public function resetPassword(User $user)
     {
-        return view('users.create');
-    }
-
-    public function resetPassword(User $user) {
         $user->password = bcrypt(config('custom.default_password'));
         $user->save();
 
@@ -71,9 +62,19 @@ class UserController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new User.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    /**
      * Display the specified User.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -82,7 +83,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
-            Flash::error(__('models/users.singular').' '.__('messages.not_found'));
+            Flash::error(__('models/users.singular') . ' ' . __('messages.not_found'));
 
             return redirect(route('users.index'));
         }
@@ -90,11 +91,13 @@ class UserController extends AppBaseController
         return view('users.show')->with('user', $user);
     }
 
-    public function changePassword() {
+    public function changePassword()
+    {
         return view('users.change-password');
     }
 
-    public function handleChangePassword(Request $request) {
+    public function handleChangePassword(Request $request)
+    {
 
         $request->validate([
             'current_password' => 'required|min:6|max:255|password',
@@ -112,7 +115,7 @@ class UserController extends AppBaseController
     /**
      * Show the form for editing the specified User.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -132,7 +135,7 @@ class UserController extends AppBaseController
     /**
      * Update the specified User in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateUserRequest $request
      *
      * @return JsonResponse
@@ -142,7 +145,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/users.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/users.singular')]));
         }
 
         $this->userRepository->update($request->all(), $id);
@@ -153,7 +156,7 @@ class UserController extends AppBaseController
     /**
      * Remove the specified User from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -162,7 +165,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->find($id);
 
         if (empty($user)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/users.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/users.singular')]));
         }
 
         $this->userRepository->delete($id);

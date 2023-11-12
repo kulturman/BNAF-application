@@ -2,17 +2,17 @@
 <div class="form-group col-sm-6">
     {!! Form::label('text', __('models/slides.fields.text').':') !!}
     {!! Form::text('text', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 
 <!-- Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('image', __('models/slides.fields.image').':') !!}
-    <input type="file" name="image" id="image" class="form-control file" />
-    <strong class = "form-error-message"></strong>
+    <input type="file" name="image" id="image" class="form-control file"/>
+    <strong class="form-error-message"></strong>
     @if(isset($slide) && $slide->image)
-        <img class="thumbnail" src="{{ asset($slide->image) }}" alt="Image">
+    <img class="thumbnail" src="{{ asset($slide->image) }}" alt="Image">
     @endif
 </div>
 <div class="clearfix"></div>
@@ -21,7 +21,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('order', __('models/slides.fields.order').':') !!}
     {!! Form::text('order', null, ['class' => 'form-control']) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 

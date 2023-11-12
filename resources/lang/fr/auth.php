@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed'   => 'Nom d\'utilisateur et/ou mot de passe erroné, veuillez réessayer',
+    'failed' => 'Nom d\'utilisateur et/ou mot de passe erroné, veuillez réessayer',
     'throttle' => 'Trop de tentatives de connexion. Veuillez essayer de nouveau dans :seconds secondes.',
 
 ];

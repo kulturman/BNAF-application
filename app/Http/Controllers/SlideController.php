@@ -33,16 +33,6 @@ class SlideController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Slide.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('slides.create');
-    }
-
-    /**
      * Store a newly created Slide in storage.
      *
      * @param CreateSlideRequest $request
@@ -59,9 +49,19 @@ class SlideController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Slide.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('slides.create');
+    }
+
+    /**
      * Display the specified Slide.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -78,7 +78,7 @@ class SlideController extends AppBaseController
     /**
      * Show the form for editing the specified Slide.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class SlideController extends AppBaseController
         $slide = $this->slideRepository->find($id);
 
         if (empty($slide)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('slides.edit')->with('slide', $slide);
@@ -95,7 +95,7 @@ class SlideController extends AppBaseController
     /**
      * Update the specified Slide in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateSlideRequest $request
      *
      * @return JsonResponse
@@ -105,7 +105,7 @@ class SlideController extends AppBaseController
         $slide = $this->slideRepository->find($id);
 
         if (empty($slide)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/slides.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/slides.singular')]));
         }
 
         $inputs = $request->all();
@@ -118,7 +118,7 @@ class SlideController extends AppBaseController
     /**
      * Remove the specified Slide from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -127,7 +127,7 @@ class SlideController extends AppBaseController
         $slide = $this->slideRepository->find($id);
 
         if (empty($slide)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/slides.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/slides.singular')]));
         }
 
         $this->slideRepository->delete($id);

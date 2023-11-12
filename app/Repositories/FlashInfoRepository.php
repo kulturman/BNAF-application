@@ -9,8 +9,7 @@ use App\Repositories\BaseRepository;
  * Class FlashInfoRepository
  * @package App\Repositories
  * @version November 3, 2023, 12:35 am UTC
-*/
-
+ */
 class FlashInfoRepository extends BaseRepository
 {
     /**

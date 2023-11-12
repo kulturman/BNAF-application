@@ -1,10 +1,10 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     "use strict"
 
     // Add this script before the closing </body> tag
 
 // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {
+    window.onscroll = function () {
         scrollFunction();
     };
 
@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
     }
 
 // When the user clicks on the button, scroll to the top of the document smoothly
-    document.getElementById("scrollToTopBtn").addEventListener("click", function(){
+    document.getElementById("scrollToTopBtn").addEventListener("click", function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth' // for smooth scrolling
@@ -27,9 +27,9 @@ jQuery(document).ready(function($) {
 
     // ------- Navigation ------- //
     if ($('ul.nav li.dropdown').length) {
-        $('ul.nav li.dropdown').on('hover', function() {
+        $('ul.nav li.dropdown').on('hover', function () {
             $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-        }, function() {
+        }, function () {
             $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
         });
     }
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
         $('#highlight-slider').owlCarousel({
             loop: true,
             margin: 5,
-			dots:false,
+            dots: false,
             responsiveClass: true,
             responsive: {
                 0: {
@@ -108,8 +108,7 @@ jQuery(document).ready(function($) {
     // ------- Home Slider End ------- //
 
 
-
-    // ------- Pretty Photo Start ------- // 
+    // ------- Pretty Photo Start ------- //
     if ($('.gallery').length) {
         $("area[data-rel^='prettyPhoto']").prettyPhoto();
         $(".gallery:first a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -121,11 +120,6 @@ jQuery(document).ready(function($) {
 
     }
     // ------- Pretty Photo End ------- // 
-
-
-   
-
-
 
 
     // ------- Event Slider Start ------- //
@@ -175,19 +169,17 @@ jQuery(document).ready(function($) {
     // ------- Home Slider End ------- //
 
 
-
     // ------- Close Btn ------- //
     if ($('#closebtn').length) {
-        $('#closebtn').on('click', function() {
+        $('#closebtn').on('click', function () {
             $('#closetopbar').slideUp().empty();
         });
 
-        $(function() {
+        $(function () {
             $('#closetopbar').slideDown();
         });
     }
     // ------- Close Btn ------- //
-
 
 
     // ------- Events Counter ------- //
@@ -213,7 +205,7 @@ jQuery(document).ready(function($) {
                 },
                 layoutMode: 'masonry'
             });
-            $(window).on("resize", function() {
+            $(window).on("resize", function () {
                 $container.isotope({
                     masonry: {
                         columnWidth: $container.width() / 12
@@ -222,16 +214,16 @@ jQuery(document).ready(function($) {
             });
         }
         if ($('.filter-gallery #filters').length) {
-            $('.filter-gallery #filters').on('click', 'button', function() {
+            $('.filter-gallery #filters').on('click', 'button', function () {
                 var filterValue = $(this).attr('data-filter');
                 $container.isotope({
                     filter: filterValue
                 });
             });
             // change is-checked class on buttons
-            $('.filter-gallery .button-group').each(function(i, buttonGroup) {
+            $('.filter-gallery .button-group').each(function (i, buttonGroup) {
                 var $buttonGroup = $(buttonGroup);
-                $buttonGroup.on('click', 'button', function() {
+                $buttonGroup.on('click', 'button', function () {
                     $buttonGroup.find('.is-checked').removeClass('is-checked');
                     $(this).addClass('is-checked');
                 });
@@ -253,7 +245,7 @@ jQuery(document).ready(function($) {
                 },
                 layoutMode: 'masonry'
             });
-            $(window).on("resize", function() {
+            $(window).on("resize", function () {
                 $container.isotope({
                     masonry: {
                         columnWidth: $container.width() / 12
@@ -265,8 +257,6 @@ jQuery(document).ready(function($) {
 
 
     // ------- Filter Gallery End ------- //
-
-
 
 
     // ------- Testimonials Page Slider Start ------- //
@@ -319,7 +309,6 @@ jQuery(document).ready(function($) {
     // ------- Testimonials Page Slider End ------- //
 
 
-
     // ------- Counter Start ------- //
     if ($('.countdown').length) {
         var austDay = new Date();
@@ -333,18 +322,18 @@ jQuery(document).ready(function($) {
 
     // ------- Search Overlay Start ------- //
     if ($('a[href="#search"]').length) {
-        $(function() {
-            $('a[href="#search"]').on('click', function(event) {
+        $(function () {
+            $('a[href="#search"]').on('click', function (event) {
                 event.preventDefault();
                 $('#search').addClass('open');
                 $('#search > form > input[type="search"]').focus();
             });
-            $('#search, #search button.close').on('click keyup', function(event) {
+            $('#search, #search button.close').on('click keyup', function (event) {
                 if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
                     $(this).removeClass('open');
                 }
             });
-            $('form').submit(function(event) {
+            $('form').submit(function (event) {
                 event.preventDefault();
                 return false;
             })
@@ -352,51 +341,51 @@ jQuery(document).ready(function($) {
     }
 
     // ------- Search Overlay End ------- //
-	
-	 if ($('#dismiss, .overlay').length) {
-       $('#dismiss, .overlay').on('click', function () {
-       $('#sidebar').removeClass('active');
-       $('.overlay').removeClass('active');
-       });
 
-       $('#sidebarCollapse').on('click', function () {
-       $('#sidebar').addClass('active');
-       $('.overlay').addClass('active');
-       $('.collapse.in').toggleClass('in');
-       $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-       });
-	 }
+    if ($('#dismiss, .overlay').length) {
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    }
 
 
 }); //End
 
 
- // ------- Site Sticky Footer Start ------- //
+// ------- Site Sticky Footer Start ------- //
+if ($('#site-footer').length) {
     if ($('#site-footer').length) {
-        if ($('#site-footer').length) {
+        siteFooter();
+        $(window).on('resize', function () {
             siteFooter();
-            $(window).on('resize', function() {
-                siteFooter();
+        });
+
+        function siteFooter() {
+            var siteContent = $('#site-footer');
+            var siteContentHeight = siteContent.height();
+            var siteContentWidth = siteContent.width();
+
+            var siteFooter = $('#call-2-action');
+            var siteFooterHeight = siteFooter.height();
+            var siteFooterWidth = siteFooter.width();
+
+            console.log('Content Height = ' + siteContentHeight + 'px');
+            console.log('Content Width = ' + siteContentWidth + 'px');
+            console.log('Footer Height = ' + siteFooterHeight + 'px');
+            console.log('Footer Width = ' + siteFooterWidth + 'px');
+
+            siteContent.css({
+                "margin-bottom": siteFooterHeight + 50
             });
-
-            function siteFooter() {
-                var siteContent = $('#site-footer');
-                var siteContentHeight = siteContent.height();
-                var siteContentWidth = siteContent.width();
-
-                var siteFooter = $('#call-2-action');
-                var siteFooterHeight = siteFooter.height();
-                var siteFooterWidth = siteFooter.width();
-
-                console.log('Content Height = ' + siteContentHeight + 'px');
-                console.log('Content Width = ' + siteContentWidth + 'px');
-                console.log('Footer Height = ' + siteFooterHeight + 'px');
-                console.log('Footer Width = ' + siteFooterWidth + 'px');
-
-                siteContent.css({
-                    "margin-bottom": siteFooterHeight + 50
-                });
-            };
-        }
+        };
     }
-    // ------- Site Sticky Footer End ------- //	
+}
+// ------- Site Sticky Footer End ------- //

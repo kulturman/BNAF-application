@@ -16,23 +16,15 @@ class CreateReport
 
     public function __construct(
         ReportRepository $reportRepository,
-        UserRepository $userRepository
+        UserRepository   $userRepository
     )
     {
         $this->reportRepository = $reportRepository;
         $this->userRepository = $userRepository;
     }
 
-    private function attachFiles(array &$inputs) {
-        foreach ($inputs as $fieldName => $input) {
-            if ($input instanceof UploadedFile) {
-                $inputs[$fieldName] = str_replace('public', 'storage', $input->store('public/uploads'));
-            }
-        }
-    }
-
-    //Use request here on purpose
-    public function handle(Request $request) {
+    public function handle(Request $request)
+    {
         if ($request->input('email') !== null) {
             return;
         }
@@ -41,7 +33,7 @@ class CreateReport
         $this->attachFiles($inputs);
 
         if (isset($inputs['photoInput'])) {
-            $filename = 'public/uploads/' .sha1(mktime()) . '.png';
+            $filename = 'public/uploads/' . sha1(mktime()) . '.png';
             @list($type, $fileData) = explode(';', $inputs['photoInput']);
             @list(, $fileData) = explode(',', $fileData);
             Storage::disk('local')->put(
@@ -54,7 +46,7 @@ class CreateReport
 
         if (isset($inputs['audio'])) {
             if (!str_contains($inputs['audio'], 'storage')) {
-                $filename = 'public/uploads/' .sha1(mktime()) . '.wav';
+                $filename = 'public/uploads/' . sha1(mktime()) . '.wav';
                 Storage::disk('local')->put(
                     $filename
                     , base64_decode($inputs['audio'])
@@ -69,6 +61,17 @@ class CreateReport
         //Use events later
         foreach ($this->userRepository->all() as $user) {
             SendSMSJob::dispatch('Alerte_BNAF', $user->phone, "Nouvelle alerte enregistrée sur la plateforme");
+        }
+    }
+
+    //Use request here on purpose
+
+    private function attachFiles(array &$inputs)
+    {
+        foreach ($inputs as $fieldName => $input) {
+            if ($input instanceof UploadedFile) {
+                $inputs[$fieldName] = str_replace('public', 'storage', $input->store('public/uploads'));
+            }
         }
     }
 }

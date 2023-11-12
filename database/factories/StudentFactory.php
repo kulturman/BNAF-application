@@ -23,15 +23,15 @@ class StudentFactory extends Factory
     {
         return [
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'name' => $this->faker->word,
-        'forename' => $this->faker->word,
-        'matricule' => $this->faker->word,
-        'birthdate' => $this->faker->word,
-        'birthplace' => $this->faker->word,
-        'tutor_phone_number1' => $this->faker->word,
-        'tutor_phone_number2' => $this->faker->word,
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'name' => $this->faker->word,
+            'forename' => $this->faker->word,
+            'matricule' => $this->faker->word,
+            'birthdate' => $this->faker->word,
+            'birthplace' => $this->faker->word,
+            'tutor_phone_number1' => $this->faker->word,
+            'tutor_phone_number2' => $this->faker->word,
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

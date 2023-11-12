@@ -42,11 +42,11 @@
     <td>
         <p>
             @if(isset($report->photo))
-                <img class="thumbnail" src="{{ asset($report->photo)}}" alt="Photo">
+            <img class="thumbnail" src="{{ asset($report->photo)}}" alt="Photo">
             @endif
 
             @if(isset($report->photoInput))
-                <img class="thumbnail" src="{{ asset($report->photoInput)}}" alt="Photo">
+            <img class="thumbnail" src="{{ asset($report->photoInput)}}" alt="Photo">
             @endif
         </p>
     </td>
@@ -59,9 +59,9 @@
     <td>
         <p>
             @if(isset($report->audio))
-                <audio controls>
-                    <source src="{{ asset($report->audio) }}">
-                </audio>
+            <audio controls>
+                <source src="{{ asset($report->audio) }}">
+            </audio>
             @endif
         </p>
     </td>
@@ -84,7 +84,7 @@
         {!! Form::label('text', __('models/reports.fields.text').':') !!}
     </th>
     <td>
-        <p>{!!  $report->text !!}</p>
+        <p>{!! $report->text !!}</p>
     </td>
 </tr>
 

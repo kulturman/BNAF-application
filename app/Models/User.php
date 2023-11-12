@@ -11,6 +11,13 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
+    public static $rules = [
+        'name' => 'required',
+        'phone' => 'required',
+        'password' => 'required|min:6|max:255:confirmed',
+        'email' => 'required|unique:users',
+        'password_confirmation' => 'required|same:password'
+    ];
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +31,6 @@ class User extends Authenticatable
         'agent_code',
         'phone'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -34,7 +40,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -42,13 +47,5 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-    public static $rules = [
-        'name' => 'required',
-        'phone' => 'required',
-        'password' => 'required|min:6|max:255:confirmed',
-        'email' => 'required|unique:users',
-        'password_confirmation' => 'required|same:password'
     ];
 }

@@ -21,34 +21,8 @@ class Stat extends Model
 
     use HasFactory;
 
-    public $table = 'stats';
-    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-    protected $dates = ['deleted_at'];
-
-
-
-    public $fillable = [
-        'chiffres',
-        'text',
-        'icon'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id' => 'integer',
-        'chiffres' => 'string',
-        'text' => 'string',
-        'icon' => 'string'
-    ];
-
     /**
      * Validation rules
      *
@@ -62,6 +36,24 @@ class Stat extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+    public $table = 'stats';
+    public $fillable = [
+        'chiffres',
+        'text',
+        'icon'
+    ];
+    protected $dates = ['deleted_at'];
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'chiffres' => 'string',
+        'text' => 'string',
+        'icon' => 'string'
+    ];
 
-    
+
 }

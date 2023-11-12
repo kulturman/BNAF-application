@@ -30,25 +30,11 @@ abstract class BaseRepository
     }
 
     /**
-     * Get searchable fields array
-     *
-     * @return array
-     */
-    abstract public function getFieldsSearchable();
-
-    /**
-     * Configure the Model
-     *
-     * @return string
-     */
-    abstract public function model();
-
-    /**
      * Make Model instance
      *
+     * @return Model
      * @throws \Exception
      *
-     * @return Model
      */
     public function makeModel()
     {
@@ -60,6 +46,13 @@ abstract class BaseRepository
 
         return $this->model = $model;
     }
+
+    /**
+     * Configure the Model
+     *
+     * @return string
+     */
+    abstract public function model();
 
     /**
      * Paginate records for scaffold.
@@ -88,7 +81,7 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if (count($search)) {
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }
@@ -105,6 +98,13 @@ abstract class BaseRepository
 
         return $query;
     }
+
+    /**
+     * Get searchable fields array
+     *
+     * @return array
+     */
+    abstract public function getFieldsSearchable();
 
     /**
      * Retrieve all records with given filter criteria
@@ -178,9 +178,9 @@ abstract class BaseRepository
     /**
      * @param int $id
      *
+     * @return bool|mixed|null
      * @throws \Exception
      *
-     * @return bool|mixed|null
      */
     public function delete($id)
     {
@@ -196,7 +196,7 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if (count($search)) {
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }

@@ -7,8 +7,9 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'siteConfigsCreateForm', 'enctype' => "multipart/form-data", 'route' => 'siteConfigs.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
-                           @include('site_configs.fields')
+                    {!! Form::open(['id' => 'siteConfigsCreateForm', 'enctype' => "multipart/form-data", 'route' =>
+                    'siteConfigs.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
+                    @include('site_configs.fields')
                     {!! Form::close() !!}
                 </div>
             </div>

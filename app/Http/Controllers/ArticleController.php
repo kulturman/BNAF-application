@@ -33,16 +33,6 @@ class ArticleController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Article.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('articles.create');
-    }
-
-    /**
      * Store a newly created Article in storage.
      *
      * @param CreateArticleRequest $request
@@ -59,9 +49,19 @@ class ArticleController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Article.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('articles.create');
+    }
+
+    /**
      * Display the specified Article.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -78,7 +78,7 @@ class ArticleController extends AppBaseController
     /**
      * Show the form for editing the specified Article.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class ArticleController extends AppBaseController
         $article = $this->articleRepository->find($id);
 
         if (empty($article)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('articles.edit')->with('article', $article);
@@ -95,7 +95,7 @@ class ArticleController extends AppBaseController
     /**
      * Update the specified Article in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateArticleRequest $request
      *
      * @return JsonResponse
@@ -105,7 +105,7 @@ class ArticleController extends AppBaseController
         $article = $this->articleRepository->find($id);
 
         if (empty($article)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/articles.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/articles.singular')]));
         }
 
         $inputs = $request->all();
@@ -118,7 +118,7 @@ class ArticleController extends AppBaseController
     /**
      * Remove the specified Article from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -127,7 +127,7 @@ class ArticleController extends AppBaseController
         $article = $this->articleRepository->find($id);
 
         if (empty($article)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/articles.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/articles.singular')]));
         }
 
         $this->articleRepository->delete($id);

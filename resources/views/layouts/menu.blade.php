@@ -2,7 +2,8 @@
     <a class="nav-link" href="{{ route('home') }}">
         <svg class="nav-icon">
             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-speedometer"></use>
-        </svg> Tableau de bord
+        </svg>
+        Tableau de bord
     </a>
 </li>
 
@@ -64,7 +65,8 @@
     <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-report-slash"></use>
-        </svg> Gestion des alertes
+        </svg>
+        Gestion des alertes
     </a>
     <ul class="nav-group-items">
         <li class="nav-item {{ Request::is('reports.index') ? 'active' : '' }}">

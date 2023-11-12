@@ -23,11 +23,11 @@ class SlideFactory extends Factory
     {
         return [
             'text' => $this->faker->word,
-        'image' => $this->faker->word,
-        'order' => $this->faker->randomDigitNotNull,
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'image' => $this->faker->word,
+            'order' => $this->faker->randomDigitNotNull,
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

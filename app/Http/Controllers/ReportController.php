@@ -23,8 +23,8 @@ class ReportController extends AppBaseController
 
     public function __construct(
         ReportRepository $reportRepo,
-        UserRepository $userRepository,
-        CreateReport $createReport
+        UserRepository   $userRepository,
+        CreateReport     $createReport
     )
     {
         $this->reportRepository = $reportRepo;
@@ -44,7 +44,8 @@ class ReportController extends AppBaseController
         return $reportDataTable->render('reports.index');
     }
 
-    public function myReports(MyReportsDataTable $reportDataTable) {
+    public function myReports(MyReportsDataTable $reportDataTable)
+    {
         return $reportDataTable->render('reports.me');
     }
 
@@ -53,7 +54,8 @@ class ReportController extends AppBaseController
         return view('reports.create');
     }
 
-    public function validateReport(Report $report) {
+    public function validateReport(Report $report)
+    {
         $report->validated = true;
 
         $data = [
@@ -61,8 +63,8 @@ class ReportController extends AppBaseController
             'validated_at' => $report->updated_at,
             'latitude' => $report->latitude,
             'longitude' => $report->longitude,
-            'photo' => $report->photo ? base64_encode(file_get_contents(public_path($report->photo))): null,
-            'secondPhoto' => $report->photoInput ? base64_encode(file_get_contents(public_path($report->photoInput))): null,
+            'photo' => $report->photo ? base64_encode(file_get_contents(public_path($report->photo))) : null,
+            'secondPhoto' => $report->photoInput ? base64_encode(file_get_contents(public_path($report->photoInput))) : null,
             'repere' => $report->repere,
             'structure' => $report->structure,
             'text' => $report->text
@@ -74,7 +76,8 @@ class ReportController extends AppBaseController
         return $this->sendSuccessDialogResponse('Alerte validée avec succès');
     }
 
-    public function assign(Report $report, Request $request) {
+    public function assign(Report $report, Request $request)
+    {
         if ($request->isMethod('GET')) {
             $users = $this->userRepository->all();
             return view('reports.assign', compact('report', 'users'));
@@ -102,7 +105,7 @@ class ReportController extends AppBaseController
     /**
      * Display the specified Report.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -119,7 +122,7 @@ class ReportController extends AppBaseController
     /**
      * Show the form for editing the specified Report.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -136,7 +139,7 @@ class ReportController extends AppBaseController
     /**
      * Update the specified Report in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateReportRequest $request
      *
      * @return JsonResponse
@@ -146,7 +149,7 @@ class ReportController extends AppBaseController
         $report = $this->reportRepository->find($id);
 
         if (empty($report)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/reports.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/reports.singular')]));
         }
 
         $inputs = $request->all();
@@ -159,7 +162,7 @@ class ReportController extends AppBaseController
     /**
      * Remove the specified Report from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -168,7 +171,7 @@ class ReportController extends AppBaseController
         $report = $this->reportRepository->find($id);
 
         if (empty($report)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/reports.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/reports.singular')]));
         }
 
         $this->reportRepository->delete($id);

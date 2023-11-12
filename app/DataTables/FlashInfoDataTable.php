@@ -19,10 +19,10 @@ class FlashInfoDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->addColumn('action', function ($row) {
-                    return view('flash_infos.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
-                })
-                ->addColumn('action', 'flash_infos.datatables_actions');
+            ->addColumn('action', function ($row) {
+                return view('flash_infos.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+            })
+            ->addColumn('action', 'flash_infos.datatables_actions');
     }
 
     /**
@@ -48,10 +48,10 @@ class FlashInfoDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],

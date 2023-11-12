@@ -2,7 +2,7 @@
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('content', __('models/flashInfos.fields.content').':') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 

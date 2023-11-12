@@ -19,9 +19,9 @@ class FrontendController extends Controller
 
     public function __construct(
         SiteConfigRepository $siteConfigRepository,
-        SlideRepository $slideRepository,
-        ArticleRepository $articleRepository,
-        StatRepository $statRepository,
+        SlideRepository      $slideRepository,
+        ArticleRepository    $articleRepository,
+        StatRepository       $statRepository,
         FlashInfoRepository  $flashInfoRepository
     )
     {
@@ -32,7 +32,8 @@ class FrontendController extends Controller
         $this->flashInfoRepository = $flashInfoRepository;
     }
 
-    public function index() {
+    public function index()
+    {
         $config = $this->siteConfigRepository->get();
         $sliders = $this->slideRepository->all();
         $articles = $this->articleRepository->lastArticles();
@@ -42,7 +43,8 @@ class FrontendController extends Controller
         return view('frontend.index', compact('config', 'sliders', 'articles', 'stats', 'flashInfos'));
     }
 
-    public function showArticle(Article $article) {
+    public function showArticle(Article $article)
+    {
         $relatedArticles = $this->articleRepository->relatedArticles($article->id);
         return view('frontend.article', compact('article', 'relatedArticles'));
     }
@@ -55,7 +57,8 @@ class FrontendController extends Controller
             ->with('title', 'Mot du ministre')->with('content', $this->siteConfigRepository->get()->director_word);
     }
 
-    public function form() {
+    public function form()
+    {
         return view('frontend.form');
     }
 }

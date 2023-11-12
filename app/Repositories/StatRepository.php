@@ -9,8 +9,7 @@ use App\Repositories\BaseRepository;
  * Class StatRepository
  * @package App\Repositories
  * @version September 13, 2023, 4:30 am UTC
-*/
-
+ */
 class StatRepository extends BaseRepository
 {
     /**

@@ -1,4 +1,3 @@
-
 function showLoader() {
     HoldOn.open({
         theme: "sk-circle",
@@ -12,18 +11,18 @@ function closeLoader() {
 
 function success(message) {
     swal(
-            'L\'opération est un succès!',
-            message,
-            'success'
-            );
+        'L\'opération est un succès!',
+        message,
+        'success'
+    );
 }
 
 function error(message) {
     swal(
-            'Echec!',
-            message,
-            'error'
-            );
+        'Echec!',
+        message,
+        'error'
+    );
 }
 
 function question(message, yesCallback, noCallback) {
@@ -65,12 +64,13 @@ function yesOrNoQuestion(title, message, yesCallback, noCallback) {
         }
     })
 }
+
 $.ajaxSetup(
-        {
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
-            }
+    {
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
         }
+    }
 );
 
 $(document).on('submit', '.main-form,.ajaxForm', function (e) {
@@ -81,8 +81,8 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
 
     let formData = new FormData($(id)[0]);
 
-    $('.form-variable').each(function(index , el) {
-        formData.append($(el).attr('name') ,$(el).val());
+    $('.form-variable').each(function (index, el) {
+        formData.append($(el).attr('name'), $(el).val());
     });
 
     if (typeof formVariables !== 'undefined') {
@@ -104,7 +104,7 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
         .done(function (data) {
             closeLoader();
             if (data.success) {
-                if(data.dialog)
+                if (data.dialog)
                     success(data.message);
                 else {
                     var message = '<div id="message-block" class="alert alert-block alert-success">' +
@@ -112,7 +112,7 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
                     $('.card')
                         .before(message);
                 }
-                if(data.reset)
+                if (data.reset)
                     $(form).trigger('reset');
 
                 if (data.url) {
@@ -122,11 +122,10 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
                 }
 
                 LaravelDataTables["dataTableBuilder"].draw()
-                if (ajaxFormHandlerSuccessCallback){
+                if (ajaxFormHandlerSuccessCallback) {
                     ajaxFormHandlerSuccessCallback(data);
                 }
-            }
-            else {
+            } else {
                 error(data.message);
             }
             if (data.url) {
@@ -145,7 +144,7 @@ $(document).on('submit', '.main-form,.ajaxForm', function (e) {
 
 });
 
-$(document).on('click' , '.ajax-confirmation-button' , function (e) {
+$(document).on('click', '.ajax-confirmation-button', function (e) {
     e.preventDefault();
     var that = $(this);
     var url = that.attr('href');
@@ -170,7 +169,7 @@ $(document).on('click' , '.ajax-confirmation-button' , function (e) {
     })
 })
 
-$(document).on('click' , '.dt-actions-btn' , function (e) {
+$(document).on('click', '.dt-actions-btn', function (e) {
     e.preventDefault();
     let url = $(this).attr('href');
     let that = $(this);
@@ -190,28 +189,28 @@ $(document).on('click' , '.dt-actions-btn' , function (e) {
         })
 })
 
-function makeClientSideDateTable (selector) {
+function makeClientSideDateTable(selector) {
     $(selector).DataTable({
         language:
             {
-                "sProcessing":     "Traitement en cours...",
-                "sSearch":         "Rechercher&nbsp;:",
-                "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-                "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-                "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-                "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-                "sInfoPostFix":    "",
+                "sProcessing": "Traitement en cours...",
+                "sSearch": "Rechercher&nbsp;:",
+                "sLengthMenu": "Afficher _MENU_ &eacute;l&eacute;ments",
+                "sInfo": "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                "sInfoEmpty": "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                "sInfoFiltered": "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                "sInfoPostFix": "",
                 "sLoadingRecords": "Chargement en cours...",
-                "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-                "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+                "sZeroRecords": "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                "sEmptyTable": "Aucune donn&eacute;e disponible dans le tableau",
                 "oPaginate": {
-                    "sFirst":      "Premier",
-                    "sPrevious":   "Pr&eacute;c&eacute;dent",
-                    "sNext":       "Suivant",
-                    "sLast":       "Dernier"
+                    "sFirst": "Premier",
+                    "sPrevious": "Pr&eacute;c&eacute;dent",
+                    "sNext": "Suivant",
+                    "sLast": "Dernier"
                 },
                 "oAria": {
-                    "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+                    "sSortAscending": ": activer pour trier la colonne par ordre croissant",
                     "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
                 },
                 "select": {

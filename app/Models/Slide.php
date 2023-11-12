@@ -21,31 +21,6 @@ class Slide extends Model
 
     use HasFactory;
 
-    public $table = 'slides';
-    
-
-    protected $dates = ['deleted_at'];
-
-
-
-    public $fillable = [
-        'text',
-        'image',
-        'order'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id' => 'integer',
-        'text' => 'string',
-        'image' => 'string',
-        'order' => 'integer'
-    ];
-
     /**
      * Validation rules
      *
@@ -59,6 +34,24 @@ class Slide extends Model
         'created_at' => 'nullable|nullable',
         'updated_at' => 'nullable|nullable'
     ];
+    public $table = 'slides';
+    public $fillable = [
+        'text',
+        'image',
+        'order'
+    ];
+    protected $dates = ['deleted_at'];
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'text' => 'string',
+        'image' => 'string',
+        'order' => 'integer'
+    ];
 
-    
+
 }

@@ -19,14 +19,14 @@ class SiteConfigDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->rawColumns(['director_photo', 'action'])
-                ->addColumn('action', function ($row) {
-                    return view('site_configs.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
-                })
-                ->addColumn('director_photo', function ($row) {
-                    return view('partials.row-thumbnail')->with('url', url($row->director_photo));
-                })
-                ->addColumn('director_word', fn($row) => getArticleContentPreview($row->director_word));
+            ->rawColumns(['director_photo', 'action'])
+            ->addColumn('action', function ($row) {
+                return view('site_configs.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+            })
+            ->addColumn('director_photo', function ($row) {
+                return view('partials.row-thumbnail')->with('url', url($row->director_photo));
+            })
+            ->addColumn('director_word', fn($row) => getArticleContentPreview($row->director_word));
     }
 
     /**
@@ -52,10 +52,10 @@ class SiteConfigDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],

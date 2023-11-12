@@ -26,7 +26,7 @@ class UpdateSiteConfigRequest extends FormRequest
     public function rules()
     {
         $rules = SiteConfig::$rules;
-        
+
         return $rules;
     }
 }

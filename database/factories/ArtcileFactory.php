@@ -23,11 +23,11 @@ class ArtcileFactory extends Factory
     {
         return [
             'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
-        'title' => $this->faker->word,
-        'content' => $this->faker->text,
-        'cover_image' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'title' => $this->faker->word,
+            'content' => $this->faker->text,
+            'cover_image' => $this->faker->word,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

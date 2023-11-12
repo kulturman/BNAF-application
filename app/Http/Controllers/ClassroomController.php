@@ -39,16 +39,6 @@ class ClassroomController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Classroom.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('classrooms.create');
-    }
-
-    /**
      * Store a newly created Classroom in storage.
      *
      * @param CreateClassroomRequest $request
@@ -64,9 +54,19 @@ class ClassroomController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Classroom.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('classrooms.create');
+    }
+
+    /**
      * Display the specified Classroom.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -75,7 +75,7 @@ class ClassroomController extends AppBaseController
         $classroom = $this->classroomRepository->find($id);
 
         if (empty($classroom)) {
-            Flash::error(__('models/classrooms.singular').' '.__('messages.not_found'));
+            Flash::error(__('models/classrooms.singular') . ' ' . __('messages.not_found'));
 
             return redirect(route('classrooms.index'));
         }
@@ -86,7 +86,7 @@ class ClassroomController extends AppBaseController
     /**
      * Show the form for editing the specified Classroom.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -106,7 +106,7 @@ class ClassroomController extends AppBaseController
     /**
      * Update the specified Classroom in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateClassroomRequest $request
      *
      * @return JsonResponse
@@ -116,7 +116,7 @@ class ClassroomController extends AppBaseController
         $classroom = $this->classroomRepository->find($id);
 
         if (empty($classroom)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/classrooms.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/classrooms.singular')]));
         }
 
         $this->classroomRepository->update($request->all(), $id);
@@ -127,7 +127,7 @@ class ClassroomController extends AppBaseController
     /**
      * Remove the specified Classroom from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -136,7 +136,7 @@ class ClassroomController extends AppBaseController
         $classroom = $this->classroomRepository->find($id);
 
         if (empty($classroom)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/classrooms.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/classrooms.singular')]));
         }
 
         $this->classroomRepository->delete($id);
@@ -144,7 +144,8 @@ class ClassroomController extends AppBaseController
         return $this->sendSuccessDialogResponse($message);
     }
 
-    public function register(Request $request, Classroom $classroom) {
+    public function register(Request $request, Classroom $classroom)
+    {
         if ($request->method() == 'GET') {
             $students = Student::all();
             return view('classrooms.register', compact('students'))->withId($classroom->id);
@@ -154,7 +155,8 @@ class ClassroomController extends AppBaseController
         return $this->sendSuccessDialogResponse('Inscription effectuée avec succès', true);
     }
 
-    public function addMark(Request $request, Classroom $classroom) {
+    public function addMark(Request $request, Classroom $classroom)
+    {
         if ($request->method() == 'GET') {
             $subjects = Subject::all();
             $students = $classroom->students;

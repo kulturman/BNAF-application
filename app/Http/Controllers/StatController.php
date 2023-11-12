@@ -33,16 +33,6 @@ class StatController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Stat.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('stats.create');
-    }
-
-    /**
      * Store a newly created Stat in storage.
      *
      * @param CreateStatRequest $request
@@ -59,9 +49,19 @@ class StatController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Stat.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('stats.create');
+    }
+
+    /**
      * Display the specified Stat.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -78,7 +78,7 @@ class StatController extends AppBaseController
     /**
      * Show the form for editing the specified Stat.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class StatController extends AppBaseController
         $stat = $this->statRepository->find($id);
 
         if (empty($stat)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('stats.edit')->with('stat', $stat);
@@ -95,7 +95,7 @@ class StatController extends AppBaseController
     /**
      * Update the specified Stat in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateStatRequest $request
      *
      * @return JsonResponse
@@ -105,7 +105,7 @@ class StatController extends AppBaseController
         $stat = $this->statRepository->find($id);
 
         if (empty($stat)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/stats.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/stats.singular')]));
         }
 
         $inputs = $request->all();
@@ -118,7 +118,7 @@ class StatController extends AppBaseController
     /**
      * Remove the specified Stat from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -127,7 +127,7 @@ class StatController extends AppBaseController
         $stat = $this->statRepository->find($id);
 
         if (empty($stat)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/stats.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/stats.singular')]));
         }
 
         $this->statRepository->delete($id);

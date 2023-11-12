@@ -7,8 +7,9 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'articlesCreateForm', 'enctype' => "multipart/form-data", 'route' => 'articles.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
-                           @include('articles.fields')
+                    {!! Form::open(['id' => 'articlesCreateForm', 'enctype' => "multipart/form-data", 'route' =>
+                    'articles.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
+                    @include('articles.fields')
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -18,11 +19,11 @@
 
 <script>
     ClassicEditor
-        .create( document.querySelector( 'textarea' ) )
+        .create(document.querySelector('textarea'))
         .then(() => {
             document.querySelector('.ck-editor__editable').style.height = '200px'
         })
-        .catch( error => {
-            console.error( error );
-        } );
+        .catch(error => {
+            console.error(error);
+        });
 </script>

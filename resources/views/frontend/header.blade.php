@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <ul class="right-links">
-                        <li> <a href="#"><i class="fas fa-phone"></i> <strong>{{ $config->phone }}</strong></a> </li>
-                        <li> <a href="#"><i class="fas fa-envelope"></i> <strong>{{ $config->email }}</strong></a> </li>
+                        <li><a href="#"><i class="fas fa-phone"></i> <strong>{{ $config->phone }}</strong></a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> <strong>{{ $config->email }}</strong></a></li>
                     </ul>
                 </div>
             </div>
@@ -17,7 +17,10 @@
                 <div class="col-md-12">
                     <nav class="navbar">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span
+                                        class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                                        class="icon-bar"></span> <span class="icon-bar"></span></button>
                             <a class="navbar-brand" href="#">
                                 <img src="{{ url('frontend/images/logo_bnaf.jpg') }}" class="top-logo" alt="">
                             </a>
@@ -26,27 +29,33 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown">
-                                    <a href="{{ url('/') }}" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Accueil</a>
+                                    <a href="{{ url('/') }}" class="dropdown-toggle" aria-haspopup="true"
+                                       aria-expanded="false">Accueil</a>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mot du Ministre</a>
+                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">Mot du Ministre</a>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#actualite" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Actualité </a>
+                                    <a href="#actualite" class="dropdown-toggle" aria-haspopup="true"
+                                       aria-expanded="false">Actualité </a>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#services-en-ligne" class="dropdown-toggle main-menu-link"  aria-haspopup="true" aria-expanded="false">Services en ligne </a>
+                                    <a href="#services-en-ligne" class="dropdown-toggle main-menu-link"
+                                       aria-haspopup="true" aria-expanded="false">Services en ligne </a>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#demarches" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Démarches administratives </a>
+                                    <a href="#demarches" class="dropdown-toggle" aria-haspopup="true"
+                                       aria-expanded="false">Démarches administratives </a>
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#statistiques" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Statistiques </a>
+                                    <a href="#statistiques" class="dropdown-toggle" aria-haspopup="true"
+                                       aria-expanded="false">Statistiques </a>
                                 </li>
                             </ul>
                         </div>

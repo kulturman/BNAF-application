@@ -9,7 +9,7 @@
                 <div class="rounded-bottom">
                     <table class="table table-bordered table-striped">
                         <tbody>
-                            @include('users.show_fields')
+                        @include('users.show_fields')
                         </tbody>
                     </table>
                 </div>

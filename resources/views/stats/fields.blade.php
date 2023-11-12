@@ -2,7 +2,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('chiffres', __('models/stats.fields.chiffres').':') !!}
     {!! Form::text('chiffres', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 
@@ -10,7 +10,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('text', __('models/stats.fields.text').':') !!}
     {!! Form::text('text', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 
@@ -18,7 +18,7 @@
 <div class="form-group col-sm-6">
     {!! Form::label('icon', __('models/stats.fields.icon').':') !!}
     {!! Form::text('icon', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    <strong class = "form-error-message"></strong>
+    <strong class="form-error-message"></strong>
 </div>
 
 

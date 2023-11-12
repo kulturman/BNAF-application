@@ -23,18 +23,18 @@ class SiteConfigFactory extends Factory
     {
         return [
             'director_word' => $this->faker->text,
-        'director_photo' => $this->faker->word,
-        'director_name' => $this->faker->word,
-        'phone' => $this->faker->word,
-        'email' => $this->faker->word,
-        'address' => $this->faker->word,
-        'facebook' => $this->faker->word,
-        'linkedin' => $this->faker->word,
-        'twitter' => $this->faker->word,
-        'youtube' => $this->faker->word,
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'director_photo' => $this->faker->word,
+            'director_name' => $this->faker->word,
+            'phone' => $this->faker->word,
+            'email' => $this->faker->word,
+            'address' => $this->faker->word,
+            'facebook' => $this->faker->word,
+            'linkedin' => $this->faker->word,
+            'twitter' => $this->faker->word,
+            'youtube' => $this->faker->word,
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

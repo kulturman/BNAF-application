@@ -26,7 +26,7 @@ class UpdateReportRequest extends FormRequest
     public function rules()
     {
         $rules = Report::$rules;
-        
+
         return $rules;
     }
 }

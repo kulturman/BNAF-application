@@ -10,7 +10,7 @@
                 <div class="rounded-bottom">
                     <table class="table table-bordered table-striped">
                         <tbody>
-                            @include('articles.show_fields')
+                        @include('articles.show_fields')
                         </tbody>
                     </table>
                 </div>

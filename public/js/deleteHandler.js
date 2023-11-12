@@ -1,4 +1,4 @@
-$(document).on('click' , '.delete-btn,.ajax-button' , function (e) {
+$(document).on('click', '.delete-btn,.ajax-button', function (e) {
     e.preventDefault();
     var that = $(this);
     var url = that.attr('href');

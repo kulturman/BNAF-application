@@ -10,7 +10,8 @@ class AuthController extends AppBaseController
 {
     use AuthenticatesUsers;
 
-    public function sendLoginResponse(Request $request) {
+    public function sendLoginResponse(Request $request)
+    {
         $authenticatedUser = $this->guard()->user();
 
         return [
@@ -18,7 +19,8 @@ class AuthController extends AppBaseController
         ];
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         auth()->user()->tokens()->delete();
 
         return [

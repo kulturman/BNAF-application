@@ -28,45 +28,6 @@ class SiteConfig extends Model
 
     use HasFactory;
 
-    public $table = 'site_configs';
-    
-
-    protected $dates = ['deleted_at'];
-
-
-
-    public $fillable = [
-        'director_word',
-        'director_photo',
-        'director_name',
-        'phone',
-        'email',
-        'address',
-        'facebook',
-        'linkedin',
-        'twitter',
-        'youtube'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id' => 'integer',
-        'director_word' => 'string',
-        'director_photo' => 'string',
-        'director_name' => 'string',
-        'phone' => 'string',
-        'email' => 'string',
-        'address' => 'string',
-        'facebook' => 'string',
-        'linkedin' => 'string',
-        'twitter' => 'string',
-        'youtube' => 'string'
-    ];
-
     /**
      * Validation rules
      *
@@ -87,6 +48,38 @@ class SiteConfig extends Model
         'created_at' => 'nullable|nullable',
         'updated_at' => 'nullable|nullable'
     ];
+    public $table = 'site_configs';
+    public $fillable = [
+        'director_word',
+        'director_photo',
+        'director_name',
+        'phone',
+        'email',
+        'address',
+        'facebook',
+        'linkedin',
+        'twitter',
+        'youtube'
+    ];
+    protected $dates = ['deleted_at'];
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'director_word' => 'string',
+        'director_photo' => 'string',
+        'director_name' => 'string',
+        'phone' => 'string',
+        'email' => 'string',
+        'address' => 'string',
+        'facebook' => 'string',
+        'linkedin' => 'string',
+        'twitter' => 'string',
+        'youtube' => 'string'
+    ];
 
-    
+
 }

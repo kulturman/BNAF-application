@@ -7,8 +7,9 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'reportsCreateForm', 'enctype' => "multipart/form-data", 'route' => 'reports.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
-                           @include('reports.fields')
+                    {!! Form::open(['id' => 'reportsCreateForm', 'enctype' => "multipart/form-data", 'route' =>
+                    'reports.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
+                    @include('reports.fields')
                     {!! Form::close() !!}
                 </div>
             </div>

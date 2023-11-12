@@ -33,16 +33,6 @@ class SiteConfigController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new SiteConfig.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('site_configs.create');
-    }
-
-    /**
      * Store a newly created SiteConfig in storage.
      *
      * @param CreateSiteConfigRequest $request
@@ -59,9 +49,19 @@ class SiteConfigController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new SiteConfig.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('site_configs.create');
+    }
+
+    /**
      * Display the specified SiteConfig.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function show($id)
@@ -78,7 +78,7 @@ class SiteConfigController extends AppBaseController
     /**
      * Show the form for editing the specified SiteConfig.
      *
-     * @param  int $id
+     * @param int $id
      *
      */
     public function edit($id)
@@ -86,7 +86,7 @@ class SiteConfigController extends AppBaseController
         $siteConfig = $this->siteConfigRepository->find($id);
 
         if (empty($siteConfig)) {
-           return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         return view('site_configs.edit')->with('siteConfig', $siteConfig);
@@ -95,7 +95,7 @@ class SiteConfigController extends AppBaseController
     /**
      * Update the specified SiteConfig in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateSiteConfigRequest $request
      *
      * @return JsonResponse
@@ -105,7 +105,7 @@ class SiteConfigController extends AppBaseController
         $siteConfig = $this->siteConfigRepository->find($id);
 
         if (empty($siteConfig)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         $inputs = $request->all();
@@ -118,7 +118,7 @@ class SiteConfigController extends AppBaseController
     /**
      * Remove the specified SiteConfig from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return JsonResponse
      */
@@ -127,7 +127,7 @@ class SiteConfigController extends AppBaseController
         $siteConfig = $this->siteConfigRepository->find($id);
 
         if (empty($siteConfig)) {
-            return $this->sendResponse(false , __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
+            return $this->sendResponse(false, __('messages.not_found', ['model' => __('models/siteConfigs.singular')]));
         }
 
         $this->siteConfigRepository->delete($id);

@@ -1,4 +1,4 @@
 <?php
-    return [
-        'default_password' => '123456789'
-    ];
+return [
+    'default_password' => '123456789'
+];

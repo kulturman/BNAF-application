@@ -29,13 +29,15 @@ class Report extends Model
 
     use HasFactory;
 
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+
+    ];
     public $table = 'reports';
-    
-
-    protected $dates = ['deleted_at'];
-
-
-
     public $fillable = [
         'localite',
         'validated',
@@ -52,7 +54,7 @@ class Report extends Model
         'agent_code',
         'onwer_id'
     ];
-
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that should be casted to native types.
      *
@@ -73,17 +75,9 @@ class Report extends Model
         'commune' => 'string'
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-
-    ];
-
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'owner_id', 'id');
     }
-    
+
 }

@@ -3,16 +3,16 @@ $(document).ready(function () {
     $(".select2").select2();
 
     ClassicEditor
-        .create( document.querySelector( 'textarea' ) )
+        .create(document.querySelector('textarea'))
         .then(() => {
             document.querySelector('.ck-editor__editable').style.height = '200px'
             document.querySelector('.ck-editor__editable').addEventListener('focus', e => {
                 document.querySelector('.ck-editor__editable').style.height = '200px'
             })
         })
-        .catch( error => {
-            console.error( error );
-        } );
+        .catch(error => {
+            console.error(error);
+        });
 
     const startButton = document.getElementById('startButton');
     const video = document.getElementById('video');
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 // Start the webcam when the "Start Webcam" button is clicked
     startButton.addEventListener('click', function () {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({video: true})
             .then(function (stream) {
                 video.srcObject = stream;
                 video.style.display = 'block';
@@ -54,77 +54,40 @@ $(document).ready(function () {
     let filledMessage = 0;
     let filledEspace = 0;
 
-    function checkFormRelevance () {
-        filledFields = 0;
-        filledRegion = 0;
-        filledProvince = 0;
-        filledCommune = 0;
-        filledLocalite = 0;
-        filledStructure = 0;
-        filledRepere = 0;
-        filledNip = 0;
-        filledPhoto = 0;
-        filledMessage = 0;
-        filledEspace = 0;
+    function checkFormRelevance() {
+        let fieldWeights = {
+            'region': 1,
+            'province': 1,
+            'commune': 1,
+            'localite': 2,
+            'structure': 1,
+            'repere': 2,
+            'nip': 1,
+            'photo': 3,
+            'message': 3,
+            'espace': 3
+        };
+
+        let filledFields = 0;
 
         $('.form-control').each(function (index, element) {
-            if (element.value) {
-
-                if (this.id ==='region'){
-                    filledRegion = 1;
-
-                }
-                if (this.id ==='province'){
-                    filledProvince = 1;
-                }
-
-                if (this.id ==='commune'){
-                    filledCommune = 1;
-                }
-                if (this.id ==='localite'){
-                    filledLocalite = 2;
-                }
-                if (this.id ==='structure'){
-                    filledStructure = 1;
-                }
-
-                if (this.id ==='repere'){
-                    filledRepere = 2;
-                }
-                if (this.id ==='nip'){
-                    filledNip = 1;
-                }
-                if (this.id ==='photo'){
-                    filledPhoto = 3;
-                }
-
-                if (this.id ==='message'){
-                    filledMessage = 3;
-                }
-
-                if (this.id ==='espace'){
-                    filledEspace = 3;
-                }
-
-                filledFields = filledRegion + filledProvince + filledLocalite +filledStructure + filledRepere + filledNip + filledPhoto + filledEspace ;
-                alert(filledFields)
+            if (element.value && fieldWeights.hasOwnProperty(this.id)) {
+                filledFields += fieldWeights[this.id];
             }
-        })
+        });
+
+        alert(filledFields);
 
         if (filledFields > 12) {
-            $('.form-irrelevant').hide();
-            $('.form-irrelevant_orange').hide();
+            $('.form-irrelevant, .form-irrelevant_orange').hide();
             $('.form-relevant').show();
-        }
-        else if (filledFields <=5 && filledFields >=12) {
+        } else if (filledFields >= 5 && filledFields <= 12) {
             $('.form-irrelevant').hide();
             $('.form-irrelevant_orange').show();
             $('.form-relevant').hide();
-        }
-        else {
+        } else {
             $('.form-irrelevant').show();
-            $('.form-irrelevant_orange').hide();
-            $('.form-relevant').hide();
+            $('.form-irrelevant_orange, .form-relevant').hide();
         }
     }
 
@@ -287,7 +250,7 @@ $(document).ready(function () {
         "1101": ["BOUDRY", "KOGHO", "MEGUET", "MOGTEDO", "SALOGO", "ZAM", "ZORGHO", "ZOUNGOU"],
         "1102": ["BOUSSE", "LAYE", "NIOU", "SOURGOUBILA", "ROLLO", "ROUKO", "SABCE", "TIKARE", "ZIMTENGA"],
         //"1102": ["BOALA", "BOULSA", "BOUROUM", "DARGO", "DORI", "FALAGOUNTOU", "GORGADJI", "SAMPELGA", "SEYTENGA"],
-        "1203": ["ARBINDA", "BARABOULE", "NAGBINGOU", "TOUGOURI", "YALGO", "ZEGUEDEGUIN","DJIBO", "KELBO", "KOUTOUGOU", "NASSOUMBOU", "POBE-MENGAO", "TONGOMAYEL"],
+        "1203": ["ARBINDA", "BARABOULE", "NAGBINGOU", "TOUGOURI", "YALGO", "ZEGUEDEGUIN", "DJIBO", "KELBO", "KOUTOUGOU", "NASSOUMBOU", "POBE-MENGAO", "TONGOMAYEL"],
         //"1103": ["BERE", "BINDE", "GOGO", "GOMBOUSSOUGOU", "GUIBA", "MANGA", "NOBERE"],
         "0801": ["BILANGA", "BOGANDE", "COALLA", "LIPTOUGOU", "MANI", "PIELA", "NAMISSIGUIMA", "PENSA", "PIBAORE", "PISSILA", "ZIGA"],
         "0601": ["BINGO", "IMASGO", "KINDI", "KOKOLOGHO", "KOUDOUGOU", "NANDIALA", "NANORO", "PELLA", "POA", "RAMONGO", "SABOU", "THION"],
@@ -301,7 +264,6 @@ $(document).ready(function () {
         "1303": ["BATIE", "BOUSSOUKOULA", "KPUERE", "LEGMOIN", "MIDEBDO"],
         "1304": ["BOUROUM-BOUROUM", "BOUSSERA", "DJIGOUE", "GAOUA"]
     }
-
 
 
     for (let currentRegion in regions) {
@@ -326,10 +288,10 @@ $(document).ready(function () {
         let key = provinces[e.target.value];
         let communesToDisplay = communes[key];
 
-       if (communesToDisplay) {
-           communesToDisplay.forEach(currentCommune => {
-               commune.insertAdjacentHTML('beforeend', `<option>${currentCommune}</option>`)
-           })
-       }
+        if (communesToDisplay) {
+            communesToDisplay.forEach(currentCommune => {
+                commune.insertAdjacentHTML('beforeend', `<option>${currentCommune}</option>`)
+            })
+        }
     });
 });

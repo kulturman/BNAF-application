@@ -26,7 +26,7 @@ class UpdateFlashInfoRequest extends FormRequest
     public function rules()
     {
         $rules = FlashInfo::$rules;
-        
+
         return $rules;
     }
 }

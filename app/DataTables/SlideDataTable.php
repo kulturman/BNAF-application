@@ -19,13 +19,13 @@ class SlideDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->addColumn('image', function ($row) {
-                    return view('partials.row-thumbnail')->with('url', url($row->image));
-                })
-                ->addColumn('action', function ($row) {
-                    return view('slides.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
-                })
-                ->addColumn('action', 'slides.datatables_actions');
+            ->addColumn('image', function ($row) {
+                return view('partials.row-thumbnail')->with('url', url($row->image));
+            })
+            ->addColumn('action', function ($row) {
+                return view('slides.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+            })
+            ->addColumn('action', 'slides.datatables_actions');
     }
 
     /**
@@ -51,10 +51,10 @@ class SlideDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],

@@ -48,10 +48,10 @@ class UserDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],

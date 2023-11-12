@@ -11,11 +11,11 @@ use App\Repositories\ReportRepository;
 
 class ReportController extends AppBaseController
 {
-    private CreateReport  $createReport;
+    private CreateReport $createReport;
     private ReportRepository $reportRepository;
 
     public function __construct(
-        CreateReport $createReport,
+        CreateReport     $createReport,
         ReportRepository $reportRepository
     )
     {
@@ -24,17 +24,20 @@ class ReportController extends AppBaseController
     }
 
 
-    public function store(CreateReportRequest $request) {
+    public function store(CreateReportRequest $request)
+    {
         $this->createReport->handle($request);
 
         return response()->json(['message' => 'Alerte enregistrée avec succès, merci pour votre contribution']);
     }
 
-    public function myReports() {
+    public function myReports()
+    {
         return ReportResource::collection($this->reportRepository->getUserAssignedReports(auth()->user()->id));
     }
 
-    public function findAll() {
+    public function findAll()
+    {
         return ReportResource::collection($this->reportRepository->getCurrentUserViewableReports()->paginate(10));
     }
 
@@ -43,7 +46,8 @@ class ReportController extends AppBaseController
         return new ReportResource($report);
     }
 
-    public function getAudio(Report $report) {
+    public function getAudio(Report $report)
+    {
         return [
             'audio' => $report->audio === null ? null : base64_encode(file_get_contents($report->audio))
         ];

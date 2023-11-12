@@ -17,30 +17,8 @@ class FlashInfo extends Model
 {
     use HasFactory;
 
-    public $table = 'flash_infos';
-    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-    protected $dates = ['deleted_at'];
-
-
-
-    public $fillable = [
-        'content'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id' => 'integer',
-        'content' => 'string'
-    ];
-
     /**
      * Validation rules
      *
@@ -51,6 +29,20 @@ class FlashInfo extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+    public $table = 'flash_infos';
+    public $fillable = [
+        'content'
+    ];
+    protected $dates = ['deleted_at'];
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'content' => 'string'
+    ];
 
-    
+
 }

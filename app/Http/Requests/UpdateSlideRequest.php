@@ -26,7 +26,7 @@ class UpdateSlideRequest extends FormRequest
     public function rules()
     {
         $rules = Slide::$rules;
-        
+
         return $rules;
     }
 }

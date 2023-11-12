@@ -1,6 +1,7 @@
 <header class="header header-sticky mb-4">
     <div class="container-fluid">
-        <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+        <button class="header-toggler px-md-0 me-md-3" type="button"
+                onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
             <svg class="icon icon-lg">
                 <use xlink:href="{{ asset('sprites/free.svg') }}#cil-menu"></use>
             </svg>
@@ -38,7 +39,8 @@
         </ul>
         <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
-                <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
                     <div class="avatar avatar-md">
                         <i class="cis-accessible"></i>
                         <img class="avatar-img" src="{{ asset('frontend/images/logo_bnaf.jpg') }}" alt="user@email.com">
@@ -51,13 +53,16 @@
                     <a class="dropdown-item" href="{{ route('users.change-password') }}">
                         <svg class="icon me-2">
                             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-settings"></use>
-                        </svg> Changer de mot de passe
+                        </svg>
+                        Changer de mot de passe
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                         <svg class="icon me-2">
                             <use xlink:href="{{ asset('sprites/free.svg') }}#cil-account-logout"></use>
-                        </svg> Déconnexion
+                        </svg>
+                        Déconnexion
                     </a>
                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}

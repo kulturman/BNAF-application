@@ -6,9 +6,9 @@
                 <div class="textwidget">
                     <address>
                         <ul>
-                            <li> <i class="fas fa-university"></i> <strong>Addresse:</strong> {{ $config->address }}</li>
-                            <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> {{ $config->email }} </li>
-                            <li> <i class="fas fa-phone"></i> <strong>Téléphone:</strong> {{ $config->phone }} </li>
+                            <li><i class="fas fa-university"></i> <strong>Addresse:</strong> {{ $config->address }}</li>
+                            <li><i class="fas fa-envelope"></i> <strong>Email:</strong> {{ $config->email }}</li>
+                            <li><i class="fas fa-phone"></i> <strong>Téléphone:</strong> {{ $config->phone }}</li>
                         </ul>
                     </address>
                 </div>

@@ -7,8 +7,9 @@
         <div class="mb-4">
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'flashInfosCreateForm', 'enctype' => "multipart/form-data", 'route' => 'flashInfos.store', 'class' => 'row g-3 main-form']) !!}
-                           @include('flash_infos.fields')
+                    {!! Form::open(['id' => 'flashInfosCreateForm', 'enctype' => "multipart/form-data", 'route' =>
+                    'flashInfos.store', 'class' => 'row g-3 main-form']) !!}
+                    @include('flash_infos.fields')
                     {!! Form::close() !!}
                 </div>
             </div>

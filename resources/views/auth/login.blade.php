@@ -11,7 +11,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/css/coreui.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/coreui-icons-free@1.0.1-alpha.1/coreui-icons-free.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@icon/coreui-icons-free@1.0.1-alpha.1/coreui-icons-free.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
           rel="stylesheet">
@@ -50,10 +51,11 @@
                                       <i class="icon-user"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control {{ $errors->has('email')?'is-invalid':'' }}" name="email" value="{{ old('email') }}"
+                                <input type="text" class="form-control {{ $errors->has('email')?'is-invalid':'' }}"
+                                       name="email" value="{{ old('email') }}"
                                        placeholder="Nom d'utilisateur">
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
+                                <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -64,9 +66,11 @@
                                       <i class="icon-lock"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control {{ $errors->has('password')?'is-invalid':'' }}" placeholder="Mot de passe" name="password">
+                                <input type="password"
+                                       class="form-control {{ $errors->has('password')?'is-invalid':'' }}"
+                                       placeholder="Mot de passe" name="password">
                                 @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
+                                <span class="invalid-feedback">
                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif

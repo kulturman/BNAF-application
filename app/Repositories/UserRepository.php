@@ -8,8 +8,7 @@ use App\Models\User;
  * Class UserRepository
  * @package App\Repositories
  * @version April 11, 2022, 11:20 pm UTC
-*/
-
+ */
 class UserRepository extends BaseRepository
 {
     /**

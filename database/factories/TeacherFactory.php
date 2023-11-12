@@ -23,12 +23,12 @@ class TeacherFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-        'matricule' => $this->faker->word,
-        'forename' => $this->faker->word,
-        'role' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'matricule' => $this->faker->word,
+            'forename' => $this->faker->word,
+            'role' => $this->faker->word,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

@@ -1,9 +1,9 @@
 <?php
-return array (
+return array(
     'singular' => 'Utilisateur',
     'plural' => 'Utilisateurs',
     'fields' =>
-        array (
+        array(
             'id' => 'Id',
             'name' => 'Nom',
             'email' => 'Email',

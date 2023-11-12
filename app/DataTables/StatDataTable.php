@@ -19,12 +19,12 @@ class StatDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         return $dataTable
-                ->rawColumns(['action', 'icon'])
-                ->addColumn('icon', fn ($row) => $row->icon)
-                ->addColumn('action', function ($row) {
-                    return view('stats.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
-                })
-                ->addColumn('action', 'stats.datatables_actions');
+            ->rawColumns(['action', 'icon'])
+            ->addColumn('icon', fn($row) => $row->icon)
+            ->addColumn('action', function ($row) {
+                return view('stats.datatables_actions')->with('id', $row->id)->with('model', $row)->render();
+            })
+            ->addColumn('action', 'stats.datatables_actions');
     }
 
     /**
@@ -50,10 +50,10 @@ class StatDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-primary',],
                     ['extend' => 'export', 'className' => 'btn btn-default',],
                     ['extend' => 'print', 'className' => 'btn btn-success',],
