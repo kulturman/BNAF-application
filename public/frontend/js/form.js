@@ -65,6 +65,7 @@ $(document).ready(function () {
             'nip': 1,
             'photo': 3,
             'message': 3,
+            'recordingIndicator': 3,
             'espace': 3
         };
 
