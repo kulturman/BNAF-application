@@ -56,7 +56,7 @@
 
                     <!-- Canvas to display the captured photo -->
                     <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-
+                    <input class="hidden-field" type="text" name="score" id="score" style="display: none">
                     <div class="form-group col-sm-6">
                         {!! Form::label('region', 'Région:') !!}
                         <select name="region" id="region" class="form-control">
@@ -158,6 +158,7 @@
                         255,'maxlength' => 255]) !!}
                         <strong class="form-error-message"></strong>
                     </div>
+
                     <!-- Submit Field -->
                     <div class="form-group col-sm-12">
                         {!! Form::submit(__('crud.save'), ['class' => 'btn btn-success']) !!}

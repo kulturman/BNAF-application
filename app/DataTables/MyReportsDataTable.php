@@ -82,6 +82,7 @@ class MyReportsDataTable extends DataTable
             'nip' => new Column(['title' => __('models/reports.fields.nip'), 'data' => 'nip']),
             'region' => new Column(['title' => __('models/reports.fields.region'), 'data' => 'region']),
             'province' => new Column(['title' => __('models/reports.fields.province'), 'data' => 'province']),
+            'score' => new Column(['title' => "Score", 'data' => 'score']),
             'commune' => new Column(['title' => __('models/reports.fields.commune'), 'data' => 'commune'])
         ];
     }

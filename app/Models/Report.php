@@ -52,6 +52,7 @@ class Report extends Model
         'commune',
         'audio',
         'agent_code',
+        'score',
         'onwer_id'
     ];
     protected $dates = ['deleted_at'];

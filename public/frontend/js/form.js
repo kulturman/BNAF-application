@@ -77,8 +77,6 @@ $(document).ready(function () {
             }
         });
 
-        alert(filledFields);
-
         if (filledFields > 12) {
             $('.form-irrelevant, .form-irrelevant_orange').hide();
             $('.form-relevant').show();
@@ -90,6 +88,8 @@ $(document).ready(function () {
             $('.form-irrelevant').show();
             $('.form-irrelevant_orange, .form-relevant').hide();
         }
+
+        $('#score').val(filledFields);
     }
 
     $('input').on('keyup', checkFormRelevance)
