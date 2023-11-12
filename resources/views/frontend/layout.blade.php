@@ -33,8 +33,7 @@
 @section('scripts')
 <script src="{{ url('frontend/js/jquery.min.js') }}"></script>
 {!! Html::script('js/HoldOn.min.js') !!}
-<script src="{{ url(" js
-/ajaxFormHandler.js") }}"></script>
+<script src="{{ url("js/ajaxFormHandler.js") }}"></script>
 <script src="{{ url('frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ url('frontend/js/jquery.prettyPhoto.js') }}"></script>
