@@ -82,6 +82,7 @@ class ReportDataTable extends DataTable
     {
         return [
             'created_at' => new Column(['title' => "Date de soumission", 'data' => 'created_at']),
+            'score' => new Column(['title' => "Score", 'data' => 'score']),
             'owner_id' => new Column(['title' => "Inputé à", 'data' => 'owner_id']),
             'localite' => new Column(['title' => __('models/reports.fields.localite'), 'data' => 'localite']),
             'structure' => new Column(['title' => __('models/reports.fields.structure'), 'data' => 'structure']),
