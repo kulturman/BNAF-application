@@ -35,6 +35,12 @@
 
                 <div
                     style="display: none"
+                    class="form-relevance-data form-irrelevant_orange alert alert-block alert-warning">
+                    Votre formulaire contient peu d'informations et sera probablement pris en compte
+                </div>
+
+                <div
+                    style="display: none"
                     class="form-relevance-data form-relevant alert alert-block alert-success">
                     Votre formulaire a de grandes chances d'être pertinent
                 </div>
@@ -69,7 +75,7 @@
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('localite', 'Secteur / Localité:') !!}
-                            {!! Form::text('localite', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('localite', null, ['class' => 'form-control','id' => 'localite','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
@@ -84,14 +90,14 @@
                         <!-- Structure Field -->
                         <div class="form-group col-sm-6">
                             {!! Form::label('structure', 'Surnom / nom de la struture en cause:') !!}
-                            {!! Form::text('structure', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('structure', null, ['class' => 'form-control','id' => 'structure','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
                         <!-- Repere Field -->
                         <div class="form-group col-sm-6">
                             {!! Form::label('repere', __('models/reports.fields.repere').':') !!}
-                            {!! Form::text('repere', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('repere', null, ['class' => 'form-control','id' => 'repere','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
@@ -99,7 +105,7 @@
 
                         <div class="form-group col-sm-6">
                             {!! Form::label('nip', 'Numéro NIP de la CNIB (17 chiffres):') !!}
-                            {!! Form::text('nip', null, ['title' => 'Le NIP est composé de 17 chiffres', 'pattern' => '\d*', 'class' => 'form-control','maxlength' => 255]) !!}
+                            {!! Form::text('nip', null, ['title' => 'Le NIP est composé de 17 chiffres', 'pattern' => '\d*', 'class' => 'form-control','id' => 'nip','maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
@@ -125,14 +131,14 @@
                         <!-- Text Field -->
                         <div class="form-group col-sm-12 col-lg-12">
                             {!! Form::label('text', 'Message:') !!}
-                            {!! Form::textarea('text', null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('text', null, ['class' => 'form-control','id' => 'message']) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
 
                         <input name="photoInput" type="hidden" class="form-variable" id="photoInput"/>
                         <div class="form-group col-sm-12">
                             {!! Form::label('agent_code', "Espace réservé, code si vous en avez") !!}
-                            {!! Form::text('agent_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('agent_code', null, ['class' => 'form-control','id' => 'espace','maxlength' => 255,'maxlength' => 255]) !!}
                             <strong class = "form-error-message"></strong>
                         </div>
                         <!-- Submit Field -->

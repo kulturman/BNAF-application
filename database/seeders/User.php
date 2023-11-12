@@ -20,6 +20,7 @@ class User extends Seeder
             'name' => 'Arnaud',
             'email' => 'admin@bnaf.com',
             'password' => Hash::make('12345678'),
+            'phone' => '61437073',
             'email_verified_at' => Carbon::now()
         ]);
     }

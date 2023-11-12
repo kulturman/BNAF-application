@@ -43,22 +43,87 @@ $(document).ready(function () {
     });
 
     let filledFields = 0;
+    let filledRegion = 0;
+    let filledProvince = 0;
+    let filledCommune = 0;
+    let filledLocalite = 0;
+    let filledStructure = 0;
+    let filledRepere = 0;
+    let filledNip = 0;
+    let filledPhoto = 0;
+    let filledMessage = 0;
+    let filledEspace = 0;
 
     function checkFormRelevance () {
         filledFields = 0;
+        filledRegion = 0;
+        filledProvince = 0;
+        filledCommune = 0;
+        filledLocalite = 0;
+        filledStructure = 0;
+        filledRepere = 0;
+        filledNip = 0;
+        filledPhoto = 0;
+        filledMessage = 0;
+        filledEspace = 0;
 
         $('.form-control').each(function (index, element) {
             if (element.value) {
-                filledFields++;
+
+                if (this.id ==='region'){
+                    filledRegion = 1;
+
+                }
+                if (this.id ==='province'){
+                    filledProvince = 1;
+                }
+
+                if (this.id ==='commune'){
+                    filledCommune = 1;
+                }
+                if (this.id ==='localite'){
+                    filledLocalite = 2;
+                }
+                if (this.id ==='structure'){
+                    filledStructure = 1;
+                }
+
+                if (this.id ==='repere'){
+                    filledRepere = 2;
+                }
+                if (this.id ==='nip'){
+                    filledNip = 1;
+                }
+                if (this.id ==='photo'){
+                    filledPhoto = 3;
+                }
+
+                if (this.id ==='message'){
+                    filledMessage = 3;
+                }
+
+                if (this.id ==='espace'){
+                    filledEspace = 3;
+                }
+
+                filledFields = filledRegion + filledProvince + filledLocalite +filledStructure + filledRepere + filledNip + filledPhoto + filledEspace ;
+                alert(filledFields)
             }
         })
 
-        if (filledFields >= 4) {
+        if (filledFields > 12) {
             $('.form-irrelevant').hide();
+            $('.form-irrelevant_orange').hide();
             $('.form-relevant').show();
+        }
+        else if (filledFields <=5 && filledFields >=12) {
+            $('.form-irrelevant').hide();
+            $('.form-irrelevant_orange').show();
+            $('.form-relevant').hide();
         }
         else {
             $('.form-irrelevant').show();
+            $('.form-irrelevant_orange').hide();
             $('.form-relevant').hide();
         }
     }
