@@ -47,119 +47,117 @@
 
             <div>
                 <div class="rounded-bottom">
-                    {!! Form::open(['id' => 'reportsCreateForm', 'enctype' => "multipart/form-data", 'route' =>
-                    'reports.store', 'files' => true, 'class' => 'row g-3 main-form']) !!}
+                    <form id="reportsCreateForm" enctype="multipart/form-data" action="{{ customUrl('/reports') }}" class="row g-3 main-form">
+                        {{csrf_field()}}
+                        <!-- Canvas to display the captured photo -->
+                        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+                        <input class="hidden-field" type="text" name="score" id="score">
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('region', 'Région:') !!}
+                            <select name="region" id="region" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
 
-                    <!-- Canvas to display the captured photo -->
-                    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-                    <input class="hidden-field" type="text" name="score" id="score">
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('region', 'Région:') !!}
-                        <select name="region" id="region" class="form-control">
-                            <option value=""></option>
-                        </select>
-                    </div>
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('province', 'Province:') !!}
+                            <select name="province" id="province" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
 
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('province', 'Province:') !!}
-                        <select name="province" id="province" class="form-control">
-                            <option value=""></option>
-                        </select>
-                    </div>
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('commune', 'Commune:') !!}
+                            <select name="commune" id="commune" class="form-control select2">
+                                <option value=""></option>
+                            </select>
+                        </div>
 
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('commune', 'Commune:') !!}
-                        <select name="commune" id="commune" class="form-control select2">
-                            <option value=""></option>
-                        </select>
-                    </div>
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('localite', 'Secteur / Localité:') !!}
+                            {!! Form::text('localite', null, ['class' => 'form-control','id' => 'localite','maxlength' =>
+                            255,'maxlength' => 255]) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('localite', 'Secteur / Localité:') !!}
-                        {!! Form::text('localite', null, ['class' => 'form-control','id' => 'localite','maxlength' =>
-                        255,'maxlength' => 255]) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
+                        <div class="form-group col-sm-12 recording-block">
+                            <button class="btn btn-primary" type="button" id="startRecording">Enregistrer un vocal</button>
+                            <span id="recordingIndicator" class="hidden">Enregistrement...</span>
+                            <button class="btn btn-danger hidden" type="button" id="stopRecording">Arrêter l'enregistrement</button>
+                            <audio class="hidden" id="audioPlayer" controls></audio>
+                            <button class="btn btn-danger hidden" type="button" id="deleteRecording">Supprimer l'enregistrement</button>
+                        </div>
 
-                    <div class="form-group col-sm-12 recording-block">
-                        <button class="btn btn-primary" type="button" id="startRecording">Enregistrer un vocal</button>
-                        <span id="recordingIndicator" class="hidden">Enregistrement...</span>
-                        <button class="btn btn-danger hidden" type="button" id="stopRecording">Arrêter l'enregistrement</button>
-                        <audio class="hidden" id="audioPlayer" controls></audio>
-                        <button class="btn btn-danger hidden" type="button" id="deleteRecording">Supprimer l'enregistrement</button>
-                    </div>
+                        <!-- Structure Field -->
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('structure', 'Surnom / nom de la struture en cause:') !!}
+                            {!! Form::text('structure', null, ['class' => 'form-control','id' => 'structure','maxlength' =>
+                            255,'maxlength' => 255]) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <!-- Structure Field -->
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('structure', 'Surnom / nom de la struture en cause:') !!}
-                        {!! Form::text('structure', null, ['class' => 'form-control','id' => 'structure','maxlength' =>
-                        255,'maxlength' => 255]) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
+                        <!-- Repere Field -->
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('repere', __('models/reports.fields.repere').':') !!}
+                            {!! Form::text('repere', null, ['class' => 'form-control','id' => 'repere','maxlength' =>
+                            255,'maxlength' => 255]) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <!-- Repere Field -->
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('repere', __('models/reports.fields.repere').':') !!}
-                        {!! Form::text('repere', null, ['class' => 'form-control','id' => 'repere','maxlength' =>
-                        255,'maxlength' => 255]) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
+                        <input type="text" name="email" id="email" style="margin-left: -20000px"/>
 
-                    <input type="text" name="email" id="email" style="margin-left: -20000px"/>
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('nip', 'Numéro NIP de la CNIB (17 chiffres):') !!}
+                            {!! Form::text('nip', null, ['title' => 'Le NIP est composé de 17 chiffres', 'pattern' => '\d*',
+                            'class' => 'form-control','id' => 'nip','maxlength' => 255]) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('nip', 'Numéro NIP de la CNIB (17 chiffres):') !!}
-                        {!! Form::text('nip', null, ['title' => 'Le NIP est composé de 17 chiffres', 'pattern' => '\d*',
-                        'class' => 'form-control','id' => 'nip','maxlength' => 255]) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
+                        <!-- Photo Field -->
+                        <div class="form-group col-sm-6">
+                            {!! Form::label('photo', __('models/reports.fields.photo').':') !!}
+                            <input type="file" name="photo" id="photo" class="form-control file"/>
+                            <strong class="form-error-message"></strong>
+                            @if(isset($report) && $report->photo)
+                                <img class="thumbnail" src="{{ asset($report->photo) }}" alt="Image">
+                            @endif
+                        </div>
 
-                    <!-- Photo Field -->
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('photo', __('models/reports.fields.photo').':') !!}
-                        <input type="file" name="photo" id="photo" class="form-control file"/>
-                        <strong class="form-error-message"></strong>
-                        @if(isset($report) && $report->photo)
-                            <img class="thumbnail" src="{{ asset($report->photo) }}" alt="Image">
-                        @endif
-                    </div>
+                        <div class="form-group col-sm-6" style="margin-top: 22px">
+                            <button class="btn btn-primary" type="button" id="startButton">Utiliser votre appareil photo
+                            </button>
+                            <button class="btn-primary btn" type="button" id="captureButton" style="display:none;">Capturer
+                                la photo
+                            </button>
+                        </div>
 
-                    <div class="form-group col-sm-6" style="margin-top: 22px">
-                        <button class="btn btn-primary" type="button" id="startButton">Utiliser votre appareil photo
-                        </button>
-                        <button class="btn-primary btn" type="button" id="captureButton" style="display:none;">Capturer
-                            la photo
-                        </button>
-                    </div>
+                        <div class="form-group col-sm-12">
+                            <video id="video" style="width: 100%;display: none" autoplay></video>
+                        </div>
 
-                    <div class="form-group col-sm-12">
-                        <video id="video" style="width: 100%;display: none" autoplay></video>
-                    </div>
+                        <!-- Text Field -->
+                        <div class="form-group col-sm-12 col-lg-12">
+                            {!! Form::label('text', 'Message:') !!}
+                            {!! Form::textarea('text', null, ['class' => 'form-control','id' => 'message']) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <!-- Text Field -->
-                    <div class="form-group col-sm-12 col-lg-12">
-                        {!! Form::label('text', 'Message:') !!}
-                        {!! Form::textarea('text', null, ['class' => 'form-control','id' => 'message']) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
+                        <input name="photoInput" type="hidden" class="form-variable" id="photoInput"/>
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('agent_code', "Espace réservé, code si vous en avez") !!}
+                            {!! Form::text('agent_code', null, ['class' => 'form-control','id' => 'espace','maxlength' =>
+                            255,'maxlength' => 255]) !!}
+                            <strong class="form-error-message"></strong>
+                        </div>
 
-                    <input name="photoInput" type="hidden" class="form-variable" id="photoInput"/>
-                    <div class="form-group col-sm-12">
-                        {!! Form::label('agent_code', "Espace réservé, code si vous en avez") !!}
-                        {!! Form::text('agent_code', null, ['class' => 'form-control','id' => 'espace','maxlength' =>
-                        255,'maxlength' => 255]) !!}
-                        <strong class="form-error-message"></strong>
-                    </div>
-
-                    <!-- Submit Field -->
-                    <div class="form-group col-sm-12">
-                        {!! Form::submit(__('crud.save'), ['class' => 'btn btn-success']) !!}
-                        <a href="{{ route('frontend.index') }}" class="btn btn-danger">
-                            Annuler
-                        </a>
-                    </div>
-
-                    {!! Form::close() !!}
+                        <!-- Submit Field -->
+                        <div class="form-group col-sm-12">
+                            {!! Form::submit(__('crud.save'), ['class' => 'btn btn-success']) !!}
+                            <a href="{{ route('frontend.index') }}" class="btn btn-danger">
+                                Annuler
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
