@@ -48,7 +48,7 @@ class SlideDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
-            ->minifiedAjax()
+            ->minifiedAjax(customUrl(request()->path()))
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
                 'dom' => 'Bfrtip',
