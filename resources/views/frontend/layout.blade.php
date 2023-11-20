@@ -32,7 +32,7 @@
 <!-- JS -->
 @section('scripts')
 <script src="{{ customUrl('frontend/js/jquery.min.js') }}"></script>
-{!! Html::script('js/HoldOn.min.js') !!}
+<script src="{{ customUrl('js/HoldOn.min.js') }}"></script>
 <script src="{{ customUrl("js/ajaxFormHandler.js") }}"></script>
 <script src="{{ customUrl('frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ customUrl('frontend/js/owl.carousel.min.js') }}"></script>
