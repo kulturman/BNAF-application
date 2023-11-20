@@ -46,16 +46,32 @@ $(document).ready(function () {
     });
 
     function checkFormRelevance() {
+        let fieldWeights = {
+            'region': 1,
+            'province': 1,
+            'commune': 1,
+            'localite': 2,
+            'structure': 1,
+            'repere': 2,
+            'nip': 1,
+            'photo': 3,
+            'message': 3,
+            'recordingIndicator': 3,
+            'espace': 3
+        };
+
+        let filledFields = 0;
+
         $('.form-control').each(function (index, element) {
             if (element.value && fieldWeights.hasOwnProperty(this.id)) {
-                score += fieldWeights[this.id];
+                filledFields += fieldWeights[this.id];
             }
         });
 
-        if (score > 12) {
+        if (filledFields > 12) {
             $('.form-irrelevant, .form-irrelevant_orange').hide();
             $('.form-relevant').show();
-        } else if (score >= 5 && score <= 12) {
+        } else if (filledFields >= 5 && filledFields <= 12) {
             $('.form-irrelevant').hide();
             $('.form-irrelevant_orange').show();
             $('.form-relevant').hide();
@@ -63,8 +79,10 @@ $(document).ready(function () {
             $('.form-irrelevant').show();
             $('.form-irrelevant_orange, .form-relevant').hide();
         }
-        $('#score').val(score);
+
+        $('#score').val(filledFields);
     }
+
 
     $('input,textarea').on('keyup', checkFormRelevance)
     $('select').on('change', checkFormRelevance)
