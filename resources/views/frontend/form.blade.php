@@ -3,7 +3,7 @@
 @section('styles')
 @parent
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="{{ url('frontend/css/form.css') }}">
+<link rel="stylesheet" href="{{ customUrl('frontend/css/form.css') }}">
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <h2>Dénonciation</h2>
         <ul>
             <li>
-                <a href="{{ url('/') }}">Accueil</a>
+                <a href="{{ customUrl('/') }}">Accueil</a>
             </li>
             <li> Dénoncer un cas suspect</li>
         </ul>
@@ -37,15 +37,11 @@
                 Votre formulaire contient très peu d'informations et ne sera probablement pris en compte
             </div>
 
-            <div
-                    style="display: none"
-                    class="form-relevance-data form-irrelevant_orange alert alert-block alert-warning">
+            <div class="hidden-field form-relevance-data form-irrelevant_orange alert alert-block alert-warning">
                 Votre formulaire contient peu d'informations et sera probablement pris en compte
             </div>
 
-            <div
-                    style="display: none"
-                    class="form-relevance-data form-relevant alert alert-block alert-success">
+            <div class="hidden-field form-relevance-data form-relevant alert alert-block alert-success">
                 Votre formulaire a de grandes chances d'être pertinent
             </div>
 
@@ -56,7 +52,7 @@
 
                     <!-- Canvas to display the captured photo -->
                     <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-                    <input class="hidden-field" type="text" name="score" id="score" style="display: none">
+                    <input class="hidden-field" type="text" name="score" id="score">
                     <div class="form-group col-sm-6">
                         {!! Form::label('region', 'Région:') !!}
                         <select name="region" id="region" class="form-control">
@@ -88,13 +84,9 @@
                     <div class="form-group col-sm-12 recording-block">
                         <button class="btn btn-primary" type="button" id="startRecording">Enregistrer un vocal</button>
                         <span id="recordingIndicator" class="hidden">Enregistrement...</span>
-                        <button class="btn btn-danger hidden" type="button" id="stopRecording">Arrêter
-                            l'enregistrement
-                        </button>
+                        <button class="btn btn-danger hidden" type="button" id="stopRecording">Arrêter l'enregistrement</button>
                         <audio class="hidden" id="audioPlayer" controls></audio>
-                        <button class="btn btn-danger hidden" type="button" id="deleteRecording">Supprimer
-                            l'enregistrement
-                        </button>
+                        <button class="btn btn-danger hidden" type="button" id="deleteRecording">Supprimer l'enregistrement</button>
                     </div>
 
                     <!-- Structure Field -->
@@ -128,7 +120,7 @@
                         <input type="file" name="photo" id="photo" class="form-control file"/>
                         <strong class="form-error-message"></strong>
                         @if(isset($report) && $report->photo)
-                        <img class="thumbnail" src="{{ asset($report->photo) }}" alt="Image">
+                            <img class="thumbnail" src="{{ asset($report->photo) }}" alt="Image">
                         @endif
                     </div>
 
@@ -177,6 +169,7 @@
 
 @section('scripts')
 @parent
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     const startRecordingButton = document.getElementById('startRecording');
     const stopRecordingButton = document.getElementById('stopRecording');
@@ -212,8 +205,6 @@
                     audioBlob = new Blob(audioChunks, {type: 'audio/wav'});
                     audioPlayer.src = URL.createObjectURL(audioBlob);
 
-                    /*const formData = new FormData();
-                    formData.append('audio', audioBlob);*/
                     hide(recordingIndicator);
                     show(audioPlayer);
 
@@ -242,12 +233,12 @@
             mediaRecorder.stop();
             hide(stopRecordingButton);
             show(deleteRecordingButton);
+            score += fieldWeights['recordingIndicator'];
+            $('#score').val(score);
         }
     }
 
 </script>
-{!! Html::script('js/sweetalert2.all.min.js') !!}
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
-<script src="{{ url('frontend/js/form.js') }}"></script>
+<script src="{{ customUrl('js/sweetalert2.all.min.js') }}"></script>
+<script src="{{ customUrl('frontend/js/form.js') }}"></script>
 @endsection

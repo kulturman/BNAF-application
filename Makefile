@@ -8,7 +8,6 @@ stop:
 
 bash:
 	 $(dc_exec) bash
-
 composer:
 	$(dc_exec) composer install
 

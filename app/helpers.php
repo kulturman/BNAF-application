@@ -8,3 +8,10 @@ if (!function_exists('getArticleContentPreview')) {
         return $preview;
     }
 }
+
+if (! function_exists('customUrl')) {
+    function customUrl($path = null, $parameters = [], $secure = null)
+    {
+        return url($path, $parameters, getenv('APP_ENV') === 'production');
+    }
+}

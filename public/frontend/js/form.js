@@ -1,18 +1,21 @@
+let fieldWeights = {
+    'region': 1,
+    'province': 1,
+    'commune': 1,
+    'localite': 2,
+    'structure': 1,
+    'repere': 2,
+    'nip': 1,
+    'photo': 3,
+    'message': 3,
+    'recordingIndicator': 3,
+    'espace': 3
+};
+
+let score = 0;
+
 $(document).ready(function () {
-
     $(".select2").select2();
-
-    ClassicEditor
-        .create(document.querySelector('textarea'))
-        .then(() => {
-            document.querySelector('.ck-editor__editable').style.height = '200px'
-            document.querySelector('.ck-editor__editable').addEventListener('focus', e => {
-                document.querySelector('.ck-editor__editable').style.height = '200px'
-            })
-        })
-        .catch(error => {
-            console.error(error);
-        });
 
     const startButton = document.getElementById('startButton');
     const video = document.getElementById('video');
@@ -42,45 +45,17 @@ $(document).ready(function () {
         photoInput.value = canvas.toDataURL('image/png');
     });
 
-    let filledFields = 0;
-    let filledRegion = 0;
-    let filledProvince = 0;
-    let filledCommune = 0;
-    let filledLocalite = 0;
-    let filledStructure = 0;
-    let filledRepere = 0;
-    let filledNip = 0;
-    let filledPhoto = 0;
-    let filledMessage = 0;
-    let filledEspace = 0;
-
     function checkFormRelevance() {
-        let fieldWeights = {
-            'region': 1,
-            'province': 1,
-            'commune': 1,
-            'localite': 2,
-            'structure': 1,
-            'repere': 2,
-            'nip': 1,
-            'photo': 3,
-            'message': 3,
-            'recordingIndicator': 3,
-            'espace': 3
-        };
-
-        let filledFields = 0;
-
         $('.form-control').each(function (index, element) {
             if (element.value && fieldWeights.hasOwnProperty(this.id)) {
-                filledFields += fieldWeights[this.id];
+                score += fieldWeights[this.id];
             }
         });
 
-        if (filledFields > 12) {
+        if (score > 12) {
             $('.form-irrelevant, .form-irrelevant_orange').hide();
             $('.form-relevant').show();
-        } else if (filledFields >= 5 && filledFields <= 12) {
+        } else if (score >= 5 && score <= 12) {
             $('.form-irrelevant').hide();
             $('.form-irrelevant_orange').show();
             $('.form-relevant').hide();
@@ -88,12 +63,10 @@ $(document).ready(function () {
             $('.form-irrelevant').show();
             $('.form-irrelevant_orange, .form-relevant').hide();
         }
-
-        $('#score').val(filledFields);
+        $('#score').val(score);
     }
 
-    $('input').on('keyup', checkFormRelevance)
-
+    $('input,textarea').on('keyup', checkFormRelevance)
     $('select').on('change', checkFormRelevance)
 
     let regions = {

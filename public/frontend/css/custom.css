@@ -2989,6 +2989,10 @@ body .btn-group.open .dropdown-toggle {
     font-size: 12px;
 }
 
+.hidden-field {
+    display: none;
+}
+
 .twitter-widget p {
     color: #fff;
     font-size: 16px;
