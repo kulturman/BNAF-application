@@ -1,4 +1,4 @@
-let fieldWeights = {
+/*let fieldWeights = {
     'region': 1,
     'province': 1,
     'commune': 1,
@@ -12,7 +12,7 @@ let fieldWeights = {
     'espace': 3
 };
 
-let score = 0;
+let score = 0;*/
 
 $(document).ready(function () {
     $(".select2").select2();
