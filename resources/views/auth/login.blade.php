@@ -40,8 +40,8 @@
             <div class="card-group">
                 <div class="card p-4">
                     <div class="card-body">
-                        <form method="post" action="{{ customUrl('/login') }}">
-                            <img src="{{ customUrl('frontend/images/logo_bnaf.jpg') }}" class="logo-bnaf" alt="">
+                        <form method="post" action="{{ url('/login') }}">
+                            <img src="{{ url('frontend/images/logo_bnaf.jpg') }}" class="logo-bnaf" alt="">
                             @csrf
                             <h1 class="login-text">Connexion</h1>
                             <p class="text-muted">Connectez vous</p>

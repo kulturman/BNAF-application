@@ -45,7 +45,7 @@ class FlashInfoDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
-            ->minifiedAjax(customUrl(request()->path()))
+            ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => 'Actions'])
             ->parameters([
                 'dom' => 'Bfrtip',

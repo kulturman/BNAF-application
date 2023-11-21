@@ -3,7 +3,7 @@
 @section('styles')
 @parent
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="{{ customUrl('frontend/css/form.css') }}">
+<link rel="stylesheet" href="{{ url('frontend/css/form.css') }}">
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <h2>Dénonciation</h2>
         <ul>
             <li>
-                <a href="{{ customUrl('/') }}">Accueil</a>
+                <a href="{{ url('/') }}">Accueil</a>
             </li>
             <li> Dénoncer un cas suspect</li>
         </ul>
@@ -47,7 +47,7 @@
 
             <div>
                 <div class="rounded-bottom">
-                    <form id="reportsCreateForm" enctype="multipart/form-data" action="{{ customUrl('/reports') }}" class="row g-3 main-form">
+                    <form id="reportsCreateForm" enctype="multipart/form-data" action="{{ url('/reports') }}" class="row g-3 main-form">
                         {{csrf_field()}}
                         <!-- Canvas to display the captured photo -->
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
@@ -237,6 +237,6 @@
     }
 
 </script>
-<script src="{{ customUrl('js/sweetalert2.all.min.js') }}"></script>
-<script src="{{ customUrl('frontend/js/form.js') }}"></script>
+<script src="{{ url('js/sweetalert2.all.min.js') }}"></script>
+<script src="{{ url('frontend/js/form.js') }}"></script>
 @endsection
