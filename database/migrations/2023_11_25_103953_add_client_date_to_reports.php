@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddScores extends Migration
+class AddClientDateToReports extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddScores extends Migration
     public function up()
     {
         Schema::table('reports', function (Blueprint $table) {
-            $table->double('score')->nullable();
+            $table->dateTime('client_date')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddScores extends Migration
     public function down()
     {
         Schema::table('reports', function (Blueprint $table) {
-            $table->dropColumn('score');
+            $table->dropColumn('client_date');
         });
     }
 }
