@@ -58,10 +58,13 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <!--Mayor Msg Start-->
-                        <div class="city-tour gallery"><strong> Spot lancement du site de la BNAF</strong> <a
-                                    href="https://youtu.be/LxwVr9WodDg" data-rel="prettyPhoto" title="Lancement du site"><img
-                                        src="{{ url('frontend/images/playicon.png') }}" alt=""></a> <img
-                                    src="{{ url('frontend/images/visite.png') }}" alt=""></div>
+                        <div class="city-tour gallery">
+                            <strong> Spot publicitaire</strong>
+                            <a href="https://youtu.be/LxwVr9WodDg" data-rel="prettyPhoto" title="Lancement du site">
+                                <img src="https://i9.ytimg.com/vi_webp/LxwVr9WodDg/mq2.webp?sqp=CKSsj6sG-oaymwEmCMACELQB8quKqQMa8AEB-AGuAoAC9AGKAgwIABABGFogZSg9MA8=&rs=AOn4CLCG5SygbTYUWrazAoXcLXo84WcrLA" alt="">
+                            </a>
+                            <img src="{{ url('frontend/images/visite.png') }}" alt="">
+                        </div>
                         <!--Mayor Msg End-->
                     </div>
                 </div>

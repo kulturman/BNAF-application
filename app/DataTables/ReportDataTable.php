@@ -87,7 +87,6 @@ class ReportDataTable extends DataTable
             'localite' => new Column(['title' => __('models/reports.fields.localite'), 'data' => 'localite']),
             'structure' => new Column(['title' => __('models/reports.fields.structure'), 'data' => 'structure']),
             'repere' => new Column(['title' => __('models/reports.fields.repere'), 'data' => 'repere']),
-            'nip' => new Column(['title' => __('models/reports.fields.nip'), 'data' => 'nip']),
             'region' => new Column(['title' => __('models/reports.fields.region'), 'data' => 'region']),
             'province' => new Column(['title' => __('models/reports.fields.province'), 'data' => 'province']),
             'commune' => new Column(['title' => __('models/reports.fields.commune'), 'data' => 'commune'])
