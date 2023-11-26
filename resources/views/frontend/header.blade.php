@@ -44,7 +44,7 @@
                                 </li>
 
                                 <li class="dropdown">
-                                    <a href="#services-en-ligne" class="dropdown-toggle main-menu-link"
+                                    <a href="{{ route('frontend.form') }}" class="dropdown-toggle main-menu-link"
                                        aria-haspopup="true" aria-expanded="false">Services en ligne </a>
                                 </li>
 

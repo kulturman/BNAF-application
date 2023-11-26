@@ -59,35 +59,10 @@
                     <div class="col-md-4 col-sm-4">
                         <!--Mayor Msg Start-->
                         <div class="city-tour gallery"><strong> Spot lancement du site de la BNAF</strong> <a
-                                    href="https://youtu.be/" data-rel="prettyPhoto" title="Lancement du site"><img
+                                    href="https://youtu.be/LxwVr9WodDg" data-rel="prettyPhoto" title="Lancement du site"><img
                                         src="{{ url('frontend/images/playicon.png') }}" alt=""></a> <img
                                     src="{{ url('frontend/images/visite.png') }}" alt=""></div>
                         <!--Mayor Msg End-->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services-en-ligne" class="wf100 p75-50  depart-info"
-                 style="margin-top: 50px; background: #26922D">
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <div class="title-style-3" style="text-align: center">
-                            <h3 style="color: white">Services en ligne</h3>
-                        </div>
-                        <div class="row">
-                            <!--Icon Box Start-->
-                            <div class="col-md-3 col-sm-4">
-                                <div class="deprt-icon-box"><img src="{{ url('frontend/images/P3.png') }}" alt="">
-                                    <h6>
-                                        <a href="{{ route('frontend.form') }}">
-                                            Dénonciation d'un cas suspect
-                                        </a>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -145,17 +120,15 @@
                         <div class="row">
                             <ul class="counter">
                                 @foreach($stats as $stat)
-                                <li class="col-md-4 col-sm-4">
-                                    <div class="fact-box">
-                                        {!! $stat->icon !!}
-                                        <strong>
-                                            {{ $stat->chiffres }}
-                                        </strong>
-                                        <span>
-                                                                        {{ $stat->text }}
-                                                                    </span>
-                                    </div>
-                                </li>
+                                    <li class="col-md-6 col-sm-6">
+                                        <div class="fact-box">
+                                            {!! $stat->icon !!}
+                                            <strong>
+                                                {{ $stat->chiffres }}
+                                            </strong>
+                                            <span>{{ $stat->text }}</span>
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
