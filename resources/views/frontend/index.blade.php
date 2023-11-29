@@ -29,7 +29,7 @@
 <!--Main Content Start-->
 <div class="main-content">
     <section class="wf100 p8-0">
-        <section class="wf100 p80-0">
+        <section class="wf100 p80-0 director-msg-container">
             <div class="title-style-1 text-center white">
                 <h2>Le Ministre</h2>
             </div>
@@ -60,12 +60,8 @@
                         <!--Mayor Msg Start-->
                         <div class="city-tour gallery">
                             <strong> Spot publicitaire</strong>
-                            <a href="https://youtu.be/LxwVr9WodDg" data-rel="prettyPhoto" title="Lancement du site">
-                                <img src="https://i9.ytimg.com/vi_webp/LxwVr9WodDg/mq2.webp?sqp=CKSsj6sG-oaymwEmCMACELQB8quKqQMa8AEB-AGuAoAC9AGKAgwIABABGFogZSg9MA8=&rs=AOn4CLCG5SygbTYUWrazAoXcLXo84WcrLA" alt="">
-                            </a>
-                            <img src="{{ url('frontend/images/visite.png') }}" alt="">
                         </div>
-                        <!--Mayor Msg End-->
+                        <iframe height="300px" src="https://www.youtube.com/embed/LxwVr9WodDg" title="Spot BNAF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

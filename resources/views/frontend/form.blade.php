@@ -27,8 +27,8 @@
                     <li>Les données consignées au sein de ce formulaire revêtent un caractère confidentiel, et leur
                         accès sera restreint exclusivement aux membres actifs de la BNAF.
                     </li>
-                    <li>Conformément à la législation en vigueur, il vous est possible de bénéficier d'une indemnisation
-                        dans le cas où les informations fournies se révèlent pertinentes.
+                    <li>
+                        Conformément à la législation en vigueur, il vous est possible de bénéficier d'une rétribution financière dans le cas où les informations fournies permettent d'appréhender le/les fraudeur(s) ou d'opérer des saisies de substances précieuses objet de fraude
                     </li>
                 </ul>
             </div>

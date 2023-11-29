@@ -1909,13 +1909,16 @@ ul.team-social a:hover {
     color: #fff;
 }
 
-.city-tour {
+.director-msg-container {
+    margin-bottom: 20px;
+}
 
+.city-tour {
     position: relative;
-    width: 100%;
+    /*width: 100%;
     float: left;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 5px;*/
 
 }
 
