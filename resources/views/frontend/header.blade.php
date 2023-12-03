@@ -28,19 +28,16 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a href="{{ url('/') }}" class="dropdown-toggle" aria-haspopup="true"
-                                       aria-expanded="false">Accueil</a>
+                                <li>
+                                    <a href="{{ url('/') }}">Accueil</a>
                                 </li>
 
-                                <li class="dropdown">
-                                    <a href="#mot-du-dg" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-haspopup="true" aria-expanded="false">Mot du Ministre</a>
+                                <li>
+                                    <a href="{{ ancreUrl('#mot-du-dg') }}">Mot du Ministre</a>
                                 </li>
 
-                                <li class="dropdown">
-                                    <a href="#actualite" class="dropdown-toggle" aria-haspopup="true"
-                                       aria-expanded="false">Actualité </a>
+                                <li>
+                                    <a href="{{ ancreUrl('#actualite') }}">Actualité </a>
                                 </li>
 
                                 <li class="dropdown">
@@ -48,14 +45,12 @@
                                        aria-haspopup="true" aria-expanded="false">Services en ligne </a>
                                 </li>
 
-                                <li class="dropdown">
-                                    <a href="#demarches" class="dropdown-toggle" aria-haspopup="true"
-                                       aria-expanded="false">Démarches administratives </a>
+                                <li>
+                                    <a href="{{ ancreUrl('#demarches') }}">Démarches administratives </a>
                                 </li>
 
-                                <li class="dropdown">
-                                    <a href="#statistiques" class="dropdown-toggle" aria-haspopup="true"
-                                       aria-expanded="false">Statistiques </a>
+                                <li>
+                                    <a href="{{ ancreUrl('#statistiques') }}">Statistiques </a>
                                 </li>
                             </ul>
                         </div>

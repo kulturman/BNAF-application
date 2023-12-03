@@ -15,3 +15,12 @@ if (! function_exists('customUrl')) {
         return url($path, $parameters, getenv('APP_ENV') === 'production');
     }
 }
+
+if (! function_exists('ancreUrl')) {
+    function ancreUrl(string $id)
+    {
+        if (request()->path() !== '/')
+            return url('/') . $id;
+        return $id;
+    }
+}
