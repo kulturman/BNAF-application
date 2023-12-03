@@ -46,7 +46,7 @@
 
             <div>
                 <div class="rounded-bottom">
-                    <form id="reportsCreateForm" enctype="multipart/form-data" action="{{ url('/reports') }}" class="row g-3 main-form">
+                    <form id="reportsCreateForm" enctype="multipart/form-data" action="{{ url('/reports') }}" class="row g-3">
                         {{csrf_field()}}
                         <!-- Canvas to display the captured photo -->
                         <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>

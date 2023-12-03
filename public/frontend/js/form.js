@@ -291,4 +291,79 @@ $(document).ready(function () {
             })
         }
     });
+
+    $(document).on('submit', '#reportsCreateForm', function (e) {
+        e.preventDefault();
+
+        if ($('#score').val() == 0) {
+            alert('Veuillez remplir au moins un champ');
+            return;
+        }
+        var id = "#" + $(this).attr('id');
+        var form = $(id);
+        showLoader();
+
+        let formData = new FormData($(id)[0]);
+
+        $('.form-variable').each(function (index, el) {
+            formData.append($(el).attr('name'), $(el).val());
+        });
+
+        if (typeof formVariables !== 'undefined') {
+            formVariables.forEach(variable => formData.append(variable.name, variable.data));
+        }
+
+        $('input+strong,select+strong,textarea+strong').text('');
+        $('#message-block').remove();
+        $.ajax({
+            url: $(form).attr('action'),
+            //method: $('input[name="_method"]').val() || $(form).attr('method') || 'POST',
+            data: formData,
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST'
+        })
+            .done(function (data) {
+                closeLoader();
+                if (data.success) {
+                    if (data.dialog)
+                        success(data.message);
+                    else {
+                        var message = '<div id="message-block" class="alert alert-block alert-success">' +
+                            data.message + '</div>';
+                        $('.card')
+                            .before(message);
+                    }
+                    if (data.reset)
+                        $(form).trigger('reset');
+
+                    if (data.url) {
+                        setTimeout(() => {
+                            document.location.href = data.url
+                        }, 2000)
+                    }
+
+                    if (ajaxFormHandlerSuccessCallback) {
+                        ajaxFormHandlerSuccessCallback(data);
+                    }
+                } else {
+                    error(data.message);
+                }
+                if (data.url) {
+                    window.location.href = data.url;
+                }
+            })
+            .fail(function (data) {
+                closeLoader();
+                $.each(data.responseJSON.errors, function (key, value) {
+                    var input = id + ' [name=' + key + ']';
+                    var arrayInput = id + ' [name="' + key + '[]"]';
+                    $(input + '+strong').text(value);
+                    $(arrayInput + '+strong').text(value);
+                });
+            });
+
+    });
 });

@@ -35,7 +35,7 @@ class Report extends Model
      * @var array
      */
     public static $rules = [
-
+        'nip' => 'nullable|min:17|max:17'
     ];
     public $table = 'reports';
     public $fillable = [
