@@ -1909,6 +1909,10 @@ ul.team-social a:hover {
     color: #fff;
 }
 
+.video-block {
+    width: 50% !important;
+}
+
 .director-msg-container {
     margin-bottom: 20px;
 }

@@ -24,11 +24,10 @@
         <div class="mb-4" style="padding: 0 50px">
             <div class="alert alert-block alert-success">
                 <ul style="line-height: 3">
-                    <li>Les données consignées au sein de ce formulaire revêtent un caractère confidentiel, et leur
-                        accès sera restreint exclusivement aux membres actifs de la BNAF.
+                    <li>Les données consignées au sein de ce formulaire revêtent un caractère confidentiel.
                     </li>
                     <li>
-                        Conformément à la législation en vigueur, il vous est possible de bénéficier d'une rétribution financière dans le cas où les informations fournies permettent d'appréhender le/les fraudeur(s) ou d'opérer des saisies de substances précieuses objet de fraude
+                        Conformément à la législation en vigueur, il vous est possible de bénéficier d'une rétribution financière dans le cas où les informations fournies permettent d'appréhender le/les fraudeur(s) ou d'opérer des saisies de substances précieuses objet de fraude.
                     </li>
                 </ul>
             </div>
@@ -131,8 +130,9 @@
                             </button>
                         </div>
 
-                        <div class="form-group col-sm-12">
+                        <div class="form-group col-sm-12 video-block">
                             <video id="video" style="width: 100%;display: none" autoplay></video>
+                            <img id="capturedImagePreview" style="display: none" src="" alt="Capture">
                         </div>
 
                         <!-- Text Field -->

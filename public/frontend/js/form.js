@@ -43,6 +43,11 @@ $(document).ready(function () {
 
         // Convert the captured image to a data URL
         photoInput.value = canvas.toDataURL('image/png');
+        capturedImagePreview.src = photoInput.value;
+        capturedImagePreview.style.display = 'block';
+        video.style.display = 'none';
+        console.log(canvas.toDataURL('image/png'));
+
     });
 
     function checkFormRelevance() {
